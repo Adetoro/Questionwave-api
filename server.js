@@ -1,5 +1,21 @@
 const express =  require('express');
 const cors = require('cors');
+const knex = require('knex');
+const { response } = require('express');
+
+const db = knex({
+  client: 'pg',
+  connection: {
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : '12345',
+    database : 'questionwave'
+  }
+});
+
+db.select('*').from('identify').then(data => {
+  console.log(data);
+});
 
 const app = express();
 const port = 3005;
@@ -15,7 +31,7 @@ const database = {
   A: [
     {
       linkId:10001,
-      title: 'Title for 10001',
+      title: 'Title from database',
       created: new Date()
     },
     {
@@ -24,132 +40,146 @@ const database = {
       created: new Date()
     },
     {
-      linkId:10003,
-      title: 'Title for 10003',
+      linkId:10023,
+      title: 'Title for 10011',
       created: new Date()
     }
   ],
   B: [
     {
       linkId:10001,
-      questions: {
-        1: 'Q1 for 10001',
-        2: 'Q2 for 10001',
-        3: 'Q3 for 10001',
-      } ,
-      upvotes: {
-        1: 27,
-        2: 22,
-        3: 3,
-      },
+      questions: [
+         'Q1 for 10001',  23, 
+      ],
       count: 3
     },
     {
       linkId:10002,
-      questions: {
-        1: 'Q1 for 10002',
-        2: 'Q2 for 10002',
-        3: 'Q3 for 10002',
-        4: 'Q4 for 10002',
-      } ,
-      upvotes: {
-        1: 17,
-        2: 12,
-        3: 23,
-      },
+      questions: [
+        {
+          content: 'Q1 for 10002',
+          upvotes: 23,  
+        } ,
+        {
+          content: 'Q2 for 10002',
+          upvotes: 20,  
+        } ,
+        {
+          content: 'Q3 for 10002',
+          upvotes: 13,  
+        }
+      ],
       count: 4
     },
     {
       linkId:10003,
-      questions: {
-        1: 'Q1 for 10003',
-        2: 'Q2 for 10003',
-        3: 'Q3 for 10003',
-        4: 'Q4 for 10003',
-        5: 'Q5 for 10003',
-      } ,
-      upvotes: {
-        1: 37,
-        2: 32,
-        3: 43,
-      },
+      questions: [
+        {
+          content: 'Q1 for 10003',
+          upvotes: 23,  
+        } ,
+         {
+          content: 'Q2 for 10003',
+          upvotes: 20,  
+        } ,
+        {
+          content: 'Q3 for 10003',
+          upvotes: 13,  
+        }
+      ],
       count: 5
     }
   ]
 }
 
+// GET LAST LINKID FROM DB  
 app.get('/', (req, res) => {
-  res.send(database.A)
-})
+  db.from('identify')
+  .select('linkid')
+  .orderBy('id', 'desc')
+  .limit(1)
+  .then(response => {
+    res.json(Number(Object.values(response[0])))
+    console.log(Number(Object.values(response[0])))
+  })  
+  .catch(err => res.status(400).json("unable get link"))
+})                                                                 
 
-//POST NEW LINKID AND TITLE IN TABLE A, ADD LINKID TO TABLE B
+
+//POST NEW LINKID AND TITLE IN TABLE A: IDENTIFY
 app.post('/', (req, res) => {
-  if (req.body.linkId){
-    const { linkId, title } = req.body;
-    database.B.push({
-      linkId: linkId,
-      question: {
-      } ,
-      upvotes: {
-      },
-      count: 0
-    })
-    &&
-    database.A.push({
-      linkId: linkId,
-      title: title,
-      created: new Date()
-    })
-    res.json([database.A[database.A.length-1] , database.B[database.A.length-1]])
-  } else {
-    res.status(400).json('error with linkId');
-  }   
+  const { linkId, title } = req.body;
+  db.transaction(trx => {
+    trx.insert({
+        linkid: linkId,
+        title: title,
+        created: new Date()
+      })
+      .into('identify')
+      .returning('linkid')
+      .then(function() {
+            return trx('questionDetails')
+              .insert({
+                linkid: linkId,
+                title: title,
+              })
+              .returning('*')
+              .then(linkid => {
+                res.json("success")
+              })
+              .catch(err => res.status(400)
+              .json('unable to add to tables'))
+      })
+
+  }) 
+    .catch(function(error) {
+        // it failed
+    });
+
 })
 
 // GET LINKID AND TITLE  
 app.get('/link/:linkId', (req, res) => {
   var id = req.params.linkId;
-  database.A.forEach(userLink => {
-    if (userLink.linkId == id) {
-      found = true;
-      return res.json('Get Title from db: ' 
-      + database.A [0].linkId +" " + database.A [0].title);
-    } 
+  db.from('identify')
+  .select('title')
+  .where('linkid', id)
+  .then(response => {
+    res.json(response[0])
   })
-  if (!found) {
-    res.status(400).json('link ID not found ' + id);
-  }
+  .catch(err => res.status(400).json("unable to get title"))
 })
+
 // UPDATE LINKIN TITLE
 app.put('/link/:id', (req, res) => {
   const { id } = req.body;
   const { title } = req.body;
-  let found = false;
-  database.A.forEach(userLink => {
-    if (userLink.linkId == id) {
-      found = true;
-      return res.json(`PUT request from Link page (return updated title): ${title}`);
-    }   
-})
-if (!found) {
-  res.status(400).json('Title cannot be updated');
-}
+ db('identify')
+  .where( 'linkid', id )
+  .update('title', title )
+  .then(response => {
+    res.json("from link server (put): " + response)
+  })
+  .catch(err => res.status(400).json("unable update title"))
 })
 
-// GET LINKID QUESTION PAGE DETAILS 
+// GET QUESTION PAGE DETAILS  
 app.get('/q/:id', (req, res) => {
-  var id = req.params.linkId;
-  database.B.forEach(userLink => {
-    if (userLink.linkId == id) {
-      found = true;
-      return res.json('Get question page by linkId: ' 
-      + database.B[0].linkId +" " + database.A[0].title
-      +" " + database.B[0].questions+" " + database.B[0].upvotes+" " + database.B[0].count);
-    } 
+  let id = req.params.id;
+  db('identify')
+  .join('questionDetails', 'identify.linkid', '=', 'questionDetails.linkid')
+  .select('*')
+  .where('linkid', id)
+  .then(response => {
+    res.json(response[0])
   })
-  if (!found) {
-    res.status(400).json('link ID not found ' + id);
-  }
+  .catch(err => res.status(400).json("unable to get question info"))
+  let DisplayId
+  let DisplayTitle
+  let DisplayCount
+  let DisplayQuestions
+  
+  
 })
 
 // UPDATE LINKID QUESTIONS COUNT  
