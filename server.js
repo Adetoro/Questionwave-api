@@ -126,7 +126,7 @@ app.get('/q/:id', (req, res) => {
       res.json(response)
     }
     else{
-      res.status(200).json('Not found')
+      res.status(400).json('Not found')
     }
     
   })
