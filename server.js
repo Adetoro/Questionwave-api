@@ -27,71 +27,6 @@ app.use(express.json());
 // MIDDLEWARE TO ALLOW ACCESS TO SERVER
 app.use(cors())
 
-const database = {
-  A: [
-    {
-      linkId:10001,
-      title: 'Title from database',
-      created: new Date()
-    },
-    {
-      linkId:10002,
-      title: 'Title for 10002',
-      created: new Date()
-    },
-    {
-      linkId:10023,
-      title: 'Title for 10011',
-      created: new Date()
-    }
-  ],
-  B: [
-    {
-      linkId:10001,
-      questions: [
-         'Q1 for 10001',  23, 
-      ],
-      count: 3
-    },
-    {
-      linkId:10002,
-      questions: [
-        {
-          content: 'Q1 for 10002',
-          upvotes: 23,  
-        } ,
-        {
-          content: 'Q2 for 10002',
-          upvotes: 20,  
-        } ,
-        {
-          content: 'Q3 for 10002',
-          upvotes: 13,  
-        }
-      ],
-      count: 4
-    },
-    {
-      linkId:10003,
-      questions: [
-        {
-          content: 'Q1 for 10003',
-          upvotes: 23,  
-        } ,
-         {
-          content: 'Q2 for 10003',
-          upvotes: 20,  
-        } ,
-        {
-          content: 'Q3 for 10003',
-          upvotes: 13,  
-        }
-      ],
-      count: 5
-    }
-  ]
-}
-
 // GET LAST LINKID FROM DB  
 app.get('/', (req, res) => {
   db.from('identify')
@@ -106,46 +41,58 @@ app.get('/', (req, res) => {
 })                                                                 
 
 
-//POST NEW LINKID AND TITLE IN TABLE A: IDENTIFY
+//POST NEW LINKID AND TITLE IN TABLES: IDENTIFY & QUESTIONDETAILS
 app.post('/', (req, res) => {
-  const { linkId, title } = req.body;
-  db.transaction(trx => {
-    trx.insert({
-        linkid: linkId,
-        title: title,
-        created: new Date()
-      })
-      .into('identify')
-      .returning('linkid')
-      .then(function() {
-            return trx('questionDetails')
-              .insert({
-                linkid: linkId,
-                title: title,
-              })
-              .returning('*')
-              .then(linkid => {
-                res.json("success")
-              })
-              .catch(err => res.status(400)
-              .json('unable to add to tables'))
-      })
+  const { linkId, title} = req.body;
 
-  }) 
-    .catch(function(error) {
-        // it failed
-    });
+  if(!linkId || !title) {
+    return res.status(400).json('incorrect form submission'); 
+  }
+
+  //USE TRANSACTION TO POST DATA IN TO TABLE "identify" & TABLE "questiondetails"
+  db.transaction(function(trx) {
+    db('identify').transacting(trx)
+    .insert({
+      linkid: linkId,
+      title: title,
+      created: new Date()
+      })
+      .then(function(resp) {
+        const id = resp[0];
+        return (id, trx);
+      })
+      .then(trx.commit)
+      .catch(trx.rollback);
+  })
+  .then(function(resp) {
+    db('questiondetails')
+    .returning('linkid')
+    .insert({
+      linkid: linkId,
+      asked_at: new Date()
+    })
+    .then(response => {
+      res.json("Successful post into table 1&2 " + response)
+    })
+
+  })
+  .catch(err => res.status(400).json('unable to create question link'));
 
 })
 
 // GET LINKID AND TITLE  
 app.get('/link/:linkId', (req, res) => {
-  var id = req.params.linkId;
+  let id = req.params.linkId;
   db.from('identify')
   .select('title')
   .where('linkid', id)
   .then(response => {
-    res.json(response[0])
+    if (response[0].title){
+      res.json(response[0])
+    }
+    else {
+      throw Error("error!");
+    }
   })
   .catch(err => res.status(400).json("unable to get title"))
 })
@@ -154,7 +101,8 @@ app.get('/link/:linkId', (req, res) => {
 app.put('/link/:id', (req, res) => {
   const { id } = req.body;
   const { title } = req.body;
- db('identify')
+
+  db('identify')
   .where( 'linkid', id )
   .update('title', title )
   .then(response => {
@@ -166,44 +114,76 @@ app.put('/link/:id', (req, res) => {
 // GET QUESTION PAGE DETAILS  
 app.get('/q/:id', (req, res) => {
   let id = req.params.id;
-  db('identify')
-  .join('questionDetails', 'identify.linkid', '=', 'questionDetails.linkid')
-  .select('*')
-  .where('linkid', id)
+
+  db.select('*')
+  .from('identify')
+  .join('questiondetails', 'identify.linkid', '=', 'questiondetails.linkid')
+  .where('identify.linkid', id)
+  
+  .orderBy([{ column: 'upvotes', order: 'desc' }, { column: 'asked_at' }])
   .then(response => {
-    res.json(response[0])
+    if(response){
+      res.json(response)
+    }
+    else{
+      res.status(200).json('Not found')
+    }
+    
   })
   .catch(err => res.status(400).json("unable to get question info"))
-  let DisplayId
-  let DisplayTitle
-  let DisplayCount
-  let DisplayQuestions
-  
   
 })
 
-// UPDATE LINKID QUESTIONS COUNT  
-app.put('/q/:id', (req, res) => {
-  const { id } = req.params;
-  const { newQuestion } = req.body;
-  let found = false;
-  database.B.forEach(userLink => {
-    if (userLink.linkId == id) {
-      found = true;
-      database.B.push({
-        questions: newQuestion
-      })
-      userLink.count++
-      return res.json(userLink.count);
-    } 
+//POST NEW QUESTION
+app.post('/q/:id', (req, res) => {
+const { linkId, question} = req.body;
+
+  db('questiondetails')
+  .insert({
+    linkid: linkId,
+    question: question,
+    asked_at: new Date()
   })
-  if (!found) {
-    res.status(400).json('link ID not found');
-  }
+  .returning('question')
+  .then(response => {
+    res.json(Object.values(response))
+  })
+  .catch(err => res.status(400).json("unable to add new question"))
+
+}) 
+
+// UPDATE QUESTIONS PAGE COUNT  
+// app.put('/q/:id', (req, res) => {
+//   const { id } = req.params.id;
+//   const { newQuestion } = req.body;
+//   let found = false;
+//   database.B.forEach(userLink => {
+//     if (userLink.linkId == id) {
+//       found = true;
+//       database.B.push({
+//         questions: newQuestion
+//       })
+//       userLink.count++
+//       return res.json(userLink.count);
+//     } 
+//   })
+//   if (!found) {
+//     res.status(400).json('link ID not found');
+//   }
+// })
+
+// UPDATE QUESTION UPVOTE 
+app.put('/q/:id', (req, res) => {
+  const { id, question_id, question_upvotes} = req.body;
+
+  db('questiondetails')
+  .where({question_id: question_id})
+  .update({upvotes: question_upvotes})
+  .then(response => {
+    res.json("question page server (put): " + response)
+  })
+  .catch(err => res.status(400).json("unable update upvote"))
 })
-
-// UPDATE QUESTION UPVOTE  
-
 
 
 app.listen(port, () => {
