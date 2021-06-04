@@ -3,35 +3,7 @@ const cors = require('cors');
 const knex = require('knex');
 const { response } = require('express');
 const path = require("path");
-
-//process.env.NODE_ENV => production or undefined
-if (process.env.NODE_env === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build'));
-  });
-}
-
-require('dotenv').config();
 const PORT = process.env.PORT || 4000;
-
-const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}/${process.env.PG_DATABASE}`;
-
-const proConfig = process.env.DATABASE_URL //heroku addons
-
-const db = knex({
-  client: 'pg',
-  connection: {
-    connectionString: process.env.NODE_ENV === "production" ? proConfig : devConfig
-  }
-});
-
-
-
-db.select('*').from('identify').then(data => {
-  console.log(data);
-});
 
 const app = express();
 
@@ -41,6 +13,33 @@ app.use(express.json());
 
 // MIDDLEWARE TO ALLOW ACCESS TO SERVER
 app.use(cors());
+
+//process.env.NODE_ENV => production or undefined
+if (process.env.NODE_env === 'production') {
+  app.use('/',express.static(path.join(__dirname, 'client/build')));
+
+}
+
+console.log(__dirname);
+console.log(path.join(__dirname, "client/build"));
+
+require('dotenv').config();
+
+const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}/${process.env.PG_DATABASE}`;
+const proConfig = process.env.DATABASE_URL //heroku addons
+
+const db = knex({
+  client: 'pg',
+  connection: {
+    connectionString: process.env.NODE_ENV === "production" ? proConfig : devConfig,
+  }
+});
+
+
+
+// db.select('*').from('identify').then(data => {
+//   console.log(data);
+// });
 
   
 
@@ -185,7 +184,10 @@ app.put('/q/:id', (req, res) => {
   .catch(err => res.status(400).json("unable update upvote"))
 });
 
-
+//CATCH INVALID URL ENTRIES
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`)
