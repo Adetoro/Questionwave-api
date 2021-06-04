@@ -14,14 +14,15 @@ app.use(express.json());
 // MIDDLEWARE TO ALLOW ACCESS TO SERVER
 app.use(cors());
 
-app.use('/',express.static(path.join(__dirname, 'client/build')));
+
 //process.env.NODE_ENV => production or undefined
 if (process.env.NODE_env === 'production') {
   app.use('/',express.static(path.join(__dirname, 'client/build')));
 
 }
 
-
+console.log(__dirname);
+console.log(path.join(__dirname, "client/build"));
 
 require('dotenv').config();
 
@@ -46,8 +47,6 @@ const db = knex({
 // TEST SERVER 
 // app.get('/', (req, res) => {
 //   res.json("it's working");
-//   console.log(__dirname);
-//   console.log(path.join(__dirname, "client/build"));
 // });
    
 
