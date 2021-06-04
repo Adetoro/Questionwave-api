@@ -13,14 +13,12 @@ const proConfig = process.env.DATABASE_URL //heroku addons
 
 //process.env.NODE_ENV => production or undefined
 if (process.env.NODE_env === 'production') {
-  app.use('/',express.static(path.join(__dirname, 'client/build')));
+  app.use('/',express.static(path.join(`${__dirname}/client/build`)));
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build'));
   });
 }
-
-
 
 const db = knex({
   client: 'pg',
