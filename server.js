@@ -20,8 +20,7 @@ if (process.env.NODE_env === 'production') {
 
 }
 
-console.log(__dirname);
-console.log(path.join(__dirname, "client/build"));
+
 
 require('dotenv').config();
 
@@ -44,9 +43,11 @@ const db = knex({
   
 
 // TEST SERVER 
-// app.get('/', (req, res) => {
-//   res.json("it's working");
-// });
+app.get('/', (req, res) => {
+  res.json("it's working");
+  console.log(__dirname);
+  console.log(path.join(__dirname, "client/build"));
+});
    
 
 // GET LAST LINKID FROM DB  
@@ -146,7 +147,7 @@ app.get('/q/:id', (req, res) => {
       res.json(response)
     }
     else{
-      res.status(400).json('Not found')
+      res.status(400).json('question details not found')
     }
   })
   .catch(err => res.status(400).json("unable to get question info"))
