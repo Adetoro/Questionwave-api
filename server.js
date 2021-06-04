@@ -35,10 +35,10 @@ const db = knex({
 // }
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(path.join(__dirname, 'client/build')));
+  res.sendFile(path.join(path.join(__dirname, '/client/build')));
 });
 
-app.use('/', express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')))
 
 
 console.log(__dirname);
