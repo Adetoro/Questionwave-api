@@ -14,7 +14,7 @@ app.use(express.json());
 // MIDDLEWARE TO ALLOW ACCESS TO SERVER
 app.use(cors());
 
-
+app.use('/',express.static(path.join(__dirname, 'client/build')));
 //process.env.NODE_ENV => production or undefined
 if (process.env.NODE_env === 'production') {
   app.use('/',express.static(path.join(__dirname, 'client/build')));
