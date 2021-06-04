@@ -26,13 +26,20 @@ const db = knex({
 });
 
 //process.env.NODE_ENV => production or undefined
-if (process.env.NODE_ENV === 'production') {
-  app.use('/', express.static(path.join(__dirname, 'client/build')));
+// if (process.env.NODE_ENV === 'production') {
+//   app.use('/', express.static(path.join(__dirname, 'client/build')));
 
-  app.get('/', (req, res) => {
-    res.json("it's working");
-  });
-}
+//   app.get('/', (req, res) => {
+//     res.json("it's working");
+//   });
+// }
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(path.join(__dirname, 'client/build')));
+});
+
+app.use('/', express.static(path.join(__dirname, 'client/build')));
+
 
 console.log(__dirname);
 console.log(path.join(__dirname, "client/build"));
