@@ -2,33 +2,53 @@ const express =  require('express');
 const cors = require('cors');
 const knex = require('knex');
 const { response } = require('express');
+const path = require("path");
+
+require('dotenv').config();
+const PORT = process.env.PORT || 4000;
+
+const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}/${process.env.PG_DATABASE}`;
+
+const proConfig = process.env.DATABASE_URL //heroku addons
+
 
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : '12345',
-    database : 'questionwave'
+    connectionString: process.env.NODE_ENV === "production" ? proConfig : devConfig
   }
 });
+
 
 db.select('*').from('identify').then(data => {
   console.log(data);
 });
 
 const app = express();
-const port = 3005;
 
-// ALLOW EXPRESS SERVER READ JSON
+// MIDDLEEARE -> ALLOW EXPRESS SERVER READ JSON
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // MIDDLEWARE TO ALLOW ACCESS TO SERVER
-app.use(cors())
+app.use(cors());
+
+  app.use(express.static(path.join(__dirname, 'client/build')));
+//process.env.NODE_ENV => production or undefined
+if (process.env.NODE_env === "production") {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  
+}
+
+// TEST SERVER 
+app.get('/', (req, res) => {
+  res.json("it's working");
+});
+   
 
 // GET LAST LINKID FROM DB  
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
   db.from('identify')
   .select('linkid')
   .orderBy('id', 'desc')
@@ -42,7 +62,7 @@ app.get('/', (req, res) => {
 
 
 //POST NEW LINKID AND TITLE IN TABLES: IDENTIFY & QUESTIONDETAILS
-app.post('/', (req, res) => {
+app.post('/home', (req, res) => {
   const { linkId, title} = req.body;
 
   if(!linkId || !title) {
@@ -74,10 +94,8 @@ app.post('/', (req, res) => {
     .then(response => {
       res.json("Successful post into table 1&2 " + response)
     })
-
   })
   .catch(err => res.status(400).json('unable to create question link'));
-
 })
 
 // GET LINKID AND TITLE  
@@ -128,10 +146,8 @@ app.get('/q/:id', (req, res) => {
     else{
       res.status(400).json('Not found')
     }
-    
   })
   .catch(err => res.status(400).json("unable to get question info"))
-  
 })
 
 //POST NEW QUESTION
@@ -150,27 +166,8 @@ const { linkId, question} = req.body;
   })
   .catch(err => res.status(400).json("unable to add new question"))
 
-}) 
+}) ;
 
-// UPDATE QUESTIONS PAGE COUNT  
-// app.put('/q/:id', (req, res) => {
-//   const { id } = req.params.id;
-//   const { newQuestion } = req.body;
-//   let found = false;
-//   database.B.forEach(userLink => {
-//     if (userLink.linkId == id) {
-//       found = true;
-//       database.B.push({
-//         questions: newQuestion
-//       })
-//       userLink.count++
-//       return res.json(userLink.count);
-//     } 
-//   })
-//   if (!found) {
-//     res.status(400).json('link ID not found');
-//   }
-// })
 
 // UPDATE QUESTION UPVOTE 
 app.put('/q/:id', (req, res) => {
@@ -183,11 +180,14 @@ app.put('/q/:id', (req, res) => {
     res.json("question page server (put): " + response)
   })
   .catch(err => res.status(400).json("unable update upvote"))
-})
+});
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build'));
+});
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`App listening at http://localhost:${PORT}`)
 })
 
 
