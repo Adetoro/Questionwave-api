@@ -4,13 +4,12 @@ const knex = require('knex');
 const { response } = require('express');
 const path = require("path");
 
+app.use('*',express.static(path.join(__dirname, "client", "build")));
 //process.env.NODE_ENV => production or undefined
 if (process.env.NODE_env === 'production') {
   app.use('*',express.static(path.join(__dirname, "client", "build")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build'));
-  });
+  
 }
 
 require('dotenv').config();
