@@ -38,13 +38,13 @@ app.use(cors());
 if (process.env.NODE_env === "production") {
   app.use(express.static(path.join(__dirname, 'client/build')));
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build'));
+  });
   
 }
 
-// TEST SERVER 
-app.get('/', (req, res) => {
-  res.json("it's working");
-});
+
    
 
 // GET LAST LINKID FROM DB  
@@ -182,9 +182,7 @@ app.put('/q/:id', (req, res) => {
   .catch(err => res.status(400).json("unable update upvote"))
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build'));
-});
+
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`)
