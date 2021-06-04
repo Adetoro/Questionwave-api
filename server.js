@@ -28,6 +28,10 @@ const db = knex({
 //process.env.NODE_ENV => production or undefined
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, 'client/build')));
+
+  app.get('/', (req, res) => {
+    res.json("it's working");
+  });
 }
 
 console.log(__dirname);
