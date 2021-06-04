@@ -14,18 +14,7 @@ app.use(express.json());
 // MIDDLEWARE TO ALLOW ACCESS TO SERVER
 app.use(cors());
 
-app.use('/',express.static(path.join(__dirname, 'client/build')));
-//process.env.NODE_ENV => production or undefined
-if (process.env.NODE_env === 'production') {
-  app.use('/',express.static(path.join(__dirname, 'client/build')));
-
-}
-
-console.log(__dirname);
-console.log(path.join(__dirname, "client/build"));
-
 require('dotenv').config();
-
 const devConfig = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}/${process.env.PG_DATABASE}`;
 const proConfig = process.env.DATABASE_URL //heroku addons
 
@@ -36,19 +25,24 @@ const db = knex({
   }
 });
 
+//process.env.NODE_ENV => production or undefined
+if (process.env.NODE_env === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
+
+console.log(__dirname);
+console.log(path.join(__dirname, "client/build"));
+
 
 
 // db.select('*').from('identify').then(data => {
 //   console.log(data);
 // });
 
-  
-
 // TEST SERVER 
 // app.get('/', (req, res) => {
 //   res.json("it's working");
 // });
-   
 
 // GET LAST LINKID FROM DB  
 app.get('/home', (req, res) => {
