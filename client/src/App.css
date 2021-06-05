@@ -1,0 +1,30 @@
+
+
+.blue_button {
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    background-color: #1B7EDA;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.white_button {
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+    color: #1B7EDA;
+    background-color: #fff;
+    border: 1px solid #1B7EDA;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    cursor: pointer;
+}
+

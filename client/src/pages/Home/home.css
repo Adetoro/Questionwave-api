@@ -1,0 +1,55 @@
+@media screen and (max-width: 1023px) {
+    #hide_this {
+      visibility: hidden;
+      clear: both;
+      float: left;
+      margin: 10px auto 5px 20px;
+      width: 28%;
+      display: none;
+    }
+  }
+
+  .home_container{
+  
+    overflow: hidden;
+  }
+
+  .hp_image_container{
+    height: 120vh;
+    margin-bottom: -65px;
+    
+    /*overflow: hidden;*/
+    background-position:top;
+    background-repeat: no-repeat;
+    overflow: visible;
+    
+}
+ 
+
+  .homeBackground{
+    background-image: url("./home-background.png");
+    background-position: top;
+    background-repeat: no-repeat; 
+    background-size:auto; 
+    background-attachment:scroll;
+    image-rendering: -webkit-optimize-contrast;
+   }  
+
+   .rotate_this {
+    transform: rotate(-12.59deg);
+    -webkit-transform: rotate(-12.59deg);
+    -moz-transform: rotate(-12.59deg);
+    -ms-transform: rotate(-12.59deg);
+    -o-transform: rotate(-12.59deg);
+}
+
+   .error {
+    background-color: rgb(207, 6, 46,0.1);
+    border: 1px solid rgb(207, 6, 46); 
+    border-radius: 0.5rem;
+    color: rgb(207, 6, 46); 
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    height:3rem;
+    visibility: hidden;
+}

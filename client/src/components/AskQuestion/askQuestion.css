@@ -1,0 +1,19 @@
+input[type="text"] {
+   
+    padding-right: 40px;
+}
+
+.ask_button {
+    margin-left: -40px;
+    transition: 100ms linear;
+    
+}
+
+button.ask_button:focus {
+    outline:none;   
+}
+
+button.ask_button:hover {
+    transform: scale(1.1);
+    
+}

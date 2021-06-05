@@ -1,0 +1,64 @@
+#upvoteButton{
+    visibility: visible;
+}
+
+button.upvoteButton:focus {
+    outline:none;   
+}
+
+
+
+.upvote_icon{
+    fill: #9b9b9b;
+}
+
+.upvote_icon:hover{
+    fill: #1B7EDA;
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    -o-transform: scale(1.4);
+}
+
+#upvoteSuccessNotif{
+    position: fixed;
+    top:12vh;
+    left:38%;
+    visibility: hidden;
+    animation-duration: 2s;
+    animation-name: popSwing; 
+}
+
+#upvoteDuplicateNotif{
+    position: fixed;
+    top:12vh;
+    left:38%;
+    visibility: hidden;
+    border: 1px solid rgb(207, 6, 46); 
+    
+}
+
+#upvoteSuccessNotif:active{
+    animation-duration: 2s;
+    animation-name: popSwing; 
+}
+
+@keyframes popSwing {
+    0% {
+        opacity: 0;
+      }
+      70% {
+        transform: translateY(100px)      ;
+        -webkit-transform: translateY(100px)      ;
+        -moz-transform: translateY(100px)      ;
+        -ms-transform: translateY(100px)      ;
+        -o-transform: translateY(100px)      ;
+}
+      100% {
+        opacity: 1;
+        transform: translateY(550px)
+      }
+    
+  }
+

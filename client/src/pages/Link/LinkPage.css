@@ -1,0 +1,85 @@
+
+#editTitle .styles_Editext__edit_button__hthOZ::before{
+    content:url(./edit_icon.svg);
+    
+}
+
+#editTitle .styles_Editext__edit_button__hthOZ :focus{
+    outline: none;
+    
+}
+
+
+#editTitle .styles_Editext__save_button__3WN6q::before{
+    content:url(./save_icon.svg);
+    width: 20px;
+}
+
+#editTitle .styles_Editext__cancel_button__259hb::before{
+    content:url(./cancel_icon.svg);
+}
+
+button[editext='edit-button'] {
+    border: none;
+    width: 20px;
+    color:#1B7EDA;
+    transition: 100ms linear;
+    -webkit-transition: 100ms linear;
+    -moz-transition: 100ms linear;
+    -ms-transition: 100ms linear;
+    -o-transition: 100ms linear;
+}
+
+button[editext='save-button'], button[editext='cancel-button'] {
+    border: none;
+    width: 20px;
+    transition: 100ms linear;
+    -webkit-transition: 100ms linear;
+    -moz-transition: 100ms linear;
+    -ms-transition: 100ms linear;
+    -o-transition: 100ms linear;
+}
+
+button[editext='edit-button']:focus, button[editext='save-button']:focus, button[editext='cancel-button']:focus {
+    outline: none;
+}
+  
+button[editext='edit-button']:hover, button[editext='cancel-button']:hover, button[editext='save-button']:hover {
+    transform: scale(1.1);
+    background:none;
+    cursor: pointer;
+}
+
+  
+ input[editext="input"] {
+    font-weight: normal;
+    font-size: 1rem;
+    border: 1px solid rgb(28, 28, 28,0.1);
+    border-radius: 0.375rem;
+    -webkit-border-radius: 0.375rem;
+    -moz-border-radius: 0.375rem;
+    -ms-border-radius: 0.375rem;
+    -o-border-radius: 0.375rem;
+}
+.displayLink{
+    background-color: #2e2e2e;
+    color: #fff;
+    font-weight: 500;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
+.successMessageStyle {
+    background-color: rgb(19, 180, 61,0.1);
+    border: 1px solid #13b43d;
+    border-radius: 0.5rem;
+    color:rgb(19, 180, 61);
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    height:3rem;
+    visibility: hidden;
+}
