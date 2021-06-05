@@ -41,8 +41,8 @@ app.get('/', function(req, res) {
 app.use(express.static(path.join(__dirname, '/client/build')))
 
 
-// console.log(__dirname);
-// console.log(path.join(__dirname, "client/build"));
+console.log(__dirname);
+console.log(path.join(__dirname, "client/build"));
 
 
 
