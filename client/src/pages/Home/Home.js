@@ -53,7 +53,7 @@ const Home = props => {
                 resolve (props.onSubmit())
             });
 
-            console.log("Home POST req " + props.Title, newLink)
+            console.log("Home POST req " + props.Title, props.linkId)
           
             updateLink.then((newLink) => {
                 fetch('/home', {
