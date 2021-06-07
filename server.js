@@ -22,6 +22,9 @@ const db = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.NODE_ENV === ("production" || undefined )? proConfig : devConfig,
+    ssl: {
+      rejectUnauthorized: false
+    }
   }
 });
 console.log('process env ' +process.env.NODE_ENV);

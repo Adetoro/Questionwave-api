@@ -13,7 +13,7 @@ const Home = props => {
 
     useEffect(( ) => {
         fetch('/home') 
-          .then(response => response.json())
+        .then(response => response.json())
         .then(data => {
             if(data){
                 
