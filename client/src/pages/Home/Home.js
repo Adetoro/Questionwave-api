@@ -16,13 +16,11 @@ const Home = props => {
         .then(response => response.json())
         .then(data => {
             if(data){
-                
               let dbLink = data;
               setLinkId(dbLink);
-              //setTitle("");
-              console.log('from home data ' + data, linkId)
+              setTitle("");
+              console.log('from home data ' + data)
               //console.log('from home linkid ' + LinkId, Title)
-              
             }
         })
         .catch(err => console.log('err'));
@@ -38,7 +36,9 @@ const Home = props => {
         let titleLength = props.Title.length;
 
         if (titleLength < 8){
+            
             const errorMessage = document.getElementById("errorMessage");
+            
             errorMessage.style.visibility = "visible";
 
             setTimeout(() => {
@@ -50,35 +50,28 @@ const Home = props => {
             const updateLink = new Promise((resolve, reject) => {
                 resolve (props.onSubmit())
             });
-
-            console.log("Home POST req " + props.Title, props.linkId)
           
-            updateLink.then((linkId) => {
+            updateLink.then((newLink) => {
                 fetch('/home', {
-                    method: 'post',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        title: props.Title,
-                        linkId: linkId,
-                    })
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    title: props.Title,
+                    linkId: newLink,
+                })
                 })
                 .then(response => response.json())
                 .then(data => {
                     if(data){
+                        console.log("POST Title, newlink " + props.Title,newLink)
                         //console.log("from homepage: " + data);
                         props.setLinkId(newLink);
                         //console.log("from homepage post: " + data, newLink)
                         history.push(`/link/${newLink}`); 
-                       
                     }
                 });
             })
-
-            
         }
-        
-        
-        
     }
       
      
