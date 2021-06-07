@@ -29,10 +29,10 @@ const Home = props => {
     }, [LinkId]);
 
     function handleChange(event) {
-    // Here, we invoke the callback with the new value
-    props.onChange(event.target.value);
-    //console.log("title length " +props.Title.length)
+        // Here, we invoke the callback with the new value
+        props.onChange(event.target.value);
     }
+    console.log("title length " +props.Title.length)
 
     function handleSubmit(event) {
         let titleLength = props.Title.length;
@@ -52,6 +52,8 @@ const Home = props => {
             const updateLink = new Promise((resolve, reject) => {
                 resolve (props.onSubmit())
             });
+
+            console.log("Home POST req " + props.Title, newLink)
           
             updateLink.then((newLink) => {
                 fetch('/home', {
