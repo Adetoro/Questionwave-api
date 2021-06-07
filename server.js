@@ -21,9 +21,10 @@ const proConfig = process.env.DATABASE_URL //heroku addons
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: process.env.NODE_ENV === "production" ? proConfig : devConfig,
+    connectionString: process.env.NODE_ENV === ("production" || undefined )? proConfig : devConfig,
   }
 });
+console.log('process env ' +process.env.NODE_ENV);
 
 //process.env.NODE_ENV => production or undefined
 // if (process.env.NODE_ENV === 'production') {
