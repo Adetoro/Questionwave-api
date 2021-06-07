@@ -57,17 +57,26 @@ console.log(path.join(__dirname, "client/build"));
 // });
 
 // GET LAST LINKID FROM DB  
+// app.get('/home', (req, res) => {
+//   db.from('identify')
+//   .select('linkid')
+//   .orderBy('id', 'desc')
+//   .limit(1)
+//   .then(response => {
+//     res.json(Number(Object.values(response[0])))
+//     console.log(Number(Object.values(response[0])))
+//   })  
+//   .catch(err => res.status(400).json("unable get link"))
+// })         
 app.get('/home', (req, res) => {
   db.from('identify')
-  .select('linkid')
-  .orderBy('id', 'desc')
-  .limit(1)
+  .select('*')
   .then(response => {
-    res.json(Number(Object.values(response[0])))
-    console.log(Number(Object.values(response[0])))
+    res.json(response)
+    console.log(response)
   })  
   .catch(err => res.status(400).json("unable get link"))
-})                                                                 
+})                                                           
 
 
 //POST NEW LINKID AND TITLE IN TABLES: IDENTIFY & QUESTIONDETAILS
