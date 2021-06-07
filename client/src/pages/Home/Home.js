@@ -12,9 +12,7 @@ const Home = props => {
     const {setLinkId, setTitle, LinkId} = props;
 
     useEffect(( ) => {
-        fetch('/home', {
-            credentials: 'include'
-          }) 
+        fetch('/home') 
           .then(response => response.json())
         .then(data => {
             if(data){
