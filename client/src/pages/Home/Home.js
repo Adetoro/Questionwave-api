@@ -19,7 +19,7 @@ const Home = props => {
               let dbLink = data;
               setLinkId(dbLink);
               setTitle("");
-              console.log('from home data ' + data)
+               console.log('from home data ' + data)
               //console.log('from home linkid ' + LinkId, Title)
             }
         })
@@ -30,15 +30,13 @@ const Home = props => {
         // Here, we invoke the callback with the new value
         props.onChange(event.target.value);
     }
-    console.log("title length " +props.Title.length)
+    //console.log("title length " +props.Title.length)
 
     function handleSubmit(event) {
         let titleLength = props.Title.length;
 
         if (titleLength < 8){
-            
             const errorMessage = document.getElementById("errorMessage");
-            
             errorMessage.style.visibility = "visible";
 
             setTimeout(() => {
