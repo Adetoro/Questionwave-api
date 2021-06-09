@@ -78,9 +78,9 @@ const LinkPage = (props) => {
             if(data){
                 //console.log(props.Title, props.LinkId,)
                 //console.log("data from put request: " + data)
-                //history.push(`/q/${props.LinkId}`, "_blank");
-                const win = window.open(`/q/${props.LinkId}`, "_blank");
-                 win.focus();
+                 history.push(`/q/${props.LinkId}`);
+                // const win = window.open(`/q/${props.LinkId}`, "_blank");
+                //  win.focus();
             }
         })
         

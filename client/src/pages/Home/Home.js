@@ -34,6 +34,7 @@ const Home = props => {
 
     function handleSubmit(event) {
         let titleLength = props.Title.length;
+        
 
         if (titleLength < 8){
             const errorMessage = document.getElementById("errorMessage");
