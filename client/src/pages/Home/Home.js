@@ -34,7 +34,7 @@ const Home = props => {
 
     function handleSubmit(event) {
         let titleLength = props.Title.length;
-        
+
 
         if (titleLength < 8){
             const errorMessage = document.getElementById("errorMessage");
@@ -66,7 +66,7 @@ const Home = props => {
                         //console.log("from homepage: " + data);
                         props.setLinkId(newLink);
                         //console.log("from homepage post: " + data, newLink)
-                        history.push(`/link/${newLink}`); 
+                        this.context.history.push(`/link/${newLink}`); 
                     }
                 });
             })
