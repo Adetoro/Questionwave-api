@@ -66,7 +66,7 @@ const Home = props => {
                         //console.log("from homepage: " + data);
                         props.setLinkId(newLink);
                         //console.log("from homepage post: " + data, newLink)
-                        this.context.history.push(`/link/${newLink}`); 
+                        history.push(`/link/${newLink}`); 
                     }
                 });
             })
