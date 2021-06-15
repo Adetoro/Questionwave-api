@@ -35,7 +35,27 @@ const Questions = (props) => {
         console.log(data)
         if(data){
             if (data.length === 0){
-                return { hasError: true };
+                return (
+                    <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
+                        <div className="text-7xl font-semibold text-center">
+                             Oops!
+                        </div>
+                        <div className="pt-3 text-base font-normal text-center">
+                             Can't access this page.
+                        </div>
+                        
+                            <div className="sm:w-6/12  mx-auto">
+                            <button className="  mt-6 blue_button text-lg font-bold 
+                                                focus:outline-none focus:ring focus:-mid_blue"
+                                    onClick={() => history.push('/')}>
+                                Go Home
+                            </button>
+                            </div>
+                            
+                        
+                       
+                    </div>
+                )
             }
             else{
                 //MATCH VARIABLES TO DATA FROM DATABASE
@@ -52,9 +72,9 @@ const Questions = (props) => {
                         setUserQuestions(UserQuestions => [...UserQuestions,data[i].question]);
                         setCreatedAt(CreatedAt => [...CreatedAt,data[i].created]);
                     }
-                else{
-                    console.log(" ");
-                }
+                    else{
+                        console.log(" ");
+                    }
                 }           
                 //SET STATE WITH DATA FROM DATABASE
                 setTitle(DisplayTitle);
