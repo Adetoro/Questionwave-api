@@ -194,6 +194,7 @@ app.put('/api/q/:id', (req, res) => {
 //CATCH INVALID URL ENTRIES
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
+  console.log("invalid route");
 });
 
 app.listen(PORT, () => {

@@ -72,16 +72,16 @@ const Questions = (props) => {
     })
   }, [Count]);
 
-  console.log(props.Title.length);
+ 
 
   if (props.Title.length < 2){
     return (
         <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
-            <div className="text-7xl font-semibold text-center">
-                 Oops!
+            <div className="text-4xl font-semibold text-center">
+                 Oh no! You shouldn't be here.
             </div>
             <div className="pt-3 text-base font-normal text-center">
-                 Can't access this page.
+                 if anyone asks, tell them you saw nothing.
             </div>
             
                 <div className="sm:w-6/12  mx-auto">
