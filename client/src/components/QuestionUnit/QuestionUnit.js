@@ -85,7 +85,7 @@ const QuestionUnit = (props) => {
                     }, 1000);
                     
 
-                    fetch('/q/:id', {
+                    fetch('/api/q/:id', {
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({

@@ -29,7 +29,7 @@ const Questions = (props) => {
     setCreatedAt([]);
 
     //GET DATA FROM DATABASE
-    fetch(`/q/${urlId}`)
+    fetch(`/api/q/${urlId}`)
     .then(response => response.json())
     .then(data => {
         console.log(data)

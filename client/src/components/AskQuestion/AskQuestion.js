@@ -36,7 +36,7 @@ function AskQuestion(props) {
         }
 
         else{
-            fetch('/q/:id', {
+            fetch('/api/q/:id', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

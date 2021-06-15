@@ -21,7 +21,7 @@ const LinkPage = (props) => {
 
         console.log("props linkid " + props.LinkId)
         if (props.LinkId !== 0){
-            fetch(`/link/${props.LinkId}`)
+            fetch(`/api/link/${props.LinkId}`)
             .then(response => response.json())
             .then(data => {
                 
@@ -64,7 +64,7 @@ const LinkPage = (props) => {
 
 
     function handleUpdate(event) {
-        fetch('/link/:id', {
+        fetch('/api/link/:id', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

@@ -108,7 +108,7 @@ app.post('/home', (req, res) => {
 })
 
 // GET LINKID AND TITLE  
-app.get('/link/:linkId', (req, res) => {
+app.get('/api/link/:linkId', (req, res) => {
   let id = req.params.linkId;
   db.from('identify')
   .select('title')
@@ -125,7 +125,7 @@ app.get('/link/:linkId', (req, res) => {
 })
 
 // UPDATE LINKIN TITLE
-app.put('/link/:id', (req, res) => {
+app.put('/api/link/:id', (req, res) => {
   const { id } = req.body;
   const { title } = req.body;
 
@@ -139,7 +139,7 @@ app.put('/link/:id', (req, res) => {
 })
 
 // GET QUESTION PAGE DETAILS  
-app.get('/q/:id', (req, res) => {
+app.get('/api/q/:id', (req, res) => {
   let id = req.params.id;
 
   db.select('*')
@@ -160,7 +160,7 @@ app.get('/q/:id', (req, res) => {
 })
 
 //POST NEW QUESTION
-app.post('/q/:id', (req, res) => {
+app.post('/api/q/:id', (req, res) => {
 const { linkId, question} = req.body;
 
   db('questiondetails')
@@ -179,7 +179,7 @@ const { linkId, question} = req.body;
 
 
 // UPDATE QUESTION UPVOTE 
-app.put('/q/:id', (req, res) => {
+app.put('/api/q/:id', (req, res) => {
   const { id, question_id, question_upvotes} = req.body;
 
   db('questiondetails')
