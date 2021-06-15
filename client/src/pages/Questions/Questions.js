@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import {useHistory} from "react-router-dom";
 
 import AskQuestion from '../../components/AskQuestion/AskQuestion';
 import QuestionList from '../../components/QuestionList';
@@ -7,6 +8,7 @@ import './Questions.css';
 import message_icon from './message_icon.svg';
 
 const Questions = (props) => {
+    let history = useHistory();
 
   const [Count, setCount] = useState(0);
   const [Upvotes, setUpvotes] = useState([]);
@@ -63,7 +65,6 @@ const Questions = (props) => {
                 
             }
             }
-           
             
         else {
            console.log("");
@@ -71,8 +72,9 @@ const Questions = (props) => {
     })
   }, [Count]);
 
-  
-  if (DisplayTitle.length === 0){
+  console.log(props.Title.length);
+
+  if (props.Title.length === 0){
     return (
         <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
             <div className="text-7xl font-semibold text-center">
@@ -95,9 +97,9 @@ const Questions = (props) => {
         </div>
     )
 }
-  else if (Count < 1 ) {
-    return (
 
+ else if (Count < 1 ) {
+    return (
         <div>
             <div className="md:w-10/12 mx-auto static   ">
                 <div className="md:w-9/12 mx-auto px-10 py-20 ">
