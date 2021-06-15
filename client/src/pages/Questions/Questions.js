@@ -74,7 +74,7 @@ const Questions = (props) => {
 
   console.log(props.Title.length);
 
-  if (props.Title.length === 0){
+  if (props.Title.length < 2){
     return (
         <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
             <div className="text-7xl font-semibold text-center">
