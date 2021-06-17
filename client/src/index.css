@@ -21,6 +21,7 @@ html { height: 100%; overflow:auto; }
 
   body {
     background-color: #EDF5FC; 
+    background-image: none;
   }
 }
 
