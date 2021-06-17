@@ -122,7 +122,7 @@ const QuestionUnit = (props) => {
                 You can only upvote once
             </div>
         <div  className="my-9">
-            <div className=" px-10 py-5  bg-white rounded-2xl h-auto flex items-center space-x-4 select-none overflow-auto ">
+            <div className=" md:px-10 px-6 py-5 bg-white rounded-2xl h-auto flex items-center space-x-4 select-none overflow-auto ">
                 <div className="flex-col  -mt-1 items-center justify-start mr-2 w-5  ">                                    
                     <button id="upvoteButton" className="upvoteButton text-blue p-1 -mt-1" onClick={handleUpvote}>
                         <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="upvote_icon  ">
