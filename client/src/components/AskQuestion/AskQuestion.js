@@ -71,7 +71,7 @@ function AskQuestion(props) {
                         value={question}
                         className="rounded-md w-full h-12 text-black-500 outline-none ring border-mid_blue shadow p-5 overflow-auto" 
                         placeholder='Ask a question...'
-                        onKeyPress= {handleKeypress}  
+                        onKeyPress= {() => {handleKeypress(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 3000)}}  
                         onChange={handleChange} 
                         />
                         

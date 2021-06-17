@@ -6,11 +6,13 @@ input[type="text"] {
 .ask_button {
     margin-left: -2.5rem;
     transition: 100ms linear;
+    background-image: url(./send_question_icon.svg);
     
 }
 
 button.ask_button:focus {
     outline:none;   
+
 }
 
 button.ask_button:hover {
