@@ -64,7 +64,7 @@ function AskQuestion(props) {
             {({ scroll }) => (
 
                 <div >
-                    <div id="askNew" className=" flex items-center ">
+                    <div id="askNew" className=" ">
                         <input   
                         id="mainInput"
                         type="text"
