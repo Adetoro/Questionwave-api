@@ -77,11 +77,11 @@ const Questions = (props) => {
     return (
 
         <div className="w-full ">
-            <div className="md:w-10/12 mx-auto static  ">
+            <div className="md:w-10/12 mx-auto static pb-16 ">
                 <div className="md:w-9/12 mx-auto px-10 py-20">
                
             
-                <div className="pb-8" >
+                <div className="pb-5" >
                     
                     <div className="text-3xl font-extrabold">  
                        {props.Title} 
@@ -105,7 +105,7 @@ const Questions = (props) => {
             </div>
             
             </div>
-            <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
+            <div className="w-full bottom-0 pb-6 pt-1 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
