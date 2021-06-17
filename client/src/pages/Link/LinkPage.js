@@ -112,13 +112,13 @@ const LinkPage = (props) => {
     }
     else {
         return (
-            <div>  
+            <div className="min-h-screen relative">  
                 <div id="container" className="md:w-6/12 mx-auto px-10 py-28 ">
                     <div className="mt-10 rounded-xl bg-light_green border border-green p-5 flex items-center">  
                         <div className="w-5 h-5 mr-5">
                         <img alt='success' src={success_icon} />
                         </div>
-                        <div>
+                        <div className="sz18_text opacity-90">
                             Great! Your your question link has been created. 
                         </div>
                     </div>
@@ -154,14 +154,14 @@ const LinkPage = (props) => {
 
                     <div className=" mt-6 sm:flex justify-between  sm:space-x-4">
                         <div className="sm:w-1/2 pt-4">
-                            <button className="blue_button text-lg font-bold focus:outline-none focus:ring focus:border-mid_blue"
+                            <button className="blue_button text-xl font-bold focus:outline-none focus:ring focus:border-mid_blue"
                                 onClick={handleCopy}>
                                 Copy link
                             </button>
                         </div>
 
                         <div className="sm:w-1/2 pt-4">
-                            <button className="white_button text-lg font-bold focus:outline-none focus:ring focus:border-mid_blue"
+                            <button className="white_button text-xl font-bold focus:outline-none focus:ring focus:border-mid_blue"
                                 onClick={handleUpdate}>
                                 Preview link
                             </button>

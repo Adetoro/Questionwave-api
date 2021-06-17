@@ -11,6 +11,7 @@
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+    font-size: 1.25rem;
 }
 
 .white_button {
@@ -26,5 +27,6 @@
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
     cursor: pointer;
+    font-size: 1.25rem;
 }
 

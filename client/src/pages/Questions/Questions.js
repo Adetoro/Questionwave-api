@@ -73,30 +73,53 @@ const Questions = (props) => {
   }, [Count]);
 
  
-
-  if (props.Title.length < 2){
+  if ((props.Title.length > 2) && (Count > 1 ) ){
     return (
-        <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
-            <div className="text-4xl font-semibold text-center">
-                 Oh no! You shouldn't be here.
-            </div>
-            <div className="pt-3 text-base font-normal text-center">
-                 if anyone asks, tell them you saw nothing.
-            </div>
+
+        <div className="w-full ">
+            <div className="md:w-10/12 mx-auto static  ">
+                <div className="md:w-9/12 mx-auto px-10 py-20">
+               
             
-                <div className="sm:w-6/12  mx-auto">
-                <button className="  mt-6 blue_button text-lg font-bold 
-                                    focus:outline-none focus:ring focus:-mid_blue"
-                        onClick={() => history.push('/')}>
-                    Go Home
-                </button>
+                <div className="" >
+                    
+                    <div className="text-3xl font-extrabold">  
+                       {props.Title} 
+                    </div>
+                    <div className="mt-5 text-xl font-bold text-gray">  
+                        {Count} questions so far
+                    </div>
+                </div>
+
+                <div >
+                        <QuestionList 
+                            LinkId={props.LinkId} 
+                            createdAt={CreatedAt} 
+                            questionId={QuestionId}  
+                            questionContent={UserQuestions} 
+                            questionUpvotes={Upvotes}
+                            setUpvotes={setUpvotes}
+                             />                   
                 </div>
                 
+            </div>
             
-           
+            </div>
+            <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
+                <div className="md:w-10/12 mx-auto py-2   ">
+                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-2 h-14 ">
+                        <AskQuestion LinkId={props.LinkId}
+                        Count={Count} 
+                        setCount={setCount}/>                        
+                    </div>
+                </div>
+            </div>
         </div>
-    )
+            
+    );
+   
 }
+
 
  else if (Count < 1 ) {
     return (
@@ -141,50 +164,30 @@ const Questions = (props) => {
     );
   }
 
+
   else {
+   
     return (
-
-        <div className="w-full ">
-            <div className="md:w-10/12 mx-auto static  ">
-                <div className="md:w-9/12 mx-auto px-10 py-20">
-               
+        <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
+            <div className="text-4xl font-semibold text-center">
+                 Oh no! You shouldn't be here.
+            </div>
+            <div className="pt-3 text-base font-normal text-center">
+                 if anyone asks, tell them you saw nothing.
+            </div>
             
-                <div className="" >
-                    
-                    <div className="text-3xl font-extrabold">  
-                       {props.Title} 
-                    </div>
-                    <div className="mt-5 text-xl font-bold text-gray">  
-                        {Count} questions so far
-                    </div>
-                </div>
-
-                <div >
-                        <QuestionList 
-                            LinkId={props.LinkId} 
-                            createdAt={CreatedAt} 
-                            questionId={QuestionId}  
-                            questionContent={UserQuestions} 
-                            questionUpvotes={Upvotes}
-                            setUpvotes={setUpvotes}
-                             />                   
+                <div className="sm:w-6/12  mx-auto">
+                <button className="  mt-6 blue_button text-lg font-bold 
+                                    focus:outline-none focus:ring focus:-mid_blue"
+                        onClick={() => history.push('/')}>
+                    Go Home
+                </button>
                 </div>
                 
-            </div>
             
-            </div>
-            <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
-                <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-2 h-14 ">
-                        <AskQuestion LinkId={props.LinkId}
-                        Count={Count} 
-                        setCount={setCount}/>                        
-                    </div>
-                </div>
-            </div>
+           
         </div>
-            
-    );
+    )
   }
   
     

@@ -12,6 +12,9 @@ module.exports = {
       mid_blue: '#45B6FE',
       white: '#fff',
       black: '#000',
+      dark_grey: '#494949',
+      mid_gray: '#333333',
+      light_gray: '#F4F4F4',
       gray: '#9B9B9B',
       red: '#FECACA',
       yellow: '#FDE68A',
@@ -21,6 +24,10 @@ module.exports = {
     fontFamily: {
       'sans': ['Nunito', 'sans-serif'],
     },
+    fontSize: {
+      '4xl': '2.5rem',
+      '3xl':'1.75rem',
+    }
     
   },
   variants: {

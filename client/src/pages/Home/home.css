@@ -3,53 +3,73 @@
       visibility: hidden;
       clear: both;
       float: left;
-      margin: 10px auto 5px 20px;
-      width: 28%;
+      /*margin: 10px auto 5px 20px;*/
+      width: 0%;
       display: none;
+      background-image: none;
+      background:none;
     }
+
+    .home_background{
+      background-image: none;
+      padding: 0;
+    }
+
   }
 
-  .home_container{
+.sz14_text{
+  font-size: 0.875rem;
+}
+
+.sz18_text{
+  font-size: 1.125rem;
+}  
+
+#custom_wrapper {
+  min-height:100%;
+  margin-bottom:100px;
+  border: 3px solid blue;
   
-    overflow: hidden;
-  }
-
-  .hp_image_container{
-    height: 120vh;
-    margin-bottom: -65px;
-    
-    /*overflow: hidden;*/
-    background-position:top;
-    background-repeat: no-repeat;
-    overflow: visible;
-    
-}
- 
-
-  .homeBackground{
-    background-image: url("./home-background.png");
-    background-position: top;
-    background-repeat: no-repeat; 
-    background-size:auto; 
-    background-attachment:scroll;
-    image-rendering: -webkit-optimize-contrast;
-   }  
-
-   .rotate_this {
-    transform: rotate(-12.59deg);
-    -webkit-transform: rotate(-12.59deg);
-    -moz-transform: rotate(-12.59deg);
-    -ms-transform: rotate(-12.59deg);
-    -o-transform: rotate(-12.59deg);
 }
 
-   .error {
-    background-color: rgb(207, 6, 46,0.1);
-    border: 1px solid rgb(207, 6, 46); 
-    border-radius: 0.5rem;
-    color: rgb(207, 6, 46); 
-    padding: 0.6rem 1rem;
-    margin-top: 1rem;
-    height:3rem;
-    visibility: hidden;
+.phone_mockup{
+  margin-top:-5%;
+  background-image: url("./phone_mockup.png"); 
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: contain; 
+  image-rendering: -webkit-optimize-contrast;
+  height: 100%;
+  
+}
+
+
+
+.home_background{
+  
+  background-image: url("./home_background_img.png"); 
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: contain; 
+  image-rendering: -webkit-optimize-contrast;
+  
+  }  
+
+.rotate_this {
+  transform: rotate(-12.59deg);
+  -webkit-transform: rotate(-12.59deg);
+  -moz-transform: rotate(-12.59deg);
+  -ms-transform: rotate(-12.59deg);
+  -o-transform: rotate(-12.59deg);
+}
+
+  .error {
+  background-color: rgb(207, 6, 46,0.1);
+  border: 1px solid rgb(207, 6, 46); 
+  border-radius: 0.5rem;
+  color: rgb(207, 6, 46); 
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  height:3rem;
+  visibility: hidden;
 }
