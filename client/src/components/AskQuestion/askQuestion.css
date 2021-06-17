@@ -1,13 +1,11 @@
 input[type="text"] {
    
-    padding-right: 2.5rem;
+    padding-right: 3.5rem;
 }
 
 .ask_button {
-    margin-left: -2.5rem;
+    margin-left: -3rem;
     transition: 100ms linear;
-    background-image: url(./send_question_icon.svg);
-    
 }
 
 button.ask_button:focus {
