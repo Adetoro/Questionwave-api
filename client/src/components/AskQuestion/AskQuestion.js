@@ -16,13 +16,13 @@ function AskQuestion(props) {
         setQuestion(event.target.value);
     }
 
-    // const handleKeypress = event => { 
-    //     //it triggers by pressing the enter key
-    //   if (event.key ===  'Enter') {
-    //     handleSubmit();
-    //     console.log("handle keypress");
-    //   }
-    // };
+    const handleKeypress = event => { 
+        //it triggers by pressing the enter key
+      if (event.key ===  'Enter') {
+        handleSubmit();
+        console.log("handle keypress");
+      }
+    };
   
     function handleSubmit(event) {
         let questionLength = question.length;
@@ -71,12 +71,12 @@ function AskQuestion(props) {
                         value={question}
                         className="rounded-md w-full h-12 text-black-500 outline-none ring border-mid_blue shadow p-5 overflow-auto" 
                         placeholder='Ask a question...'
-                        // onKeyPress= {handleKeypress}  
+                        onKeyPress= {handleKeypress}  
                         onChange={handleChange} 
                         />
                         
                         <button 
-                            onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000, smooth: true }), 1000)}}  
+                            onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000, smooth: true }), 3000)}}  
                             type="submit" 
                             className="ask_button  w-7 h-7 ">
                             <img alt="send question" src={send_question_icon}/>

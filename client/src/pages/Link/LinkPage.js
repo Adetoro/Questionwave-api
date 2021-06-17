@@ -163,7 +163,7 @@ const LinkPage = (props) => {
                         <div className="sm:w-1/2 pt-4">
                             <button className="white_button text-xl font-bold focus:outline-none focus:ring focus:border-mid_blue"
                                 onClick={handleUpdate}>
-                                Preview link
+                                Go to question page
                             </button>
                         </div>
                         

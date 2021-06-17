@@ -1,10 +1,10 @@
 input[type="text"] {
    
-    padding-right: 40px;
+    padding-right: 2.5rem;
 }
 
 .ask_button {
-    margin-left: -40px;
+    margin-left: -2.5rem;
     transition: 100ms linear;
     
 }

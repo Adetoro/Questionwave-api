@@ -16,6 +16,13 @@ html { height: 100%; overflow:auto; }
   height: 100%;
 }
 
+@media screen and (max-width: 1023px) {
+
+  body {
+    background-color: #EDF5FC; 
+  }
+}
+
 .fixed_bottom {
   
   position:fixed;
