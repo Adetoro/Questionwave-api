@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { withRouter, useHistory } from "react-router-dom";
 import Footer from '../../components/Footer/Footer';
 
-import demo from './phone_mockup.png';
+
 import error_icon from './error.svg';
 import './home.css';
 

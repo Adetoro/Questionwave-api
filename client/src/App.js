@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 import LinkPage from './pages/Link/LinkPage';
 import Questions from './pages/Questions/Questions';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import Footer from './components/Footer/Footer';
+
 
 import {
   BrowserRouter as Router,
