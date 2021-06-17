@@ -136,7 +136,7 @@ const Questions = (props) => {
                     </div>
                 </div>
 
-                 <div className="mt-32 px-10 py-5 bg-white rounded-2xl h-auto flex space-x-4 select-none ">
+                 <div className="md:mt-32 mt-12 px-10 py-5 bg-white rounded-2xl h-auto flex space-x-4 select-none ">
                     <span className=" self-stretch mt-1 w-10">
                         <img alt='message' src={message_icon} />
                     </span>
