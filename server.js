@@ -39,13 +39,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-
-
-console.log(__dirname);
-console.log(path.join(__dirname, "client/build"));
-
-
-
 // db.select('*').from('identify').then(data => {
 //   console.log(data);
 // });

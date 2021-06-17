@@ -59,7 +59,7 @@ const QuestionUnit = (props) => {
 
                     setTimeout(() => {
                         upvoteDuplicateNotif.style.visibility = "hidden";
-                    }, 1300);
+                    }, 2000);
                 }     
                 else {
                     let newUpvote =  questionUpvotes + 1 ;               
@@ -121,7 +121,7 @@ const QuestionUnit = (props) => {
                 </svg>
                 You can only upvote once
             </div>
-        <div  className="my-16">
+        <div  className="my-9">
             <div className=" px-10 py-5  bg-white rounded-2xl h-auto flex items-center space-x-4 select-none overflow-auto ">
                 <div className="flex-col  -mt-1 items-center justify-start mr-2 w-5  ">                                    
                     <button id="upvoteButton" className="upvoteButton text-blue p-1 -mt-1" onClick={handleUpvote}>
@@ -136,7 +136,7 @@ const QuestionUnit = (props) => {
                     <div id="result"></div>
                 </div>
 
-                <span className=" text-lg  md:w-10/12 sm:w-11/12 w-9/12">
+                <span className=" text-lg  md:w-11/12 sm:w-11/12 w-9/12">
                  {questionContent} 
                 </span>
                                     

@@ -81,7 +81,7 @@ const Questions = (props) => {
                 <div className="md:w-9/12 mx-auto px-10 py-20">
                
             
-                <div className="" >
+                <div className="pb-8" >
                     
                     <div className="text-3xl font-extrabold">  
                        {props.Title} 
@@ -107,7 +107,7 @@ const Questions = (props) => {
             </div>
             <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-2 h-14 ">
+                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
                         Count={Count} 
                         setCount={setCount}/>                        
@@ -121,7 +121,7 @@ const Questions = (props) => {
 }
 
 
- else if (Count < 1 ) {
+ else if ((props.Title.length > 2) && (Count < 1 ) ) {
     return (
         <div>
             <div className="md:w-10/12 mx-auto static   ">
@@ -152,7 +152,7 @@ const Questions = (props) => {
             </div>
             <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-2 h-14 ">
+                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
                         Count={Count} 
                         setCount={setCount}/>   
