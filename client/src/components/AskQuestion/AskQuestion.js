@@ -64,7 +64,7 @@ function AskQuestion(props) {
             {({ scroll }) => (
 
                 <div >
-                    <div id="askNew" className=" ">
+                    <div id="askNew" className=" flex items-center ">
                         <input   
                         id="mainInput"
                         type="text"
@@ -79,7 +79,9 @@ function AskQuestion(props) {
                             onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 3000)}}  
                             type="submit" 
                             className="ask_button w-7 h-7 ">
+                                send
                             <img alt="send question" src={send_question_icon}/>
+                            
                         </button>
                     </div>
 
