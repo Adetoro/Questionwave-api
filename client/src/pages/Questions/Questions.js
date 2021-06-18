@@ -121,7 +121,7 @@ const Questions = (props) => {
 }
 
 
- else if ((props.Title.length > 2) && (Count < 1 ) ) {
+ else if ((props.Title.length > 2) && (Count < 1 )) {
     return (
         <div>
             <div className="md:w-10/12 mx-auto static   ">
@@ -165,7 +165,7 @@ const Questions = (props) => {
   }
 
 
-  else {
+  else if (props.Title.length < 2) {
    
     return (
         <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">

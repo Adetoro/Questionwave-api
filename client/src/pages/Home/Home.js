@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { withRouter, useHistory } from "react-router-dom";
 import Footer from '../../components/Footer/Footer';
 
-
+import demo from './phone_mockup.png'
 import error_icon from './error.svg';
 import './home.css';
 
@@ -128,11 +128,9 @@ const Home = props => {
                     </div>
 
                     <div id="hide_this " className='lg:w-6/12 p-2 home_background'>
-                        <div className=" phone_mockup ">
-                            
-                           {/* <img alt='demo' src={demo} className=''/>  */}
+                        <div className="phone_mockup ">
+                            {/* <img alt='demo' src={demo} className='object-center'/>   */}
                         </div>
-
                         {/* <img alt='demo' src={demo}   className='image-rendering rotate_this hp_image ' /> */}
                     </div>
                         
