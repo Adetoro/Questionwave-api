@@ -33,6 +33,14 @@ const Home = props => {
     }
     //console.log("title length " +props.Title.length)
 
+    const handleKeypress = event => { 
+        //it triggers by pressing the enter key
+      if (event.key ===  'Enter') {
+        handleSubmit();
+        console.log("keypress");
+      }
+    };
+
     function handleSubmit(event) {
         let titleLength = props.Title.length;
 
@@ -77,16 +85,16 @@ const Home = props => {
      
     return (
         <div  className="sm:w-12/12 mx-auto min-h-screen relative">
-            <div id=" " className=" md:w-10/12 mx-auto px-10  pb-20">
+            <div id=" " className=" md:w-10/12 mx-auto sm:px-10 px-5  pb-20">
                 <div  className='flex w-full  pb-10  p-1 home_container md:space-x-2 max-w-full '>
-                    <div className="lg:w-6/12 text-left pt-24 ">
+                    <div className="lg:w-6/12 text-left sm:pt-24 pt-16 ">
                         <div  className='lg:w-full  '>
-                            <p className='text-4xl font-extrabold tracking-tighter leading-10'>The best way to take questions from your audience</p>
+                            <p className='sm:text-4xl sz35_text font-extrabold tracking-tighter leading-10'>The best way to take questions from your audience</p>
                             <p className=' opacity-90 leading-6 mt-4 sz18_text'>Make your Q&A sessions faster. Or get questions ahead of your event. Share a question link with your audience.</p>
                         </div>
 
                         <div className='space-y-2 lg:w-9/12 '>
-                            <p className='text-3xl font-extrabold tracking-tighter mt-16 leading-6 '>Get your question link</p>
+                            <p className='text-3xl font-extrabold tracking-tighter sm:mt-16 mt-12 leading-6 '>Get your question link</p>
                             <p className=' opacity-70 leading-6 sz14_text '>No registration required, it’s 100% free and super-fast.</p>
                         </div>
 
@@ -102,6 +110,7 @@ const Home = props => {
                                         required
                                         placeholder="E.g. Instagram live with Charles Dairo" 
                                         onChange = {handleChange}
+                                        onKeyPress= {handleKeypress}  
                                         className="rounded-md text-black-500 pl-3
                                         focus:outline-none focus:ring focus:-mid_blue shadow w-full h-12 placeholder-mid_gray" />
                                     
@@ -128,7 +137,7 @@ const Home = props => {
                     </div>
 
                     <div id="hide_this " className='lg:w-6/12 pt-10 home_background'>
-                        <div className="phone_mockup ">
+                        <div className="phone_mockup image-rendering">
                             {/* <img alt='demo' src={demo} className='object-center'/>   */}
                         </div>
                         {/* <img alt='demo' src={demo}   className='image-rendering rotate_this hp_image ' /> */}

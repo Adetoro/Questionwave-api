@@ -59,7 +59,7 @@ const QuestionUnit = (props) => {
 
                     setTimeout(() => {
                         upvoteDuplicateNotif.style.visibility = "hidden";
-                    }, 2000);
+                    }, 5000);
                 }     
                 else {
                     let newUpvote =  questionUpvotes + 1 ;               
@@ -82,7 +82,7 @@ const QuestionUnit = (props) => {
 
                     setTimeout(() => {
                         upvoteSuccessNotif.style.visibility = "hidden";
-                    }, 1000);
+                    }, 5000);
                     
 
                     fetch('/api/q/:id', {
