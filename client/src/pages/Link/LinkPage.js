@@ -127,7 +127,7 @@ const LinkPage = (props) => {
                         <EdiText 
                             editOnViewClick 
                             
-                            type="text" className="sm:text-3xl text-2xl font-extrabold" value={props.value} onSave={handleSave} />
+                            type="text" className=" text-2xl font-extrabold" value={props.value} onSave={handleSave} />
                         {/* <div className="text-3xl font-extrabold">  
                         {props.Title} 
                         </div>
