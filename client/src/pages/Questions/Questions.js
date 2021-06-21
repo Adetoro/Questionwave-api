@@ -72,7 +72,7 @@ const Questions = (props) => {
     })
   }, [Count]);
 
- 
+ // IF THE TITLE IS VALID AND THERE IS AT LEAST 1 QUESTION
   if ((props.Title.length > 2) && (Count > 1 ) ){
     return (
 
@@ -120,7 +120,7 @@ const Questions = (props) => {
    
 }
 
-
+// IF THE TITLE IS VALID AND THERE IS 0 QUESTIONS
  else if ((props.Title.length > 2) && (Count < 1 )) {
     return (
         <div>
@@ -164,9 +164,8 @@ const Questions = (props) => {
     );
   }
 
-
-  else if (props.Title.length < 2) {
-   
+// IF THE TITLE IS NOT VALID 
+  else  {
     return (
         <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
             <div className="text-4xl font-semibold text-center">

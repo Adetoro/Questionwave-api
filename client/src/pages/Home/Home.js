@@ -78,8 +78,8 @@ const Home = props => {
     return (
         <div  className="sm:w-12/12 mx-auto min-h-screen relative">
             <div id=" " className=" md:w-10/12 mx-auto px-10  pb-20">
-                <div  className='flex w-full pt-24 pb-10  p-1 home_container md:space-x-2 max-w-full '>
-                    <div className="lg:w-6/12 text-left  ">
+                <div  className='flex w-full  pb-10  p-1 home_container md:space-x-2 max-w-full '>
+                    <div className="lg:w-6/12 text-left pt-24 ">
                         <div  className='lg:w-full  '>
                             <p className='text-4xl font-extrabold tracking-tighter leading-10'>The best way to take questions from your audience</p>
                             <p className=' opacity-90 leading-6 mt-4 sz18_text'>Make your Q&A sessions faster. Or get questions ahead of your event. Share a question link with your audience.</p>
@@ -127,7 +127,7 @@ const Home = props => {
                         
                     </div>
 
-                    <div id="hide_this " className='lg:w-6/12 p-2 home_background'>
+                    <div id="hide_this " className='lg:w-6/12 pt-10 home_background'>
                         <div className="phone_mockup ">
                             {/* <img alt='demo' src={demo} className='object-center'/>   */}
                         </div>
