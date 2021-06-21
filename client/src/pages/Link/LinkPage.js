@@ -113,7 +113,7 @@ const LinkPage = (props) => {
     else {
         return (
             <div className="min-h-screen relative">  
-                <div id="container" className="md:w-6/12 mx-auto px-10 py-28 ">
+                <div id="container" className="md:w-6/12 mx-auto px-10 sm:py-28 py-16 ">
                     <div className="md:mt-10 rounded-xl bg-light_green border border-green p-5 flex items-center">  
                         <div className="w-5 h-5 mr-5">
                         <img alt='success' src={success_icon} />

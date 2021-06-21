@@ -37,12 +37,12 @@
   background-image: url("./phone_mockup.png"); 
   background-position: center;
   background-repeat: no-repeat; 
-  background-size: contain; 
-  image-rendering: pixelated;   
+  background-size:contain; 
+ 
   image-rendering: -moz-crisp-edges;          /* Firefox */
   image-rendering: -o-crisp-edges;            /* Opera */
   image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
-  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+  image-rendering: crisp-edges;
   height: 100%;
   
 }

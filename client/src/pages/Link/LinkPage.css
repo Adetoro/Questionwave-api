@@ -1,6 +1,7 @@
 
 #editTitle .styles_Editext__edit_button__hthOZ::before{
     content:url(./edit_icon.svg);
+    margin:0;
     
 }
 
