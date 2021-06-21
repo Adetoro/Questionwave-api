@@ -73,6 +73,7 @@ const Questions = (props) => {
   }, [Count]);
 
  // IF THE TITLE IS VALID AND THERE IS AT LEAST 1 QUESTION
+ console.log( props.Title.length, Count);
   if ((props.Title.length > 2) && (Count > 1 ) ){
     return (
 
