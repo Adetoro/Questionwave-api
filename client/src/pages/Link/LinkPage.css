@@ -14,10 +14,12 @@
 #editTitle .styles_Editext__save_button__3WN6q::before{
     content:url(./save_icon.svg);
     width: 20px;
+    margin:0;
 }
 
 #editTitle .styles_Editext__cancel_button__259hb::before{
     content:url(./cancel_icon.svg);
+    margin:0;
 }
 
 button[editext='edit-button'] {

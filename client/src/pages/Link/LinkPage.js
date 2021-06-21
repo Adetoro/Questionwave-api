@@ -123,7 +123,7 @@ const LinkPage = (props) => {
                         </div>
                     </div>
 
-                    <div id="editTitle" className="mt-16 flex items-center" >
+                    <div id="editTitle" className="mt-12 flex items-center" >
                         <EdiText 
                             editOnViewClick 
                             
@@ -136,7 +136,7 @@ const LinkPage = (props) => {
                         </button> */}
                     </div>
 
-                    <div className="mt-10 displayLink flex items-center cursor-pointer" onClick={handleCopy}>
+                    <div className="mt-4 displayLink flex items-center cursor-pointer" onClick={handleCopy}>
                         {/* <input 
                             type="text" 
                             name="title" 
