@@ -123,11 +123,11 @@ const LinkPage = (props) => {
                         </div>
                     </div>
 
-                    <div id="editTitle" className="mt-12 flex items-center" >
+                    <div id="editTitle" className="mt-8 flex items-center" >
                         <EdiText 
                             editOnViewClick 
                             
-                            type="text" className="text-3xl font-extrabold" value={props.value} onSave={handleSave} />
+                            type="text" className="sm:text-3xl text-2xl font-extrabold" value={props.value} onSave={handleSave} />
                         {/* <div className="text-3xl font-extrabold">  
                         {props.Title} 
                         </div>
