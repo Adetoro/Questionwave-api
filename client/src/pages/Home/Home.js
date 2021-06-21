@@ -44,6 +44,18 @@ const Home = props => {
     function handleSubmit(event) {
         let titleLength = props.Title.length;
 
+        fetch('/home') 
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+              let dbLink = data;
+              setLinkId(dbLink);
+              setTitle("");
+              //console.log('from home linkid ' + LinkId, Title)
+            }
+        })
+        .catch(err => console.log('err'));
+
 
         if (titleLength < 8){
             const errorMessage = document.getElementById("errorMessage");
@@ -136,7 +148,7 @@ const Home = props => {
                         
                     </div>
 
-                    <div id="hide_this " className='lg:w-6/12 pt-10 home_background'>
+                    <div id="hide_this " className='lg:w-6/12 pt-6 home_background'>
                         <div className="phone_mockup image-rendering">
                             {/* <img alt='demo' src={demo} className='object-center'/>   */}
                         </div>

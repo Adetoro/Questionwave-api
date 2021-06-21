@@ -155,7 +155,7 @@ const LinkPage = (props) => {
                             
                     </div>
 
-                    <div className=" mt-6 sm:flex justify-between  sm:space-x-4">
+                    <div className=" sm:mt-6 mt-2 sm:flex justify-between  sm:space-x-4">
                         <div className="sm:w-1/2 pt-4">
                             <button className="blue_button text-xl font-bold focus:outline-none focus:ring focus:border-mid_blue"
                                 onClick={handleCopy}>
