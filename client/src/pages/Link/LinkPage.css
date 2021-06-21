@@ -7,13 +7,13 @@
 
 #editTitle .styles_Editext__edit_button__hthOZ :focus{
     outline: none;
+    outline: 1px solid #1b7eda;;
     
 }
 
 
 #editTitle .styles_Editext__save_button__3WN6q::before{
     content:url(./save_icon.svg);
-    width: 20px;
     margin:0;
 }
 
@@ -24,7 +24,6 @@
 
 button[editext='edit-button'] {
     border: none;
-    width: 20px;
     color:#1B7EDA;
     transition: 100ms linear;
     -webkit-transition: 100ms linear;
@@ -35,7 +34,6 @@ button[editext='edit-button'] {
 
 button[editext='save-button'], button[editext='cancel-button'] {
     border: none;
-    width: 20px;
     transition: 100ms linear;
     -webkit-transition: 100ms linear;
     -moz-transition: 100ms linear;
