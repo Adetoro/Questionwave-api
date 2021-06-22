@@ -24,7 +24,8 @@ button.upvoteButton:focus {
 #upvoteSuccessNotif{
     position: fixed;
     top:12vh;
-    left:38%;
+    left:3rem;
+    right: 3rem;
     visibility: hidden;
     animation-duration: 2s;
     animation-name: popSwing; 
@@ -32,8 +33,9 @@ button.upvoteButton:focus {
 
 #upvoteDuplicateNotif{
     position: fixed;
-    top:12vh;
-    left:38%;
+    top:13vh;
+    left:3rem;
+    right: 3rem;
     visibility: hidden;
     border: 1px solid rgb(207, 6, 46); 
     
