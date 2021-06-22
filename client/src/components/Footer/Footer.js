@@ -20,6 +20,11 @@ function Footer() {
     const featureReq = window.open(`/feature-requests`, "_blank");
     featureReq.focus();
   }
+
+  function loadLegal(){
+    const legalReq = window.open(`/Legal`, "_blank");
+    legalReq.focus();
+  }
   
               
 
@@ -33,7 +38,7 @@ function Footer() {
                     Support
                   </Mailto>
                 </span>
-                <p className="pr-6">Legal</p>
+                <p className="pr-6 cursor-pointer" onClick={loadLegal}>Legal</p>
                 
                 <img  alt='twitter' src={twitter} className="image-rendering cursor-pointer" onClick={loadTwitter}/>
             </div>

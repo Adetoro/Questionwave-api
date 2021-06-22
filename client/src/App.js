@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import LinkPage from './pages/Link/LinkPage';
 import Questions from './pages/Questions/Questions';
 import FeatureRequests from './pages/FeatureRequests/FeatureRequests';
+import Legal from './pages/Legal/Legal';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 
@@ -95,6 +96,9 @@ function App () {
           setTitle={setTitle}
           setLinkId={setLinkId}
           LinkId={LinkId}/>
+
+          <Legal 
+          path='/legal' />
         </Switch>
         
         </ErrorBoundary>
