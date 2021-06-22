@@ -5,7 +5,7 @@ input[type="text"] {
 }
 
 .ask_button {
-    right: -3rem;
+    margin-right: -3rem;
     transition: 100ms linear;
     -webkit-transition: 100ms linear;
     -moz-transition: 100ms linear;
