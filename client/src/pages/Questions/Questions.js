@@ -79,7 +79,7 @@ const Questions = (props) => {
 
         <div className="w-full ">
             <div className="md:w-10/12 mx-auto static pb-16 ">
-                <div className="md:w-9/12 mx-auto px-10 py-20">
+                <div className="md:w-9/12 mx-auto sm:px-10 px-5 py-20">
                
             
                 <div className="pb-5" >
@@ -108,7 +108,7 @@ const Questions = (props) => {
             </div>
             <div className="w-full bottom-0 pb-6 pt-1 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-3 h-14 ">
+                    <div className=" md:w-9/12 sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
                         Count={Count} 
                         setCount={setCount}/>                        
@@ -126,7 +126,7 @@ const Questions = (props) => {
     return (
         <div>
             <div className="md:w-10/12 mx-auto static   ">
-                <div className="md:w-9/12 mx-auto px-10 py-20 ">
+                <div className="md:w-9/12 mx-auto sm:px-10 px-5 py-20 ">
             
                 <div className="" >
                     <div className="text-3xl font-extrabold">  
@@ -137,7 +137,7 @@ const Questions = (props) => {
                     </div>
                 </div>
 
-                 <div className="md:mt-32 mt-12 px-10 py-5 bg-white rounded-2xl h-auto flex space-x-4 select-none ">
+                 <div className="md:mt-32 mt-12 sm:px-10 px-5 py-5 bg-white rounded-2xl h-auto flex space-x-4 select-none ">
                     <span className=" self-stretch mt-1 w-10">
                         <img alt='message' src={message_icon} />
                     </span>

@@ -6,6 +6,10 @@ input[type="text"] {
 .ask_button {
     margin-left: -1rem;
     transition: 100ms linear;
+    -webkit-transition: 100ms linear;
+    -moz-transition: 100ms linear;
+    -ms-transition: 100ms linear;
+    -o-transition: 100ms linear;
 }
 
 button.ask_button:focus {

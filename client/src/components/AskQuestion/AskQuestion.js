@@ -77,7 +77,7 @@ function AskQuestion(props) {
                         <button 
                             onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
                             type="submit" 
-                            className="border w-7 h-7 ">
+                            className="border ask_button w-7 h-7 ">
                             <img alt="send question" src={send_question_icon}/>
                             
                         </button>
