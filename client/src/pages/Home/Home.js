@@ -2,12 +2,10 @@ import React, { useEffect } from 'react';
 import { withRouter, useHistory } from "react-router-dom";
 import Footer from '../../components/Footer/Footer';
 
-import demo from './phone_mockup.png'
 import error_icon from './error.svg';
 import './home.css';
 
 const Home = props => {
-    
 
     let history = useHistory();
     const {setLinkId, setTitle, LinkId} = props;
@@ -120,6 +118,7 @@ const Home = props => {
                                         name="title" 
                                         id="event-title"
                                         required
+                                        autoFocus
                                         placeholder="E.g. Instagram live with Charles Dairo" 
                                         onChange = {handleChange}
                                         onKeyPress= {handleKeypress}  

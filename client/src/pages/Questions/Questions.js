@@ -79,15 +79,15 @@ const Questions = (props) => {
 
         <div className="w-full ">
             <div className="md:w-10/12 mx-auto static pb-16 ">
-                <div className="md:w-9/12 mx-auto sm:px-10 px-5 py-20">
+                <div className="md:w-9/12 mx-auto sm:px-10 px-5 pt-12 pb-20">
                
             
-                <div className="pb-5" >
+                <div className="sm:pb-5 " >
                     
-                    <div className="text-3xl font-extrabold">  
+                    <div className="text-2xl font-extrabold">  
                        {props.Title} 
                     </div>
-                    <div className="mt-5 text-xl font-bold text-gray">  
+                    <div className="sm:mt-5 mt-2 text-xl font-bold text-gray">  
                         {Count} questions so far
                     </div>
                 </div>
@@ -126,13 +126,13 @@ const Questions = (props) => {
     return (
         <div>
             <div className="md:w-10/12 mx-auto static   ">
-                <div className="md:w-9/12 mx-auto sm:px-10 px-5 py-20 ">
+                <div className="md:w-9/12 mx-auto sm:px-10 px-5 pt-12 pb-20 ">
             
-                <div className="" >
-                    <div className="text-3xl font-extrabold">  
+                <div className=" sm:pb-5 " >
+                    <div className="text-2xl font-extrabold">  
                        {props.Title} 
                     </div>
-                    <div className="mt-5 text-xl font-bold text-gray">  
+                    <div className="sm:mt-5 mt-2 text-xl font-bold text-gray">  
                         {Count} questions so far
                     </div>
                 </div>
@@ -153,7 +153,7 @@ const Questions = (props) => {
             </div>
             <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 px-10 mx-auto mb-10  pt-3 h-14 ">
+                    <div className=" md:w-9/12 sm:px-10 px-10 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
                         Count={Count} 
                         setCount={setCount}/>   

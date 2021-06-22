@@ -64,26 +64,29 @@ function AskQuestion(props) {
 
                 <div >
                     <div id="askNew" className=" flex items-center ">
-                        <input   
-                        id="mainInput"
-                        type="text"
-                        value={question}
-                        className="rounded-md w-full h-12 text-black-500 outline-none ring border-mid_blue shadow p-5 overflow-auto" 
-                        placeholder='Ask a question...'
-                        onKeyPress= {handleKeypress}  
-                        onChange={handleChange} 
-                        />
-                        
-                        <button 
+                    <button 
                             onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
                             type="submit" 
                             className="border ask_button w-7 h-7 ">
                             <img alt="send question" src={send_question_icon}/>
                             
                         </button>
+                        
+                        <input   
+                        id="mainInput"
+                        type="text"
+                        value={question}
+                        autoFocus
+                        className="rounded-md w-full h-12 text-black-500 outline-none ring border-mid_blue shadow p-5 overflow-auto placeholder-mid_gray" 
+                        placeholder='Ask a question...'
+                        onKeyPress= {handleKeypress}  
+                        onChange={handleChange} 
+                        />
+                        
+                        
                     </div>
 
-                        <div id="errorMessage" className="error flex items-center sm:text-base text-sm">
+                        <div id="errorMessage" className="error flex items-center sm:text-base sz14_text">
                             <div className="w-5 h-5 mr-5">
                                 <img alt="error" src={error_icon}/>
                             </div>

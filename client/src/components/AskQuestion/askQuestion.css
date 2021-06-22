@@ -21,3 +21,7 @@ button.ask_button:hover {
     transform: scale(1.1);
     
 }
+
+.sz14_text {
+    font-size: .875rem;
+}
