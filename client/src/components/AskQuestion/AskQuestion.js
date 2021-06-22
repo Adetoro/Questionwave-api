@@ -76,13 +76,14 @@ function AskQuestion(props) {
                         
                         <button 
                             onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
-                            type="submit" >
-                            send
+                            type="submit" 
+                            className=" w-7 h-7 ">
+                            <img alt="send question" src={send_question_icon}/>
                             
                         </button>
                     </div>
 
-                        <div id="errorMessage" className="error flex items-center text-base">
+                        <div id="errorMessage" className="error flex items-center sm:text-base text-sm">
                             <div className="w-5 h-5 mr-5">
                                 <img alt="error" src={error_icon}/>
                             </div>
