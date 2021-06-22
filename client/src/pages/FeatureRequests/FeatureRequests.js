@@ -7,7 +7,7 @@ import QuestionList from '../../components/QuestionList';
 import './FeatureRequests.css';
 import message_icon from './message_icon.svg';
 
-const Questions = (props) => {
+const FeatureRequests = (props) => {
     let history = useHistory();
 
   const [Count, setCount] = useState(0);
@@ -190,5 +190,5 @@ const Questions = (props) => {
   
 }
   
-  export default Questions;
+  export default FeatureRequests ;
   

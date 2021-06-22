@@ -70,7 +70,7 @@ function MakeRequest(props) {
                         type="text"
                         value={question}
                         autoFocus
-                        className="rounded-md w-full h-12 text-black-500 outline-none ring border-mid_blue shadow p-5 overflow-auto placeholder-mid_gray" 
+                        className="  h-12 text-black-500 outline-none p-5 overflow-auto placeholder-mid_gray" 
                         placeholder='Make a request...'
                         onKeyPress= {handleKeypress}  
                         onChange={handleChange} 
@@ -79,7 +79,7 @@ function MakeRequest(props) {
                         <button 
                             onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
                             type="submit" 
-                            className=" w-4 h-7 ">
+                            className="  ">
                             <img alt="send request" src={send_question_icon} className="ask_button"/>
                             
                         </button>
