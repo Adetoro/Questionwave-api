@@ -55,7 +55,7 @@ const Home = props => {
         .catch(err => console.log('err'));
 
 
-        if (titleLength < 8){
+        if (titleLength < 3){
             const errorMessage = document.getElementById("errorMessage");
             errorMessage.style.visibility = "visible";
 
@@ -139,7 +139,7 @@ const Home = props => {
                                         <div className="w-5 h-5 mr-5">
                                             <img alt='error' src={error_icon} />
                                         </div>
-                                        <div>Title must be minimum of 8 characters</div>
+                                        <div>Title must be minimum of 3 characters</div>
                                     </div>                                
                                 </div>                            
                             </div>                                               
