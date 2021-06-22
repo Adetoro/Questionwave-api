@@ -18,7 +18,7 @@ const Questions = (props) => {
   const {setTitle,setLinkId} = props;
 
   useEffect(() => {
-    const urlId = 10006
+    const urlId = 10006;
 
     //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
     setQuestionId([]);
