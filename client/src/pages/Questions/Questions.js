@@ -168,7 +168,7 @@ const Questions = (props) => {
 // IF THE TITLE IS NOT VALID 
   else  {
     return (
-        <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
+        <div id="container" className="md:w-6/12 mx-auto mt-10 sm:px-10 px-5 py-28">
             <div className="text-4xl font-semibold text-center">
                  Oh no! You shouldn't be here.
             </div>
