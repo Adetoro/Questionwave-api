@@ -90,7 +90,7 @@ function App () {
            />                       
 
         <FeatureRequests 
-          path='feature-requests'
+          path='/feature-requests'
           Title={Title} 
           setTitle={setTitle}
           setLinkId={setLinkId}
