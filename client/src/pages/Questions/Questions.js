@@ -84,7 +84,7 @@ const Questions = (props) => {
             
                 <div className="sm:pb-5 " >
                     
-                    <div className=" text-2xl font-extrabold">  
+                    <div className=" sz24_text font-extrabold">  
                        {props.Title} 
                     </div>
                     <div className="sm:mt-5 mt-2 text-xl font-bold text-gray">  
