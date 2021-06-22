@@ -125,7 +125,7 @@ const FeatureRequests = (props) => {
                 <div className="md:w-9/12 mx-auto sm:px-10 px-5 pt-12 pb-20 ">
             
                 <div className=" sm:pb-5 " >
-                    <div className="text-2xl font-extrabold">  
+                    <div className="sz24_text font-extrabold">  
                        {props.Title} 
                     </div>
                     <div className="sm:mt-5 mt-2 text-xl font-bold text-gray">  
@@ -139,7 +139,7 @@ const FeatureRequests = (props) => {
                     </span>
                     <span className=" text-lg">
                     Requests will show up here once people start asking. Go ahead, 
-                share this link with people!
+                make a feature request!
                     </span>
                                         
                 </div> 
