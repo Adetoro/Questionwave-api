@@ -56,7 +56,7 @@ const Questions = (props) => {
                 }           
                 //SET STATE WITH DATA FROM DATABASE
                 setTitle(DisplayTitle);
-                setLinkId(urlId);
+                setLinkId(10006);
                 setCount(DisplayCount - 1);
                 
             }
