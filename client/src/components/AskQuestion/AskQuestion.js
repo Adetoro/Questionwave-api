@@ -31,7 +31,7 @@ function AskQuestion(props) {
             errorMessage.style.visibility = "visible";
             setTimeout(() => {
                 errorMessage.style.visibility = "hidden";
-            }, 1000);
+            }, 3000);
         }
 
         else{
@@ -64,7 +64,6 @@ function AskQuestion(props) {
 
                 <div >
                     <div id="askNew" className=" flex ">
-                   
 
                         <input   
                         id="mainInput"
@@ -80,7 +79,7 @@ function AskQuestion(props) {
                         <button 
                             onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
                             type="submit" 
-                            className="  w-7 h-7 ">
+                            className="  h-7 ">
                             <img alt="send question" src={send_question_icon} className="ask_button"/>
                             
                         </button>
