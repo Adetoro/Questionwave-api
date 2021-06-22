@@ -11,11 +11,23 @@ function Footer() {
     );
   }
 
+  function loadTwitter(){
+    const win = window.open(`https://twitter.com/questionwave`, "_blank");
+    win.focus();
+  }
+
+  function loadRequest(){
+    const featureReq = window.open(`/feature-requests`, "_blank");
+    featureReq.focus();
+  }
+  
+              
+
     return (
       <div className=" footer mx-auto bg-white ">
           <div className="md:w-10/12 mx-auto px-10  py-6 bg-white">
             <div className="flex  ">
-                <p className="pr-6">Feature Request</p>
+                <p className="pr-6 cursor-pointer" onClick={loadRequest}>Feature Request</p>
                 <span className="pr-6  text-sm" >
                   <Mailto  email="support@questionwave.com" >
                     Support
@@ -23,7 +35,7 @@ function Footer() {
                 </span>
                 <p className="pr-6">Legal</p>
                 
-                <img  alt='twitter' src={twitter} className="image-rendering"/>
+                <img  alt='twitter' src={twitter} className="image-rendering cursor-pointer" onClick={loadTwitter}/>
             </div>
              
           </div>

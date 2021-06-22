@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import LinkPage from './pages/Link/LinkPage';
 import Questions from './pages/Questions/Questions';
+import FeatureRequests from './pages/FeatureRequests/FeatureRequests';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 
@@ -87,6 +88,13 @@ function App () {
           setLinkId={setLinkId}
           LinkId={LinkId}
            />                       
+
+        <FeatureRequests 
+          path='feature-requests'
+          Title={Title} 
+          setTitle={setTitle}
+          setLinkId={setLinkId}
+          LinkId={LinkId}/>
         </Switch>
         
         </ErrorBoundary>

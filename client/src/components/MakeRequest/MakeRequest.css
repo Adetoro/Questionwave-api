@@ -1,0 +1,27 @@
+input[type="text"] {
+   
+    padding-right: 2.5rem;
+}
+
+.ask_button {
+    margin-left: -2rem;
+    transition: 100ms linear;
+    -webkit-transition: 100ms linear;
+    -moz-transition: 100ms linear;
+    -ms-transition: 100ms linear;
+    -o-transition: 100ms linear;
+}
+
+button.ask_button:focus {
+    outline:none;   
+
+}
+
+button.ask_button:hover {
+    transform: scale(1.1);
+    
+}
+
+.sz14_text {
+    font-size: .875rem;
+}
