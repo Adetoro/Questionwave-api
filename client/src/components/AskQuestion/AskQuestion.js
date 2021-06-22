@@ -64,14 +64,8 @@ function AskQuestion(props) {
 
                 <div >
                     <div id="askNew" className=" flex items-center ">
-                    <button 
-                            onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
-                            type="submit" 
-                            className="border ask_button w-7 h-7 ">
-                            <img alt="send question" src={send_question_icon}/>
-                            
-                        </button>
-                        
+                   
+
                         <input   
                         id="mainInput"
                         type="text"
@@ -83,6 +77,13 @@ function AskQuestion(props) {
                         onChange={handleChange} 
                         />
                         
+                        <button 
+                            onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
+                            type="submit" 
+                            className="border ask_button w-7 h-7 ">
+                            <img alt="send question" src={send_question_icon}/>
+                            
+                        </button>
                         
                     </div>
 
