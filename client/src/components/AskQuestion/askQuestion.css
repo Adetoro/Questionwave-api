@@ -7,7 +7,7 @@ input[type="text"] {
 .ask_button {
     border-top-right-radius: 0.375rem;
     border-bottom-right-radius: 0.375rem;
-    padding: 1rem;
+    padding: 0.95rem;
     background: #fff;
     transition: 100ms linear;
     -webkit-transition: 100ms linear;
@@ -23,6 +23,7 @@ button.ask_button:focus {
 
 button.ask_button:hover {
     transform: scale(1.1);
+    
     
 }
 

@@ -18,7 +18,7 @@ const Questions = (props) => {
   const {setTitle,setLinkId} = props;
 
   useEffect(() => {
-    const urlId = 10006;
+    
 
     //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
     setQuestionId([]);
@@ -27,7 +27,7 @@ const Questions = (props) => {
     setCreatedAt([]);
 
     //GET DATA FROM DATABASE
-    fetch(`/api/q/${urlId}`)
+    fetch('/api/q/10006')
     .then(response => response.json())
     .then(data => {
         console.log(data)
