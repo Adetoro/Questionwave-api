@@ -38,16 +38,6 @@ if (process.env.NODE_ENV === "production") {
   // });
 }
 
-
-// db.select('*').from('identify').then(data => {
-//   console.log(data);
-// });
-
-// TEST SERVER 
-// app.get('/', (req, res) => {
-//   res.json("it's working");
-// });
-
 // GET LAST LINKID FROM DB  
 app.get('/home', (req, res) => {
   db.from('identify')
@@ -59,9 +49,7 @@ app.get('/home', (req, res) => {
     console.log(Number(Object.values(response[0])))
   })  
   .catch(err => res.status(400).json("unable get link"))
-})         
-                                                        
-
+})                           
 
 //POST NEW LINKID AND TITLE IN TABLES: IDENTIFY & QUESTIONDETAILS
 app.post('/home', (req, res) => {
