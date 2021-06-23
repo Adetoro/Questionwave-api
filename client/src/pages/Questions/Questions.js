@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import {useHistory} from "react-router-dom";
 
 import AskQuestion from '../../components/AskQuestion/AskQuestion';
 import QuestionList from '../../components/QuestionList';
@@ -8,7 +7,11 @@ import './Questions.css';
 import message_icon from './message_icon.svg';
 
 const Questions = (props) => {
-    let history = useHistory();
+
+    function loadHome(){
+        const homeReq = window.open(`/`);
+        homeReq.focus();
+      }
 
   const [Count, setCount] = useState(0);
   const [Upvotes, setUpvotes] = useState([]);
@@ -170,16 +173,16 @@ const Questions = (props) => {
     return (
         <div id="container" className="md:w-6/12 mx-auto mt-10 sm:px-10 px-5 py-28">
             <div className="text-4xl font-semibold text-center">
-                 Oh no! You shouldn't be here.
+                 Hi, looks like this page does not exist.
             </div>
             <div className="pt-3 text-base font-normal text-center">
-                 if anyone asks, tell them you saw nothing.
+                 
             </div>
             
                 <div className="sm:w-6/12  mx-auto">
                 <button className="  mt-6 blue_button text-lg font-bold 
                                     focus:outline-none focus:ring focus:-mid_blue"
-                        onClick={() => history.push('/')}>
+                        onClick={loadHome}>
                     Go Home
                 </button>
                 </div>

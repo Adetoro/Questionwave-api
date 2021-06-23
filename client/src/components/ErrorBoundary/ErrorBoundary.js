@@ -1,8 +1,13 @@
 import React from 'react';
-import {useHistory} from "react-router-dom";
 
 const ErrorComponent = () => {
-  let history = useHistory();
+ 
+
+  function loadHome(){
+    const homeReq = window.open(`/`);
+    homeReq.focus();
+  }
+
   return (
     <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
                 <div className="text-4xl font-semibold text-center">
@@ -15,7 +20,7 @@ const ErrorComponent = () => {
                     <div className="sm:w-6/12  mx-auto">
                     <button className="  mt-6 blue_button text-lg font-bold 
                                         focus:outline-none focus:ring focus:-mid_blue"
-                            onClick={() => history.push('/')}>
+                            onClick={loadHome}>
                         Go Home
                     </button>
                     </div>
@@ -43,7 +48,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     const { hasError, error, info } = this.state;
-    console.log(error, info);
+    //console.log(error, info);
     const { children } = this.props;
 
     return hasError ? <ErrorComponent /> : children;

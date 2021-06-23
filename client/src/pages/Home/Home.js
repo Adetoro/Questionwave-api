@@ -18,7 +18,7 @@ const Home = props => {
               let dbLink = data;
               setLinkId(dbLink);
               setTitle("");
-               console.log('from home data ' + data)
+                console.log('from home data ' + data)
               //console.log('from home linkid ' + LinkId, Title)
             }
         })
@@ -28,6 +28,7 @@ const Home = props => {
     function handleChange(event) {
         // Here, we invoke the callback with the new value
         props.onChange(event.target.value);
+
     }
     //console.log("title length " +props.Title.length)
 
@@ -42,19 +43,7 @@ const Home = props => {
     function handleSubmit(event) {
         let titleLength = props.Title.length;
 
-        fetch('/home') 
-        .then(response => response.json())
-        .then(data => {
-            if(data){
-              let dbLink = data;
-              setLinkId(dbLink);
-              setTitle("");
-              //console.log('from home linkid ' + LinkId, Title)
-            }
-        })
-        .catch(err => console.log('err'));
-
-
+        
         if (titleLength < 3){
             const errorMessage = document.getElementById("errorMessage");
             errorMessage.style.visibility = "visible";
@@ -69,7 +58,22 @@ const Home = props => {
                 resolve (props.onSubmit())
             });
           
-            updateLink.then((newLink) => {
+            updateLink.then(() => {
+                fetch('/home') 
+                .then(response => response.json())
+                .then(data => {
+                    if(data){
+                    let dbLink = data;
+                    setLinkId(dbLink);
+                    setTitle("");
+                        console.log('update on submit' + data)
+                    //console.log('from home linkid ' + LinkId, Title)
+                    }
+                })
+                .catch(err => console.log('err'));
+            })
+            
+            .then((newLink) => {
                 fetch('/home', {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
