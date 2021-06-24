@@ -28,6 +28,18 @@ const Home = props => {
     function handleChange(event) {
         // Here, we invoke the callback with the new value
         props.onChange(event.target.value);
+        fetch('/home') 
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+              let dbLink = data;
+              setLinkId(dbLink);
+              setTitle("");
+               console.log('from home data ' + data)
+              //console.log('from home linkid ' + LinkId, Title)
+            }
+        })
+        .catch(err => console.log('err'));
     }
     //console.log("title length " +props.Title.length)
 
@@ -37,17 +49,6 @@ const Home = props => {
         handleSubmit();
         console.log("keypress");
       }
-      fetch('/home') 
-      .then(response => response.json())
-      .then(data => {
-          if(data){
-            let dbLink = data;
-            setLinkId(dbLink);
-            setTitle("");
-            //console.log('from home linkid ' + LinkId, Title)
-          }
-      })
-      .catch(err => console.log('err'));
 
     };
 
