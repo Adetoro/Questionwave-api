@@ -10,7 +10,20 @@ const Home = props => {
     let history = useHistory();
     const {setLinkId, setTitle, LinkId} = props;
 
-   
+    useEffect(( ) => {
+        fetch('/home') 
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+              let dbLink = data;
+              setLinkId(dbLink);
+              setTitle("");
+               console.log('from home data ' + data)
+              //console.log('from home linkid ' + LinkId, Title)
+            }
+        })
+        .catch(err => console.log('err'));
+    }, [LinkId]);
 
     function handleChange(event) {
         // Here, we invoke the callback with the new value
@@ -58,8 +71,6 @@ const Home = props => {
                     resolve (props.onSubmit())
                 });
 
-           
-            
                 updateLink.then((newLink) => {
                     fetch('/home', {
                     method: 'post',
