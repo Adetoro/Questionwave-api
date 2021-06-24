@@ -23,7 +23,7 @@ const Home = props => {
             }
         })
         .catch(err => console.log('err'));
-    });
+    }, []);
 
     function handleChange(event) {
         // Here, we invoke the callback with the new value
