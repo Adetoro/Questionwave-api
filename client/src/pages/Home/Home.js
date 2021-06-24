@@ -28,17 +28,7 @@ const Home = props => {
     function handleChange(event) {
         // Here, we invoke the callback with the new value
         props.onChange(event.target.value);
-        fetch('/home') 
-        .then(response => response.json())
-        .then(data => {
-            if(data){
-              let dbLink = data;
-              setLinkId(dbLink);
-               console.log('from home data ' + data)
-              //console.log('from home linkid ' + LinkId, Title)
-            }
-        })
-        .catch(err => console.log('err'));
+        
     }
     //console.log("title length " +props.Title.length)
 
@@ -68,7 +58,20 @@ const Home = props => {
                 resolve (props.onSubmit())
             });
           
-            updateLink.then((newLink) => {
+            updateLink.then(() => {
+                fetch('/home') 
+                .then(response => response.json())
+                .then(data => {
+                    if(data){
+                    let dbLink = data;
+                    setLinkId(dbLink);
+                    console.log('update last linkid ' + data)
+                    //console.log('from home linkid ' + LinkId, Title)
+                }
+            })
+                .catch(err => console.log('err'));
+            })
+            .then((newLink) => {
                 fetch('/home', {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},

@@ -156,7 +156,7 @@ const Questions = (props) => {
             </div>
             <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 sm:px-10 px-10 mx-auto mb-10  pt-3 h-14 ">
+                    <div className="  sm:px-10 px-15 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
                         Count={Count} 
                         setCount={setCount}/>   
