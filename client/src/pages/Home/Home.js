@@ -48,7 +48,7 @@ const Home = props => {
             let dbLink = data;
             setLinkId(dbLink);
             
-            console.log('update link ' + data)
+            console.log('update link ' + data, LinkId)
             //console.log('from home linkid ' + LinkId, Title)
             }
         })
@@ -92,7 +92,7 @@ const Home = props => {
                         }
                     });
                 })
-            }, 2000);
+            }, 4000);
         }
     }
       

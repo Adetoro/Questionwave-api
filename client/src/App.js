@@ -33,7 +33,7 @@ function App () {
   function handleSubmit(newLinkId) {
     increment();
     setLinkId(newId);
-    //console.log("from app "+newId,LinkId)
+    console.log("from app "+newId,LinkId)
     return newId;
     
   }
