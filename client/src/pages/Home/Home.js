@@ -40,6 +40,20 @@ const Home = props => {
     };
 
     function handleSubmit(event) {
+
+        fetch('/home') 
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+            let dbLink = data;
+            setLinkId(dbLink);
+            
+            console.log('update link ' + data)
+            //console.log('from home linkid ' + LinkId, Title)
+            }
+        })
+        .catch(err => console.log('err'));
+
         let titleLength = props.Title.length;
 
         if (titleLength < 3){
@@ -52,44 +66,35 @@ const Home = props => {
         }
         else {
             // Here, we invoke the callback with the new value
-            const updateLink = new Promise((resolve, reject) => {
-                resolve (props.onSubmit())
-            });
-
-            fetch('/home') 
-            .then(response => response.json())
-            .then(data => {
-                if(data){
-                let dbLink = data;
-                setLinkId(dbLink);
-                
-                console.log('update link ' + data)
-                //console.log('from home linkid ' + LinkId, Title)
-                }
-            })
-            .catch(err => console.log('err'));
-          
-            updateLink.then((newLink) => {
-                fetch('/home', {
-                method: 'post',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-
-                    title: props.Title,
-                    linkId: newLink,
-                })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if(data){
-                        console.log("POST Title, newlink " + props.Title,newLink)
-                        //console.log("from homepage: " + data);
-                        props.setLinkId(newLink);
-                        //console.log("from homepage post: " + data, newLink)
-                        history.push(`/link/${newLink}`); 
-                    }
+            setTimeout(() => {
+                const updateLink = new Promise((resolve, reject) => {
+                    resolve (props.onSubmit())
                 });
-            }, 3000)
+
+           
+            
+                updateLink.then((newLink) => {
+                    fetch('/home', {
+                    method: 'post',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+
+                        title: props.Title,
+                        linkId: newLink,
+                    })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data){
+                            console.log("POST Title, newlink " + props.Title,newLink)
+                            //console.log("from homepage: " + data);
+                            props.setLinkId(newLink);
+                            //console.log("from homepage post: " + data, newLink)
+                            history.push(`/link/${newLink}`); 
+                        }
+                    });
+                })
+            }, 2000);
         }
     }
       
