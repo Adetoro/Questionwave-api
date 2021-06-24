@@ -69,7 +69,7 @@ const Home = props => {
                     //console.log('from home linkid ' + LinkId, Title)
                 }
             })
-                .catch(err => console.log('err'));
+                
             })
             .then((newLink) => {
                 fetch('/home', {

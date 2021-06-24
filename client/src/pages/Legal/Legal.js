@@ -1,9 +1,4 @@
-import React, { useEffect } from 'react';
-
-import Footer from '../../components/Footer/Footer';
-
-
-
+import React from 'react';
 
 const Legal = (props) => {
     
