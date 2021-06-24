@@ -45,7 +45,7 @@ const Home = props => {
         .then(response => response.json())
         .then(data => {
             if(data){
-            let dbLink = data;
+            
             setLinkId(data);
             
             console.log('update link ' + data, LinkId)
