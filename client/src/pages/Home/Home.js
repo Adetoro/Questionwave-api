@@ -27,18 +27,16 @@ const Home = props => {
 
     function handleChange(event) {
         // Here, we invoke the callback with the new value
-        props.onChange(event.target.value);
-        
+        props.onChange(event.target.value);  
     }
     //console.log("title length " +props.Title.length)
 
     const handleKeypress = event => { 
         //it triggers by pressing the enter key
-      if (event.key ===  'Enter') {
-        handleSubmit();
-        console.log("keypress");
-      }
-
+        if (event.key ===  'Enter') {
+            handleSubmit();
+            console.log("keypress");
+        }
     };
 
     function handleSubmit(event) {
@@ -57,25 +55,26 @@ const Home = props => {
             const updateLink = new Promise((resolve, reject) => {
                 resolve (props.onSubmit())
             });
-          
-            updateLink.then(() => {
-                fetch('/home') 
-                .then(response => response.json())
-                .then(data => {
-                    if(data){
-                    let dbLink = data;
-                    setLinkId(dbLink);
-                    console.log('update last linkid ' + data)
-                    //console.log('from home linkid ' + LinkId, Title)
+
+            fetch('/home') 
+            .then(response => response.json())
+            .then(data => {
+                if(data){
+                let dbLink = data;
+                setLinkId(dbLink);
+                setTitle("");
+                console.log('from home data ' + data)
+                //console.log('from home linkid ' + LinkId, Title)
                 }
             })
-                
-            })
-            .then((newLink) => {
+            .catch(err => console.log('err'));
+          
+            updateLink.then((newLink) => {
                 fetch('/home', {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
+
                     title: props.Title,
                     linkId: newLink,
                 })
@@ -90,7 +89,7 @@ const Home = props => {
                         history.push(`/link/${newLink}`); 
                     }
                 });
-            })
+            }, 3000)
         }
     }
       

@@ -15,7 +15,6 @@ import {
 import './App.css';
 
 
-
 function App () {
   const [Title, setTitle] = useState(" ");
   const [LinkId, setLinkId] = useState(0);
@@ -36,7 +35,6 @@ function App () {
     setLinkId(newId);
     //console.log("from app "+newId,LinkId)
     return newId;
-    
     
   }
 
