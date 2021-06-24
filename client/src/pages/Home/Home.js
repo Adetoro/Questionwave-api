@@ -34,7 +34,6 @@ const Home = props => {
             if(data){
               let dbLink = data;
               setLinkId(dbLink);
-              setTitle("");
                console.log('from home data ' + data)
               //console.log('from home linkid ' + LinkId, Title)
             }
@@ -54,8 +53,6 @@ const Home = props => {
 
     function handleSubmit(event) {
         let titleLength = props.Title.length;
-
-       
 
         if (titleLength < 3){
             const errorMessage = document.getElementById("errorMessage");
