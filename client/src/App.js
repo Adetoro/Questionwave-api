@@ -24,10 +24,16 @@ function App () {
     setTitle(newTitle);
   }
 
-  // GENERATE NEW LINK ID FOR QUESTION LINK AND DATABASE    
-  var newId = LinkId;
+  // GENERATE NEW LINK ID FOR QUESTION LINK AND DATABASE  
+  var newId;
+ 
   function increment(){
-    newId++;
+    newId = LinkId;
+
+    setTimeout(() => {
+      newId++;
+    }, 1000)
+   
     return newId;
   }  
   function handleSubmit(newLinkId) {
