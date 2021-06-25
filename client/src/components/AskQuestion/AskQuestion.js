@@ -41,6 +41,8 @@ function AskQuestion(props) {
         }
 
         else{
+            
+
             fetch('/api/q/:id', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -55,12 +57,12 @@ function AskQuestion(props) {
                     //console.log("new question: " + data);
                     //UPDATE COUNT TO TRIGGER USEEFFECT ON QUESTION PAGE (RE-RENDER PAGE TO SHOW NEW QUESTION)
                     setCount(Count => Count + 1); 
-
+                    scrollToBottom();
                     setQuestion("")
                 }       
             })
 
-            scrollToBottom();
+           
         }
     };
 
