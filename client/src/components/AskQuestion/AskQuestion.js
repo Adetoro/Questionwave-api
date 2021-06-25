@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { ScrollTo } from "react-scroll-to";
 import error_icon from './error.svg';
 import './askQuestion.css';
 
@@ -15,11 +14,11 @@ function AskQuestion(props) {
     function handleChange(event){
         setQuestion(event.target.value);
     }
-    
+
     function scrollToBottom() {
         setTimeout(() => {
-            window.scroll({top: 900000000000000000000, left: 0, behavior: 'smooth' });
-        },3000)
+            window.scroll({top: 9000000000000000000000000000000000000000000, left: 0, behavior: 'smooth' });
+        },4000)
         
     }
 
@@ -27,7 +26,6 @@ function AskQuestion(props) {
         //it triggers by pressing the enter key
       if (event.key ===  'Enter') {
         handleSubmit();
-        scrollToBottom();
       }
     };
   
@@ -61,16 +59,17 @@ function AskQuestion(props) {
                     setQuestion("")
                 }       
             })
+
+            scrollToBottom();
         }
     };
 
  
  
     return (
-        <ScrollTo>
-            {({ scroll }) => (
+      
 
-                <div id="scroll_here">
+                <div>
                     <div id="askNew" className=" flex ">
 
                         <input   
@@ -85,7 +84,7 @@ function AskQuestion(props) {
                         />
                         
                         <button 
-                            onClick={() => {handleSubmit(); setTimeout(()=>scroll({ y: 50000000000000000000000000000000000000, smooth: true }), 5000)}}  
+                            onClick= {handleSubmit}  
                             type="submit" 
                             className="  ">
                             <img alt="send question" src={send_question_icon} className="ask_button"/>
@@ -102,8 +101,7 @@ function AskQuestion(props) {
                         </div>
                 </div>
                 
-            )}
-        </ScrollTo>
+          
     );
 }
   
