@@ -21,7 +21,10 @@ function AskQuestion(props) {
       if (event.key ===  'Enter') {
         handleSubmit();
         var elmnt = document.getElementById("scroll_here");
-        elmnt.scrollIntoView();
+        setTimeout(() => {
+            elmnt.scrollIntoView();
+        },4000)
+        
       }
     };
   

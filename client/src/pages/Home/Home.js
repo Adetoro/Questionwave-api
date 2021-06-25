@@ -35,7 +35,7 @@ const Home = props => {
         //it triggers by pressing the enter key
         if (event.key ===  'Enter') {
             handleSubmit();
-            console.log("keypress");
+            
         }
     };
 
