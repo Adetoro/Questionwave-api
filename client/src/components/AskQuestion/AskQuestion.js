@@ -20,6 +20,8 @@ function AskQuestion(props) {
         //it triggers by pressing the enter key
       if (event.key ===  'Enter') {
         handleSubmit();
+        var elmnt = document.getElementById("scroll_here");
+        elmnt.scrollIntoView();
       }
     };
   
@@ -62,7 +64,7 @@ function AskQuestion(props) {
         <ScrollTo>
             {({ scroll }) => (
 
-                <div >
+                <div id="scroll_here">
                     <div id="askNew" className=" flex ">
 
                         <input   
