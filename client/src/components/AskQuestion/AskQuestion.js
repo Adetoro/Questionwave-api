@@ -26,6 +26,7 @@ function AskQuestion(props) {
         //it triggers by pressing the enter key
       if (event.key ===  'Enter') {
         handleSubmit();
+        scrollToBottom();
       }
     };
   
@@ -41,8 +42,6 @@ function AskQuestion(props) {
         }
 
         else{
-            
-
             fetch('/api/q/:id', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -57,12 +56,10 @@ function AskQuestion(props) {
                     //console.log("new question: " + data);
                     //UPDATE COUNT TO TRIGGER USEEFFECT ON QUESTION PAGE (RE-RENDER PAGE TO SHOW NEW QUESTION)
                     setCount(Count => Count + 1); 
-                    scrollToBottom();
+
                     setQuestion("")
                 }       
             })
-
-           
         }
     };
 
@@ -86,7 +83,7 @@ function AskQuestion(props) {
                         />
                         
                         <button 
-                            onClick= {handleSubmit}  
+                            onClick={() => {handleSubmit();  scrollToBottom()}}  
                             type="submit" 
                             className="  ">
                             <img alt="send question" src={send_question_icon} className="ask_button"/>
