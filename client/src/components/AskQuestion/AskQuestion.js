@@ -18,7 +18,7 @@ function AskQuestion(props) {
     function scrollToBottom() {
         setTimeout(() => {
             window.scroll({top: 9000000000000000000000000000000000000000000, left: 0, behavior: 'smooth' });
-        },5000);
+        },7000);
         console.log("scroll");
         
     }

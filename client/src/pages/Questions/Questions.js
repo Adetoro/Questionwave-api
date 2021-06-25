@@ -37,7 +37,7 @@ const Questions = (props) => {
     fetch(`/api/q/${urlId}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        //console.log(data)
         if(data){
             if (data.length === 0){
                 return { hasError: true };
