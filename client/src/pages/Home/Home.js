@@ -40,19 +40,8 @@ const Home = props => {
     };
 
     function handleSubmit(event) {
-
-        fetch('/home') 
-        .then(response => response.json())
-        .then(data => {
-            if(data){
-            
-            setLinkId(data);
-            
-            console.log('update link ' + data, LinkId)
-            //console.log('from home linkid ' + LinkId, Title)
-            }
-        })
-        .catch(err => console.log('err'));
+        var updatedLink;
+        
 
         let titleLength = props.Title.length;
 
@@ -65,12 +54,26 @@ const Home = props => {
             }, 1000);
         }
         else {
+            fetch('/home') 
+            .then(response => response.json())
+            .then(data => {
+            if(data){
+            updatedLink = data;
+            setLinkId(data);
+            
+            console.log('update link ' + data, LinkId, updatedLink)
+            //console.log('from home linkid ' + LinkId, Title)
+            }
+        })
+        .catch(err => console.log('err'));
             // Here, we invoke the callback with the new value
             setTimeout(() => {
+                var newLink;
                 const updateLink = new Promise((resolve, reject) => {
-                    resolve (props.onSubmit())
+                    resolve (
+                         newLink =  updatedLink + 1)
                 });
-
+                console.log("newLink " + newLink )
                 updateLink.then((newLink) => {
                     fetch('/home', {
                     method: 'post',
@@ -92,7 +95,7 @@ const Home = props => {
                         }
                     });
                 })
-            }, 2000);
+            }, 1800);
         }
     }
       
