@@ -17,9 +17,10 @@ function AskQuestion(props) {
 
     function scrollToBottom() {
         setTimeout(() => {
-            window.scroll({top: 9000000000000000000000000000000000000000000, left: 0, behavior: 'smooth' });
+            window.scroll({top: 90000000000000000000000000000000, left: 0, behavior: 'smooth' });
+            console.log("scroll");
         },7000);
-        console.log("scroll");
+        
         
     }
 
@@ -64,8 +65,6 @@ function AskQuestion(props) {
         }
     };
 
- 
- 
     return (
       
 
@@ -84,7 +83,7 @@ function AskQuestion(props) {
                         />
                         
                         <button 
-                            onClick={() => {handleSubmit();  scrollToBottom()}}  
+                            onClick={() => {handleSubmit();  scrollToBottom();}}  
                             type="submit" 
                             className="  ">
                             <img alt="send question" src={send_question_icon} className="ask_button"/>
