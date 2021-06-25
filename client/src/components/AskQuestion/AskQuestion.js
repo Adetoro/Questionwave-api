@@ -15,16 +15,19 @@ function AskQuestion(props) {
     function handleChange(event){
         setQuestion(event.target.value);
     }
+    
+    function scrollToBottom() {
+        setTimeout(() => {
+            window.scroll({top: 900000000000000000000, left: 0, behavior: 'smooth' });
+        },3000)
+        
+    }
 
     const handleKeypress = event => { 
         //it triggers by pressing the enter key
       if (event.key ===  'Enter') {
         handleSubmit();
-        var elmnt = document.getElementById("scroll_here");
-        setTimeout(() => {
-            elmnt.scrollIntoView();
-        },4000)
-        
+        scrollToBottom();
       }
     };
   

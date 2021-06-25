@@ -31,11 +31,13 @@ const Home = props => {
     }
     //console.log("title length " +props.Title.length)
 
+   
+
     const handleKeypress = event => { 
         //it triggers by pressing the enter key
         if (event.key ===  'Enter') {
             handleSubmit();
-            
+           
         }
     };
 
