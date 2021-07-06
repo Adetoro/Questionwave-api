@@ -129,7 +129,7 @@ const Questions = (props) => {
     return (
         <div>
             <div className="md:w-10/12 mx-auto static   ">
-                <div className="md:w-9/12 mx-auto sm:px-10 px-5 pt-12 pb-20 ">
+                <div className=" mx-auto sm:px-10 px-5 pt-12 pb-20 ">
             
                 <div className=" sm:pb-5 " >
                     <div className="sz24_text font-extrabold">  
@@ -156,7 +156,7 @@ const Questions = (props) => {
             </div>
             <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
-                    <div className=" md:w-9/12 sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
+                    <div className=" sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
                         Count={Count} 
                         setCount={setCount}/>   
