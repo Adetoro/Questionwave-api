@@ -6,6 +6,7 @@ import error_icon from './error.svg';
 import './home.css';
 
 const Home = props => {
+    
 
     let history = useHistory();
     const {setLinkId, setTitle, LinkId} = props;
