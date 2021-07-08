@@ -7,7 +7,15 @@ import './Questions.css';
 import message_icon from './message_icon.svg';
 
 const Questions = (props) => {
-
+    let lastActionTaken = new Date().getTime();
+    function checkLastAction() {
+      let now = new Date().getTime();
+      if (now - lastActionTaken > 1000 * 60 * 1)  window.location.reload();
+      else lastActionTaken = now;
+    }
+    window.addEventListener("mousemove", checkLastAction);
+    window.addEventListener("touchstart", checkLastAction);
+    window.addEventListener("keydown", checkLastAction);
     
 
     function loadHome(){
