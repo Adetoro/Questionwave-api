@@ -28,6 +28,7 @@ const Questions = (props) => {
     const [QuestionId, setQuestionId] = useState([]);
     const [CreatedAt, setCreatedAt] = useState([]);
     const {setTitle,setLinkId} = props;
+    const [i, seti] = useState(0);
 
     //COLLECT ID FROM URL - https://www.regextester.com/102550
     const queryString = window.location.href;
@@ -85,11 +86,10 @@ const Questions = (props) => {
     }
 
     setInterval(updateQuestions, 30000);
-  useEffect(() => {
-    
-
+  
+    useEffect(() => {  
    updateQuestions();
-  }, [Count]);
+  }, [i]);
 
 
  // IF THE TITLE IS VALID AND THERE IS AT LEAST 1 QUESTION
@@ -130,8 +130,8 @@ const Questions = (props) => {
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className="  sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
-                        Count={Count} 
-                        setCount={setCount}/>                        
+                        i={i} 
+                        seti={seti}/>                        
                     </div>
                 </div>
             </div>
@@ -175,8 +175,8 @@ const Questions = (props) => {
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className=" sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
-                        Count={Count} 
-                        setCount={setCount}/>   
+                        i={i} 
+                        seti={seti}/>   
                     </div>
                 </div>
             </div>

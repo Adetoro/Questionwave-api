@@ -8,7 +8,7 @@ function AskQuestion(props) {
 
     //let newQuestion 
     const [question, setQuestion] = useState("");
-    const {Count, setCount} = props;
+    const {i, seti} = props;
 
 
     function handleChange(event){
@@ -57,7 +57,7 @@ function AskQuestion(props) {
                 if(data){
                     //console.log("new question: " + data);
                     //UPDATE COUNT TO TRIGGER USEEFFECT ON QUESTION PAGE (RE-RENDER PAGE TO SHOW NEW QUESTION)
-                    setCount(Count => Count + 1); 
+                    seti(i => i + 1); 
 
                     setQuestion("")
                 }       
