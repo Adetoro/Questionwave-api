@@ -7,28 +7,31 @@ import './Questions.css';
 import message_icon from './message_icon.svg';
 
 const Questions = (props) => {
-    let lastActionTaken = new Date().getTime();
-    function checkLastAction() {
-      let now = new Date().getTime();
-      if (now - lastActionTaken > 1000 * 60 * 1)  window.location.reload();
-      else lastActionTaken = now;
-    }
-    window.addEventListener("mousemove", checkLastAction);
-    window.addEventListener("touchstart", checkLastAction);
-    window.addEventListener("keydown", checkLastAction);
-    
 
+    //RELOAD PAGE AFTER 1 MINUTE OF IDLENESS
+    function ResetTimer() {
+        setTimeout(() => {
+            window.location.reload();
+        }, 60000);
+    }
+    //CHECK FOR USER INTERACTION AND RESET TIMER
+    window.addEventListener("mousemove", ResetTimer);
+    window.addEventListener("touchstart", ResetTimer);
+    window.addEventListener("keydown", ResetTimer);
+
+    //ROUTE TO HOMEPAGE
     function loadHome(){
         const homeReq = window.open(`/`);
         homeReq.focus();
       }
 
-  const [Count, setCount] = useState(0);
-  const [Upvotes, setUpvotes] = useState([]);
-  const [UserQuestions, setUserQuestions] = useState([]);
-  const [QuestionId, setQuestionId] = useState([]);
-  const [CreatedAt, setCreatedAt] = useState([]);
-  const {setTitle,setLinkId} = props;
+    //INITIALIZE STATE
+    const [Count, setCount] = useState(0);
+    const [Upvotes, setUpvotes] = useState([]);
+    const [UserQuestions, setUserQuestions] = useState([]);
+    const [QuestionId, setQuestionId] = useState([]);
+    const [CreatedAt, setCreatedAt] = useState([]);
+    const {setTitle,setLinkId} = props;
 
   useEffect(() => {
     //COLLECT ID FROM URL - https://www.regextester.com/102550
