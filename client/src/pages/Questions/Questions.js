@@ -11,9 +11,9 @@ const Questions = (props) => {
     //RELOAD PAGE AFTER 1 MINUTE OF IDLENESS
    
     //CHECK FOR USER INTERACTION AND RESET TIMER
-    window.addEventListener("mousemove", ResetTimer);
-    window.addEventListener("touchstart", ResetTimer);
-    window.addEventListener("keydown", ResetTimer);
+    // window.addEventListener("mousemove", ResetTimer);
+    // window.addEventListener("touchstart", ResetTimer);
+    // window.addEventListener("keydown", ResetTimer);
 
     //ROUTE TO HOMEPAGE
     function loadHome(){
