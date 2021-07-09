@@ -29,7 +29,6 @@ const Questions = (props) => {
     const [CreatedAt, setCreatedAt] = useState([]);
     const {setTitle,setLinkId} = props;
 
-  useEffect(() => {
     //COLLECT ID FROM URL - https://www.regextester.com/102550
     const queryString = window.location.href;
     const regex = "([a-z0-9_-]*[]?)$";
@@ -37,13 +36,13 @@ const Questions = (props) => {
     const urlId = found[1]
 
     function updateQuestions() { 
-    //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
-    setQuestionId([]);
-    setUpvotes([]);
-    setUserQuestions([]);
-    setCreatedAt([]);
+        //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
+        setQuestionId([]);
+        setUpvotes([]);
+        setUserQuestions([]);
+        setCreatedAt([]);
 
-    //GET DATA FROM DATABASE
+        //GET DATA FROM DATABASE
         fetch(`/api/q/${urlId}`)
         .then(response => response.json())
         .then(data => {
@@ -85,7 +84,11 @@ const Questions = (props) => {
         })
     }
 
-    setInterval(updateQuestions, 10000);
+    setInterval(updateQuestions, 30000);
+  useEffect(() => {
+    
+
+   updateQuestions();
   }, [Count]);
 
 
