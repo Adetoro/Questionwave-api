@@ -30,13 +30,16 @@ const Questions = (props) => {
     const {setTitle,setLinkId} = props;
     const [i, seti] = useState(0);
 
+    const WAIT_TIME = 30000;
+
+  useEffect(() => {
     //COLLECT ID FROM URL - https://www.regextester.com/102550
     const queryString = window.location.href;
     const regex = "([a-z0-9_-]*[]?)$";
     const found = queryString.match(regex);
     const urlId = found[1]
 
-    function updateQuestions() { 
+    const updateQuestions = setInterval(() => {
         //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
         setQuestionId([]);
         setUpvotes([]);
@@ -75,7 +78,6 @@ const Questions = (props) => {
                     setTitle(DisplayTitle);
                     setLinkId(urlId);
                     setCount(DisplayCount - 1);
-                    
                 }
                 }
                 
@@ -83,12 +85,8 @@ const Questions = (props) => {
             console.log("");
             }
         })
-    }
-
-    setInterval(updateQuestions, 30000);
-  
-    useEffect(() => {  
-   updateQuestions();
+    }, WAIT_TIME);
+    return () => clearInterval(updateQuestions);
   }, [i]);
 
 
@@ -130,8 +128,8 @@ const Questions = (props) => {
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className="  sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
-                        i={i} 
-                        seti={seti}/>                        
+                        Count={Count} 
+                        setCount={setCount}/>                        
                     </div>
                 </div>
             </div>
@@ -175,8 +173,8 @@ const Questions = (props) => {
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className=" sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
-                        i={i} 
-                        seti={seti}/>   
+                        Count={Count} 
+                        setCount={setCount}/>   
                     </div>
                 </div>
             </div>
