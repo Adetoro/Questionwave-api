@@ -9,11 +9,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 // enable ssl redirect
-app.use(sslRedirect([
-  'undefined',
-  'development',
-  'production'
-  ]));
+app.use(sslRedirect(['production'], 301));
 
 
 // MIDDLEEARE -> ALLOW EXPRESS SERVER READ JSON
