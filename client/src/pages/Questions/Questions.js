@@ -28,6 +28,7 @@ const Questions = (props) => {
     const [QuestionId, setQuestionId] = useState([]);
     const [CreatedAt, setCreatedAt] = useState([]);
     const {setTitle,setLinkId} = props;
+    const [i, seti] = useState(0);
 
     const WAIT_TIME = 30000;
 
