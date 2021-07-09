@@ -43,46 +43,51 @@ const Questions = (props) => {
     setCreatedAt([]);
 
     //GET DATA FROM DATABASE
-    fetch(`/api/q/${urlId}`)
-    .then(response => response.json())
-    .then(data => {
-        //console.log(data)
-        if(data){
-            if (data.length === 0){
-                return { hasError: true };
-            }
-            else{
-                //MATCH VARIABLES TO DATA FROM DATABASE
-                let DisplayTitle = data[0].title;
-                let DisplayCount = (data.length);
+    function updateQuestions() { 
+        fetch(`/api/q/${urlId}`)
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data)
+            if(data){
+                if (data.length === 0){
+                    return { hasError: true };
+                }
+                else{
+                    //MATCH VARIABLES TO DATA FROM DATABASE
+                    let DisplayTitle = data[0].title;
+                    let DisplayCount = (data.length);
 
-                let n = data.length;
-                for (let i=0; i<n; i++){
-                    if (data[i].question !== null) {
-                        //console.log("so true " + i );
-                        //SET STATE ARRAY WITH DATA FROM DATABASE
-                        setQuestionId(QuestionId => [...QuestionId,data[i].question_id])
-                        setUpvotes(Upvotes => [...Upvotes,data[i].upvotes])
-                        setUserQuestions(UserQuestions => [...UserQuestions,data[i].question]);
-                        setCreatedAt(CreatedAt => [...CreatedAt,data[i].created]);
-                    }
-                    else{
-                        console.log(" ");
-                    }
-                }           
-                //SET STATE WITH DATA FROM DATABASE
-                setTitle(DisplayTitle);
-                setLinkId(urlId);
-                setCount(DisplayCount - 1);
+                    let n = data.length;
+                    for (let i=0; i<n; i++){
+                        if (data[i].question !== null) {
+                            //console.log("so true " + i );
+                            //SET STATE ARRAY WITH DATA FROM DATABASE
+                            setQuestionId(QuestionId => [...QuestionId,data[i].question_id])
+                            setUpvotes(Upvotes => [...Upvotes,data[i].upvotes])
+                            setUserQuestions(UserQuestions => [...UserQuestions,data[i].question]);
+                            setCreatedAt(CreatedAt => [...CreatedAt,data[i].created]);
+                        }
+                        else{
+                            console.log(" ");
+                        }
+                    }           
+                    //SET STATE WITH DATA FROM DATABASE
+                    setTitle(DisplayTitle);
+                    setLinkId(urlId);
+                    setCount(DisplayCount - 1);
+                    
+                }
+                }
                 
+            else {
+            console.log("");
             }
-            }
-            
-        else {
-           console.log("");
-        }
-    })
+        })
+    }
+
+    setInterval(updateQuestions, 10000);
   }, [Count]);
+
 
  // IF THE TITLE IS VALID AND THERE IS AT LEAST 1 QUESTION
  //console.log( props.Title.length, Count);

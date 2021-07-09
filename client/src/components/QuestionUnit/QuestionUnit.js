@@ -45,8 +45,6 @@ const QuestionUnit = (props) => {
                 //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
 
                 if (upvoteArray.includes(questionId)){
-
-                    //alert("duplicate upvote")
                     const upvoteDuplicateNotif =  document.getElementById("upvoteDuplicateNotif");
                     upvoteDuplicateNotif.style.visibility = "visible";
                     upvoteDuplicateNotif.animate([
