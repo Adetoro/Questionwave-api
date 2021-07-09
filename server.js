@@ -1,4 +1,4 @@
-const sslRedirect =  require ('heroku-ssl-redirect');
+import sslRedirect from 'heroku-ssl-redirect';
 const express =  require('express');
 const cors = require('cors');
 const knex = require('knex');
@@ -9,8 +9,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 // enable ssl redirect
-app.use(sslRedirect(['production'], 301));
-
+app.use(sslRedirect());
 
 // MIDDLEEARE -> ALLOW EXPRESS SERVER READ JSON
 app.use(express.urlencoded({extended: false}));
