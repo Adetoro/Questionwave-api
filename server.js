@@ -7,6 +7,12 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
+//REDIRECT HTTP TO HTTPS
+app.enable('trust proxy')
+app.use((req, res, next) => {
+    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+})
+
 // MIDDLEEARE -> ALLOW EXPRESS SERVER READ JSON
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
