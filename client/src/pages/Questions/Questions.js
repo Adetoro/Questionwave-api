@@ -9,11 +9,7 @@ import message_icon from './message_icon.svg';
 const Questions = (props) => {
 
     //RELOAD PAGE AFTER 1 MINUTE OF IDLENESS
-    function ResetTimer() {
-        setTimeout(() => {
-            window.location.reload();
-        }, 60000);
-    }
+   
     //CHECK FOR USER INTERACTION AND RESET TIMER
     window.addEventListener("mousemove", ResetTimer);
     window.addEventListener("touchstart", ResetTimer);
