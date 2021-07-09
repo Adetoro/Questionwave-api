@@ -36,6 +36,7 @@ const Questions = (props) => {
     const found = queryString.match(regex);
     const urlId = found[1]
 
+    function updateQuestions() { 
     //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
     setQuestionId([]);
     setUpvotes([]);
@@ -43,7 +44,6 @@ const Questions = (props) => {
     setCreatedAt([]);
 
     //GET DATA FROM DATABASE
-    function updateQuestions() { 
         fetch(`/api/q/${urlId}`)
         .then(response => response.json())
         .then(data => {
