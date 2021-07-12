@@ -26,7 +26,7 @@ const Questions = (props) => {
     const [QuestionId, setQuestionId] = useState([]);
     const [CreatedAt, setCreatedAt] = useState([]);
     const {setTitle,setLinkId} = props;
-    const [i, seti] = useState(0);
+    const [Update, setUpdate] = useState(0);
 
    //COLLECT ID FROM URL - https://www.regextester.com/102550
    const queryString = window.location.href;
@@ -88,7 +88,7 @@ const Questions = (props) => {
     updateQuestions();
     
   
-  }, [i]);
+  }, [Update]);
 
 
     //RELOAD PAGE AFTER 1 MINUTE OF IDLENESS
@@ -128,6 +128,8 @@ const Questions = (props) => {
                             questionContent={UserQuestions} 
                             questionUpvotes={Upvotes}
                             setUpvotes={setUpvotes}
+                            Update={Update} 
+                            setUpdate={setUpdate}
                              />                   
                 </div>
                 
@@ -138,8 +140,8 @@ const Questions = (props) => {
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className="  sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
-                        i={i} 
-                        seti={seti}/>                        
+                        Update={Update} 
+                        setUpdate={setUpdate}/>                        
                     </div>
                 </div>
             </div>
@@ -183,8 +185,8 @@ const Questions = (props) => {
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className=" sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}
-                        i={i} 
-                        seti={seti}/>   
+                        Update={Update} 
+                        setUpdate={setUpdate}/>   
                     </div>
                 </div>
             </div>

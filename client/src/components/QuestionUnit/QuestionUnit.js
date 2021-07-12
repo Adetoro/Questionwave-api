@@ -23,7 +23,7 @@ if(typeof(Storage) !== "undefined") {
 }
 const QuestionUnit = (props) => {
     
-    let  {questionId, questionContent,  questionUpvotes, LinkId} = props;
+    let  {questionId, questionContent,  questionUpvotes, LinkId, Update, setUpdate} = props;
     let [showUpvotes, setShowUpvotes] = useState(questionUpvotes);
     
     
@@ -96,12 +96,18 @@ const QuestionUnit = (props) => {
                     .then(data => {
                         if(data){
                             //console.log(data)
+                            setUpdate(Update => Update + 1); 
                         }
                     })
                    // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
-
+                    
+                   upvoteArray.forEach(markAsUpvoted)
+                    function markAsUpvoted() {
+                        document.getElementsByClassName("upvote_icon").style.fill = "#1B7EDA";
+                    }
+                    
                   
-                    document.getElementsByClassName("upvote_icon")[0].style.fill = "#1B7EDA";
+                   
                    
                 }
             }       

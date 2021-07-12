@@ -8,7 +8,7 @@ function AskQuestion(props) {
 
     //let newQuestion 
     const [question, setQuestion] = useState("");
-    const {i, seti} = props;
+    const {Update, setUpdate} = props;
 
 
     function handleChange(event){
@@ -25,7 +25,7 @@ function AskQuestion(props) {
     }
 
     function reloadPage() {
-        seti(i => i + 1); 
+       setUpdate(Update => Update + 1); 
     }
 
     const handleKeypress = event => { 
@@ -61,7 +61,7 @@ function AskQuestion(props) {
                 if(data){
                     //console.log("new question: " + data);
                     //UPDATE COUNT TO TRIGGER USEEFFECT ON QUESTION PAGE (RE-RENDER PAGE TO SHOW NEW QUESTION)
-                    seti(i => i + 1); 
+                   setUpdate(Update => Update + 1); 
 
                     setQuestion("")
                 }       
@@ -97,8 +97,10 @@ function AskQuestion(props) {
                         
                     </div>
 
-                    <div className="text-sm float-right border-gray rounded-lg text-gray" onClick={reloadPage}>
-                        reload page
+                    <div className="float-right border-1 gray rounded-lg mt-0.5" onClick={reloadPage}>
+                        <div className="text-sm text-gray p-0.5">
+                            reload page
+                        </div>
                     </div>
 
                         <div id="errorMessage" className="error flex items-center sm:text-base sz14_text">
