@@ -1,9 +1,6 @@
-
-
 .home_container{
   text-align: left;
 }
-
 
 .sz14_text{
   font-size: 0.875rem;
@@ -17,7 +14,6 @@
   min-height:100%;
   margin-bottom:100px;
   border: 3px solid blue;
-  
 }
 
 .phone_mockup{
@@ -31,17 +27,15 @@
   image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
   image-rendering: crisp-edges;
   height: 100%;
-  
 }
 
 .home_background{
-  
   background-image: url("./home_background_img.png"); 
   background-position: center;
   background-repeat: no-repeat; 
   background-size: contain; 
   image-rendering: -webkit-optimize-contrast;
-  }  
+}  
 
 .rotate_this {
   transform: rotate(-12.59deg);
@@ -52,7 +46,7 @@
 }
 
 .homepage_error {
- 
+  font-size: .75rem;
   border-radius: 0.5rem;
   color: rgb(207, 6, 46); 
   padding: 0.2rem 1rem;
@@ -60,7 +54,7 @@
   visibility: hidden;
 }
 
-  .error {
+.error {
   background-color: rgb(207, 6, 46,0.1);
   border: 1px solid rgb(207, 6, 46); 
   border-radius: 0.5rem;
@@ -81,7 +75,7 @@
     clear: both;
     float: left;
     /*margin: 10px auto 5px 20px;*/
-    width: 0%;
+    width: 0%; 
     display: none;
     background-image: none;
     background:none;
@@ -93,6 +87,10 @@
   }
 
   .home_container{
+    text-align: center;
+  }
+
+  .homepage_error {
     text-align: center;
   }
 
