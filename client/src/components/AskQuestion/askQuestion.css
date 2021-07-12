@@ -37,6 +37,16 @@ button.ask_button:hover {
 
     
 }
+.reload_button {
+    padding: 0.188rem 0.313rem;
+    background-color: #1B7EDA;
+    margin: 1.5rem 0.2rem 0rem 0rem;
+}
+
+.reload_button:hover {
+    transform: scale(1.1);
+}
+
 .sz12_text {
     font-size: 0.75rem;
 }

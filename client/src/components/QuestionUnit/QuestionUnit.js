@@ -30,85 +30,82 @@ const QuestionUnit = (props) => {
     
     function handleUpvote(event) {    
                 
-        if(typeof(Storage) !== "undefined") {
+                if(typeof(Storage) !== "undefined") {
 
-            let loadSessionData = sessionStorage.getItem('upvoteArray');
-            let sessionData;
-            if (loadSessionData != null) {
-                sessionData = loadSessionData.split(',').map(Number);
-            }
-            else {
-                sessionData = [1]
-            }
-        
-        upvoteArray = sessionData;
-        //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
+                    let loadSessionData = sessionStorage.getItem('upvoteArray');
+                    let sessionData;
+                    if (loadSessionData != null) {
+                        sessionData = loadSessionData.split(',').map(Number);
+                    }
+                    else {
+                        sessionData = [1]
+                    }
+                
+                upvoteArray = sessionData;
+                //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
 
-        if (upvoteArray.includes(questionId)){
+                if (upvoteArray.includes(questionId)){
+                    const upvoteDuplicateNotif =  document.getElementById("upvoteDuplicateNotif");
+                    upvoteDuplicateNotif.style.visibility = "visible";
+                    upvoteDuplicateNotif.animate([
+                        // keyframes                        
+                               { transform: 'translateY(50px)'}                               
+                      ], {
+                        // timing options
+                        duration: 500
+                      });
 
-            var element = document.getElementByClassName("upvote_icon");
-            element.classList.add("markAsUpvoted");
-            
-            const upvoteDuplicateNotif =  document.getElementById("upvoteDuplicateNotif");
-            upvoteDuplicateNotif.style.visibility = "visible";
-            upvoteDuplicateNotif.animate([
-                // keyframes                        
-                        { transform: 'translateY(50px)'}                               
-                ], {
-                // timing options
-                duration: 500
-                });
+                    setTimeout(() => {
+                        upvoteDuplicateNotif.style.visibility = "hidden";
+                    }, 5000);
+                }     
+                else {
+                    let newUpvote =  questionUpvotes + 1 ;               
+                    setShowUpvotes(newUpvote);        
+                    upvoteArray.push(questionId);
+                    //console.log("upvote array " + upvoteArray)
+                    sessionStorage.setItem('upvoteArray', upvoteArray);
 
-            setTimeout(() => {
-                upvoteDuplicateNotif.style.visibility = "hidden";
-            }, 5000);
-        }     
-        else {
-            let newUpvote =  questionUpvotes + 1 ;               
-            setShowUpvotes(newUpvote);        
-            upvoteArray.push(questionId);
-            //console.log("upvote array " + upvoteArray)
-            sessionStorage.setItem('upvoteArray', upvoteArray);
+                    //console.log("questionId, questionUpvotes, showUpvotes, newUpvote " + questionId, questionUpvotes, showUpvotes, newUpvote);
 
-            //console.log("questionId, questionUpvotes, showUpvotes, newUpvote " + questionId, questionUpvotes, showUpvotes, newUpvote);
+                    const upvoteSuccessNotif =  document.getElementById("upvoteSuccessNotif");
+                    upvoteSuccessNotif.style.visibility = "visible";
+                    upvoteSuccessNotif.animate([
+                        // keyframes                        
+                               { transform: 'translateY(50px)'}                               
+                      ], {
+                        // timing options
+                        duration: 500
+                      });
 
-            const upvoteSuccessNotif =  document.getElementById("upvoteSuccessNotif");
-            upvoteSuccessNotif.style.visibility = "visible";
-            upvoteSuccessNotif.animate([
-                // keyframes                        
-                        { transform: 'translateY(50px)'}                               
-                ], {
-                // timing options
-                duration: 500
-                });
+                    setTimeout(() => {
+                        upvoteSuccessNotif.style.visibility = "hidden";
+                    }, 5000);
+                    
 
-            setTimeout(() => {
-                upvoteSuccessNotif.style.visibility = "hidden";
-            }, 5000);
-            
-
-            fetch('/api/q/:id', {
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                question_id: questionId,
-                question_upvotes: newUpvote,
-                id: LinkId
-            })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data){
-                    //console.log(data)
-                    setUpdate(Update => Update + 1); 
+                    fetch('/api/q/:id', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        question_id: questionId,
+                        question_upvotes: newUpvote,
+                        id: LinkId
+                    })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data){
+                            //console.log(data)
+                            setUpdate(Update => Update + 1); 
+                        }
+                    })
+                   // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
+                    
+                   
+                   
+                   
                 }
-            })
-            // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
-            
-            
-            
-        }
-    }       
+            }       
     }
    
 
