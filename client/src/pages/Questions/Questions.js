@@ -154,7 +154,7 @@ const Questions = (props) => {
 // IF THE TITLE IS VALID AND THERE IS 0 QUESTIONS
  else if ((props.Title.length > 2) && (Count < 1 )) {
     return (
-        <div>
+        <div className="w-full ">
             <div className="md:w-10/12 mx-auto static   ">
                 <div className=" mx-auto sm:px-10 px-5 pt-12 pb-20 ">
             
@@ -181,7 +181,7 @@ const Questions = (props) => {
             </div>
             
             </div>
-            <div className="w-full bottom-0 pb-6 fixed  bg-light_blue ">
+            <div className="w-full bottom-0 pb-6 pt-1 fixed  bg-light_blue ">
                 <div className="md:w-10/12 mx-auto py-2   ">
                     <div className=" sm:px-10 px-5 mx-auto mb-10  pt-3 h-14 ">
                         <AskQuestion LinkId={props.LinkId}

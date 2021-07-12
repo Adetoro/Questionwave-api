@@ -37,7 +37,9 @@ button.ask_button:hover {
 
     
 }
-
+.sz12_text {
+    font-size: 0.75rem;
+}
 .sz14_text {
     font-size: .875rem;
 }

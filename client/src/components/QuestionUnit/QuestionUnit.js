@@ -26,43 +26,29 @@ const QuestionUnit = (props) => {
     let  {questionId, questionContent,  questionUpvotes, LinkId, Update, setUpdate} = props;
     let [showUpvotes, setShowUpvotes] = useState(questionUpvotes);
     
-    if(typeof(Storage) !== "undefined") {
-
-        let loadSessionData = sessionStorage.getItem('upvoteArray');
-        let sessionData;
-        if (loadSessionData != null) {
-            sessionData = loadSessionData.split(',').map(Number);
-        }
-        else {
-            sessionData = [1]
-        }
     
-        upvoteArray = sessionData;}
-
-         
-    function arrayMatch(questionId, sessionData) {
-        var arr = [];  // Array to contain match elements
-        for(var i=0 ; i<questionId.length ; ++i) {
-        for(var j=0 ; j<sessionData.length ; ++j) {
-            if(questionId[i] == sessionData[j]) {    // If element is in both the arrays
-                arr.push(questionId[i]);        // Push to arr array
-                //mark upvoted questions as upvoted
-                var element = document.getElementByClassName("upvote_icon");
-                element.classList.add("markAsUpvoted");
-            }
-        }
-        }
-        
-        return arr;  // Return the arr elements
-        
-    }
     
     function handleUpvote(event) {    
                 
+        if(typeof(Storage) !== "undefined") {
+
+            let loadSessionData = sessionStorage.getItem('upvoteArray');
+            let sessionData;
+            if (loadSessionData != null) {
+                sessionData = loadSessionData.split(',').map(Number);
+            }
+            else {
+                sessionData = [1]
+            }
         
-            //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
+        upvoteArray = sessionData;
+        //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
 
         if (upvoteArray.includes(questionId)){
+
+            var element = document.getElementByClassName("upvote_icon");
+            element.classList.add("markAsUpvoted");
+            
             const upvoteDuplicateNotif =  document.getElementById("upvoteDuplicateNotif");
             upvoteDuplicateNotif.style.visibility = "visible";
             upvoteDuplicateNotif.animate([
@@ -119,8 +105,10 @@ const QuestionUnit = (props) => {
             })
             // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
             
+            
+            
         }
-          
+    }       
     }
    
 

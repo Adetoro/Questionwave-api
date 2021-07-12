@@ -98,7 +98,7 @@ function AskQuestion(props) {
                     </div>
 
                     <div className="float-right  bg-gray rounded mt-2 cursor-pointer" onClick={reloadPage}>
-                        <div className="text-xs text-white px-0.5">
+                        <div className="sz12_text text-white px-0.5">
                             reload page
                         </div>
                     </div>
