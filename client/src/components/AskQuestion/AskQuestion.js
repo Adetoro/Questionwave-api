@@ -19,7 +19,7 @@ function AskQuestion(props) {
         setTimeout(() => {
             window.scroll({top: 90000000000000000000000000000000, left: 0, behavior: 'smooth' });
             console.log("scroll");
-        },7000);
+        },4000);
         
         
     }
@@ -97,8 +97,8 @@ function AskQuestion(props) {
                         
                     </div>
 
-                    <div className="float-right border-1 gray rounded-lg mt-0.5" onClick={reloadPage}>
-                        <div className="text-sm text-gray p-0.5">
+                    <div className="float-right  bg-gray rounded mt-2 cursor-pointer" onClick={reloadPage}>
+                        <div className="text-xs text-white px-0.5">
                             reload page
                         </div>
                     </div>

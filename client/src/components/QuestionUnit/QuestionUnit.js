@@ -26,91 +26,101 @@ const QuestionUnit = (props) => {
     let  {questionId, questionContent,  questionUpvotes, LinkId, Update, setUpdate} = props;
     let [showUpvotes, setShowUpvotes] = useState(questionUpvotes);
     
+    if(typeof(Storage) !== "undefined") {
+
+        let loadSessionData = sessionStorage.getItem('upvoteArray');
+        let sessionData;
+        if (loadSessionData != null) {
+            sessionData = loadSessionData.split(',').map(Number);
+        }
+        else {
+            sessionData = [1]
+        }
     
+        upvoteArray = sessionData;}
+
+         
+    function arrayMatch(questionId, sessionData) {
+        var arr = [];  // Array to contain match elements
+        for(var i=0 ; i<questionId.length ; ++i) {
+        for(var j=0 ; j<sessionData.length ; ++j) {
+            if(questionId[i] == sessionData[j]) {    // If element is in both the arrays
+                arr.push(questionId[i]);        // Push to arr array
+                //mark upvoted questions as upvoted
+                var element = document.getElementByClassName("upvote_icon");
+                element.classList.add("markAsUpvoted");
+            }
+        }
+        }
+        
+        return arr;  // Return the arr elements
+        
+    }
     
     function handleUpvote(event) {    
                 
-            if(typeof(Storage) !== "undefined") {
+        
+            //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
 
-                let loadSessionData = sessionStorage.getItem('upvoteArray');
-                let sessionData;
-                if (loadSessionData != null) {
-                    sessionData = loadSessionData.split(',').map(Number);
+        if (upvoteArray.includes(questionId)){
+            const upvoteDuplicateNotif =  document.getElementById("upvoteDuplicateNotif");
+            upvoteDuplicateNotif.style.visibility = "visible";
+            upvoteDuplicateNotif.animate([
+                // keyframes                        
+                        { transform: 'translateY(50px)'}                               
+                ], {
+                // timing options
+                duration: 500
+                });
+
+            setTimeout(() => {
+                upvoteDuplicateNotif.style.visibility = "hidden";
+            }, 5000);
+        }     
+        else {
+            let newUpvote =  questionUpvotes + 1 ;               
+            setShowUpvotes(newUpvote);        
+            upvoteArray.push(questionId);
+            //console.log("upvote array " + upvoteArray)
+            sessionStorage.setItem('upvoteArray', upvoteArray);
+
+            //console.log("questionId, questionUpvotes, showUpvotes, newUpvote " + questionId, questionUpvotes, showUpvotes, newUpvote);
+
+            const upvoteSuccessNotif =  document.getElementById("upvoteSuccessNotif");
+            upvoteSuccessNotif.style.visibility = "visible";
+            upvoteSuccessNotif.animate([
+                // keyframes                        
+                        { transform: 'translateY(50px)'}                               
+                ], {
+                // timing options
+                duration: 500
+                });
+
+            setTimeout(() => {
+                upvoteSuccessNotif.style.visibility = "hidden";
+            }, 5000);
+            
+
+            fetch('/api/q/:id', {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                question_id: questionId,
+                question_upvotes: newUpvote,
+                id: LinkId
+            })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data){
+                    //console.log(data)
+                    setUpdate(Update => Update + 1); 
                 }
-                else {
-                    sessionData = [1]
-                }
-                
-                upvoteArray = sessionData;
-                //console.log(" sessionData, upvoteArray, questionId "+ sessionData, upvoteArray, questionId);
-
-                if (upvoteArray.includes(questionId)){
-                    const upvoteDuplicateNotif =  document.getElementById("upvoteDuplicateNotif");
-                    upvoteDuplicateNotif.style.visibility = "visible";
-                    upvoteDuplicateNotif.animate([
-                        // keyframes                        
-                               { transform: 'translateY(50px)'}                               
-                      ], {
-                        // timing options
-                        duration: 500
-                      });
-
-                    setTimeout(() => {
-                        upvoteDuplicateNotif.style.visibility = "hidden";
-                    }, 5000);
-                }     
-                else {
-                    let newUpvote =  questionUpvotes + 1 ;               
-                    setShowUpvotes(newUpvote);        
-                    upvoteArray.push(questionId);
-                    //console.log("upvote array " + upvoteArray)
-                    sessionStorage.setItem('upvoteArray', upvoteArray);
-
-                    //console.log("questionId, questionUpvotes, showUpvotes, newUpvote " + questionId, questionUpvotes, showUpvotes, newUpvote);
-
-                    const upvoteSuccessNotif =  document.getElementById("upvoteSuccessNotif");
-                    upvoteSuccessNotif.style.visibility = "visible";
-                    upvoteSuccessNotif.animate([
-                        // keyframes                        
-                               { transform: 'translateY(50px)'}                               
-                      ], {
-                        // timing options
-                        duration: 500
-                      });
-
-                    setTimeout(() => {
-                        upvoteSuccessNotif.style.visibility = "hidden";
-                    }, 5000);
-                    
-
-                    fetch('/api/q/:id', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        question_id: questionId,
-                        question_upvotes: newUpvote,
-                        id: LinkId
-                    })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data){
-                            //console.log(data)
-                            setUpdate(Update => Update + 1); 
-                        }
-                    })
-                   // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
-                    
-                   upvoteArray.forEach(markAsUpvoted)
-                    function markAsUpvoted() {
-                        document.getElementsByClassName("upvote_icon").style.fill = "#1B7EDA";
-                    }
-                    
-                  
-                   
-                   
-                }
-            }       
+            })
+            // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
+            
+        }
+          
     }
    
 
@@ -129,24 +139,24 @@ const QuestionUnit = (props) => {
                 </svg>
                 You can only upvote once
             </div>
-        <div  className="my-9">
-            <div className=" md:px-10 px-6 py-5 bg-white rounded-2xl h-auto flex items-center space-x-4 select-none overflow-auto ">
-                <div className="flex-col  -mt-1 items-center justify-start mr-2 w-5  ">                                    
-                    <button id="upvoteButton" className="upvoteButton text-blue p-1 -mt-1" onClick={handleUpvote}>
-                        <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="upvote_icon  ">
-                            <path d="M12.9056 7.33958L6.84161 0.154254C6.66803 -0.0514181 6.33381 -0.0514181 6.15839 0.154254L0.094437 7.33958C-0.130838 7.60752 0.0722788 8 0.436042 8H12.564C12.9277 8 13.1308 7.60752 12.9056 7.33958Z"  />
-                        </svg>
-                    </button> 
-                     
-                    <div className=" text-center text-lg text-gray -mt-1 ">
-                        {showUpvotes} 
+            <div  className="my-9">
+                <div className=" md:px-10 px-6 py-5 bg-white rounded-2xl h-auto flex items-center space-x-4 select-none overflow-auto ">
+                    <div className="flex-col  -mt-1 items-center justify-start mr-2 w-5  ">                                    
+                        <button id="upvoteButton" className="upvoteButton text-blue p-1 -mt-1" onClick={handleUpvote}>
+                            <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="upvote_icon  ">
+                                <path d="M12.9056 7.33958L6.84161 0.154254C6.66803 -0.0514181 6.33381 -0.0514181 6.15839 0.154254L0.094437 7.33958C-0.130838 7.60752 0.0722788 8 0.436042 8H12.564C12.9277 8 13.1308 7.60752 12.9056 7.33958Z"  />
+                            </svg>
+                        </button> 
+                        
+                        <div className=" text-center text-lg text-gray -mt-1 ">
+                            {showUpvotes} 
+                        </div>
+                        <div id="result"></div>
                     </div>
-                    <div id="result"></div>
-                </div>
 
-                <span className=" text-lg  md:w-11/12 sm:w-11/12 w-10/12">
-                 {questionContent} 
-                </span>
+                    <span className=" text-lg  md:w-11/12 sm:w-11/12 w-10/12">
+                    {questionContent} 
+                    </span>
                                     
             </div>
 

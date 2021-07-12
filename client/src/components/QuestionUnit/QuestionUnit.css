@@ -21,6 +21,10 @@ button.upvoteButton:focus {
     -o-transform: scale(1.4);
 }
 
+.markAsUpvoted{
+    fill: #1B7EDA;
+}
+
 #upvoteSuccessNotif{
     position: fixed;
     top:12vh;
