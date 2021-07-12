@@ -24,12 +24,6 @@ html { height: 100%; overflow:auto; }
   }
 }
 
-/* @media screen and (max-width: 640px) {
-
-  body {
-    font-size:14px;
-  }
-} */
 
 
 .fixed_bottom {

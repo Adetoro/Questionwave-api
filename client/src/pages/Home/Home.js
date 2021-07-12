@@ -107,18 +107,13 @@ const Home = props => {
         <div  className="sm:w-12/12 mx-auto min-h-screen relative">
             <div id=" " className=" md:w-10/12 mx-auto sm:px-10 px-5  pb-20">
                 <div  className='flex w-full  pb-10  p-1 home_container md:space-x-2 max-w-full '>
-                    <div className="lg:w-6/12 text-left sm:pt-24 pt-16 ">
+                    <div className="lg:w-6/12 sm:pt-24 pt-16 ">
                         <div  className='lg:w-full  '>
                             <p className='sm:text-4xl sz35_text font-extrabold tracking-tighter leading-10'>The best way to take questions from your audience</p>
-                            <p className=' opacity-90 leading-6 mt-4 sz18_text'>Make your Q&A sessions faster. Or get questions ahead of your event. Share a question link with your audience.</p>
+                            
                         </div>
 
-                        <div className='space-y-2 lg:w-9/12 '>
-                            <p className='text-3xl font-extrabold tracking-tighter sm:mt-16 mt-12 leading-6 '>Get your question link</p>
-                            <p className=' opacity-70 leading-6 sz14_text '>No registration required, it’s 100% free and super-fast.</p>
-                        </div>
-
-                        <div className='pt-8 ' >
+                        <div className='pt-12 ' >
                             <p className=' lg:w-9/12  text-base font-bold text-dark_grey '>What’s the title of your event?</p>
                             
                             <div className='mt-2 mb-4 lg:w-9/12 '>
@@ -145,7 +140,7 @@ const Home = props => {
                                     </button>
                                 
                                     
-                                    <div id="errorMessage" className="error flex items-center text-base">
+                                    <div id="errorMessage" className="homepage_error flex items-center text-base">
                                         <div className="w-5 h-5 mr-5">
                                             <img alt='error' src={error_icon} />
                                         </div>
@@ -154,6 +149,14 @@ const Home = props => {
                                 </div>                            
                             </div>                                               
                         </div>
+
+                        <div className='space-y-2 lg:w-9/12 '>
+                            {/* <p className='text-3xl font-extrabold tracking-tighter sm:mt-16 mt-12 leading-6 '>Get your question link</p> */}
+                            <p className=' opacity-90 leading-6 mt-4 sz18_text'>Make your Q&A sessions faster, or get questions ahead of your event. Simply share a question link with your audience.</p>
+                            <p className=' opacity-70 leading-6 sz14_text '>No registration required, it’s 100% free and super-fast.</p>
+                        </div>
+
+                        
                         
                     </div>
 
