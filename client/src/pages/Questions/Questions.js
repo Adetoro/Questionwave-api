@@ -6,14 +6,12 @@ import QuestionList from '../../components/QuestionList';
 import './Questions.css';
 import message_icon from './message_icon.svg';
 
-const Questions = (props) => {
-
-    //RELOAD PAGE AFTER 1 MINUTE OF IDLENESS
+const Questions = (props) => {        
    
     //CHECK FOR USER INTERACTION AND RESET TIMER
-    // window.addEventListener("mousemove", ResetTimer);
-    // window.addEventListener("touchstart", ResetTimer);
-    // window.addEventListener("keydown", ResetTimer);
+    //  window.addEventListener("mousemove", ResetTimer);
+    //  window.addEventListener("touchstart", ResetTimer);
+    //  window.addEventListener("keydown", ResetTimer);
 
     //ROUTE TO HOMEPAGE
     function loadHome(){
@@ -30,16 +28,13 @@ const Questions = (props) => {
     const {setTitle,setLinkId} = props;
     const [i, seti] = useState(0);
 
-    const WAIT_TIME = 30000;
+   //COLLECT ID FROM URL - https://www.regextester.com/102550
+   const queryString = window.location.href;
+   const regex = "([a-z0-9_-]*[]?)$";
+   const found = queryString.match(regex);
+   const urlId = found[1]
 
-  useEffect(() => {
-    //COLLECT ID FROM URL - https://www.regextester.com/102550
-    const queryString = window.location.href;
-    const regex = "([a-z0-9_-]*[]?)$";
-    const found = queryString.match(regex);
-    const urlId = found[1]
-
-    const updateQuestions = setInterval(() => {
+    const updateQuestions = () => {
         //RE-INITIALIZE STATE ID, UPVOTE AND QUESTIONS TO EMPTY ARRAYS
         setQuestionId([]);
         setUpvotes([]);
@@ -85,15 +80,30 @@ const Questions = (props) => {
             console.log("");
             }
         })
-    }, WAIT_TIME);
-    return () => clearInterval(updateQuestions);
+    }
+
+  useEffect(() => {
+    
+
+    updateQuestions();
+    
+  
   }, [i]);
 
 
+    //RELOAD PAGE AFTER 1 MINUTE OF IDLENESS
+    // function ResetTimer() {
+    //     setTimeout(() => {
+    //         updateQuestions();
+    //     }, 30000);
+    // }
+    
  // IF THE TITLE IS VALID AND THERE IS AT LEAST 1 QUESTION
  //console.log( props.Title.length, Count);
   if ((props.Title.length > 2) && (Count > 0 ) ){
     return (
+
+       
 
         <div className="w-full ">
             <div className="md:w-10/12 mx-auto static pb-16 ">

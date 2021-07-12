@@ -24,6 +24,10 @@ function AskQuestion(props) {
         
     }
 
+    function reloadPage() {
+        seti(i => i + 1); 
+    }
+
     const handleKeypress = event => { 
         //it triggers by pressing the enter key
       if (event.key ===  'Enter') {
@@ -63,6 +67,7 @@ function AskQuestion(props) {
                 }       
             })
         }
+
     };
 
     return (
@@ -90,6 +95,10 @@ function AskQuestion(props) {
                             
                         </button>
                         
+                    </div>
+
+                    <div className="text-sm float-right border-gray rounded-lg text-gray" onClick={reloadPage}>
+                        reload page
                     </div>
 
                         <div id="errorMessage" className="error flex items-center sm:text-base sz14_text">

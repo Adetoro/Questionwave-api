@@ -99,6 +99,10 @@ const QuestionUnit = (props) => {
                         }
                     })
                    // console.log("session "+sessionStorage.clickcount, "questionId "+ questionId);
+
+                  
+                    document.getElementsByClassName("upvote_icon")[0].style.fill = "#1B7EDA";
+                   
                 }
             }       
     }
