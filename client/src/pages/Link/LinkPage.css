@@ -86,7 +86,9 @@ button[editext='edit-button']:hover, button[editext='cancel-button']:hover, butt
     height:3rem;
     visibility: hidden;
 }
-
+.sz12_text{
+    font-size: 0.75rem;
+  }
 .sz14_text{
     font-size: 0.875rem;
   }

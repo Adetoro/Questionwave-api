@@ -104,7 +104,7 @@ function AskQuestion(props) {
                             </svg>
                         </div>
                         <div className="sz12_text text-white ml-1">
-                            reload page
+                            reload questions
                         </div>
                     </div>
 
