@@ -32,7 +32,7 @@ function Footer() {
       <div className=" footer mx-auto bg-white ">
           <div className="md:w-10/12 mx-auto px-10  py-6 bg-white">
             <div className="flex  ">
-                <p className="pr-6 cursor-pointer" onClick={loadRequest}>Feature Request</p>
+                <p className="pr-6 cursor-pointer" onClick={loadRequest}>Request a feature </p>
                 <span className="pr-6  text-sm" >
                   <Mailto  email="support@questionwave.com" >
                     Support

@@ -46,20 +46,14 @@ const LinkPage = (props) => {
     }
 
     function handleCopy(event){
-       navigator.clipboard.writeText(DisplayLink);
+        navigator.clipboard.writeText(DisplayLink);
        
-    //    document.getElementById("linkCopied").style.display = "block";
-
-    const showSuccessMessage = document.getElementById("showSuccessMessage" );
-    
-    showSuccessMessage.style.visibility = "visible";
-    
-
-    setTimeout(() => {
-        showSuccessMessage.style.visibility = "hidden";
-    }, 1000);
-
-       
+        const showSuccessMessage = document.getElementById("showSuccessMessage" );    
+        showSuccessMessage.style.visibility = "visible";
+        
+        setTimeout(() => {
+            showSuccessMessage.style.visibility = "hidden";
+        }, 1000);
     }
 
 
@@ -114,11 +108,11 @@ const LinkPage = (props) => {
         return (
             <div className="min-h-screen relative">  
                 <div id="container" className="md:w-6/12 mx-auto sm:px-10 px-5 sm:py-28 py-16 ">
-                    <div className=" rounded-xl bg-light_green border border-green p-5 flex items-center">  
+                    <div className=" rounded-xl bg-light_green border border-green p-2 flex items-center">  
                         <div className="w-5 h-5 mr-5">
                         <img alt='success' src={success_icon} />
                         </div>
-                        <div className="sz12_text opacity-90">
+                        <div className="sz14_text opacity-90">
                             Great! Your your question link has been created. 
                         </div>
                     </div>

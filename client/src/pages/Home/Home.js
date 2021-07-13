@@ -150,7 +150,7 @@ const Home = props => {
                             </div>                                               
                         </div>
 
-                        <div className='space-y-2 lg:w-9/12 '>
+                        <div className='space-y-2 lg:w-9/12 mt-12'>
                             {/* <p className='text-3xl font-extrabold tracking-tighter sm:mt-16 mt-12 leading-6 '>Get your question link</p> */}
                             <p className=' opacity-90 leading-6 mt-4 sz18_text'>Make your Q&A sessions faster, or get questions ahead of your event. Simply share a question link with your audience.</p>
                             <p className=' opacity-70 leading-6 sz14_text '>No registration required, it’s 100% free and super-fast.</p>
