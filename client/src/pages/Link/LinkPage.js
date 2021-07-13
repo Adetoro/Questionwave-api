@@ -133,6 +133,13 @@ const LinkPage = (props) => {
                         </button> */}
                     </div>
 
+                    <div id="showSuccessMessage" className="successMessageStyle flex items-center m-2" >
+                        <div className="w-5 h-5 mr-5">
+                            <img alt='success' src={success_icon} />
+                        </div>
+                        <div>Link successfully copied!</div>
+                    </div>
+
                     <div className="mt-4 displayLink flex items-center cursor-pointer" onClick={handleCopy}>
                         {/* <input 
                             type="text" 
@@ -166,12 +173,7 @@ const LinkPage = (props) => {
                         
                         
                     </div>
-                    <div id="showSuccessMessage" className="successMessageStyle flex items-center text-base" >
-                        <div className="w-5 h-5 mr-5">
-                        <img alt='success' src={success_icon} />
-                            </div>
-                        <div>Link successfully copied!</div>
-                    </div>
+                    
                     {/* <div id="linkCopied" className="px-4 py-3 leading-normal text-green bg-light_green mt-6 border rounded-lg " role="alert">
                         <p className="text-center">Link successfully copied!</p>
                     </div> */}

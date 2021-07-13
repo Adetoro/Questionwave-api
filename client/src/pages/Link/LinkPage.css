@@ -84,11 +84,11 @@ button[editext='edit-button']:hover, button[editext='cancel-button']:hover, butt
     padding: .3rem;
     margin-top: 1rem;
     font-size: .75rem;
-    position: fixed;
-    top: 45%;
-    left: 15%;
-    right: 15%;
+    
+    left: 28%;
+    right: 28%;
     visibility: hidden;
+
 }
 .sz12_text{
     font-size: 0.75rem;
@@ -100,3 +100,11 @@ button[editext='edit-button']:hover, button[editext='cancel-button']:hover, butt
   .sz18_text{
     font-size: 1.125rem;
   }  
+
+  @media screen and (max-width: 1023px) {
+      
+    .successMessageStyle {
+        left: 25%;
+        right: 25%;
+    }
+  }
