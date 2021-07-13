@@ -133,7 +133,7 @@ const LinkPage = (props) => {
                         </button> */}
                     </div>
 
-                    <div id="showSuccessMessage" className="successMessageStyle flex items-center m-2" >
+                    <div id="showSuccessMessage" className="successMessageStyle flex items-center" >
                         <div className="w-5 h-5 mr-5">
                             <img alt='success' src={success_icon} />
                         </div>
@@ -160,7 +160,7 @@ const LinkPage = (props) => {
                         <div className="sm:w-1/2 pt-4">
                             <button className="blue_button text-xl font-bold focus:outline-none focus:ring focus:border-mid_blue"
                                 onClick={handleCopy}>
-                                Copy link
+                                Copy question link
                             </button>
                         </div>
 

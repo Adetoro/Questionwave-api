@@ -82,9 +82,7 @@ button[editext='edit-button']:hover, button[editext='cancel-button']:hover, butt
     border-radius: .3rem;
     color: #13b43d;
     padding: .3rem;
-    margin-top: 1rem;
     font-size: .75rem;
-    
     left: 28%;
     right: 28%;
     visibility: hidden;
