@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { useHistory} from "react-router-dom";
 
 import AskQuestion from '../../components/AskQuestion/AskQuestion';
 import QuestionList from '../../components/QuestionList';
@@ -7,7 +8,7 @@ import './Questions.css';
 import message_icon from './message_icon.svg';
 
 const Questions = (props) => {        
-   
+    let history = useHistory();
     //CHECK FOR USER INTERACTION AND RESET TIMER
     //  window.addEventListener("mousemove", ResetTimer);
     //  window.addEventListener("touchstart", ResetTimer);
@@ -15,8 +16,7 @@ const Questions = (props) => {
 
     //ROUTE TO HOMEPAGE
     function loadHome(){
-        const homeReq = window.open(`/`);
-        homeReq.focus();
+        history.push(`/`);
       }
 
     //INITIALIZE STATE

@@ -1,11 +1,11 @@
 import React from 'react';
+import { useHistory} from "react-router-dom";
 
 const ErrorComponent = () => {
- 
+  let history = useHistory();
 
   function loadHome(){
-    const homeReq = window.open(`/`);
-    homeReq.focus();
+    history.push(`/`); 
   }
 
   return (

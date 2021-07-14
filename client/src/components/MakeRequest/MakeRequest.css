@@ -34,10 +34,22 @@ button.ask_button:focus {
 
 button.ask_button:hover {
     transform: scale(1.1);
-
-    
 }
 
 .sz14_text {
     font-size: .875rem;
+}
+
+.request_error{
+    font-size: 0.75rem;
+      border-radius: 0.5rem;
+      color: rgb(207, 6, 46);
+      position: fixed;
+      bottom: 2rem;
+      right: 15%;
+      left:15%;
+      background: rgb(244, 244, 244);
+      border: 1px solid rgb(204, 204, 204);
+      padding: 0.3rem;
+      visibility: hidden;
 }

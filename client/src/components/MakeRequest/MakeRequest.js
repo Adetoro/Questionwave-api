@@ -86,7 +86,7 @@ function MakeRequest(props) {
                         
                     </div>
 
-                        <div id="errorMessage" className="error flex items-center sm:text-base sz14_text">
+                        <div id="errorMessage" className="request_error flex items-center sm:text-base sz14_text">
                             <div className="w-5 h-5 mr-5">
                                 <img alt="error" src={error_icon}/>
                             </div>

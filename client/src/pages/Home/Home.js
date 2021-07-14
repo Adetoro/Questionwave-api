@@ -45,7 +45,6 @@ const Home = props => {
     function handleSubmit(event) {
         var updatedLink;
         
-
         let titleLength = props.Title.length;
 
         if (titleLength < 3){
@@ -54,7 +53,7 @@ const Home = props => {
 
             setTimeout(() => {
                 errorMessage.style.visibility = "hidden";
-            }, 5000);
+            }, 4000);
         }
         else {
             fetch('/home') 

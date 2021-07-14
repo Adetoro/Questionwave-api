@@ -64,7 +64,6 @@ const LinkPage = (props) => {
         body: JSON.stringify({
             title: props.Title,
             id: props.LinkId,
-            
         })
         })
         .then(response => response.json())

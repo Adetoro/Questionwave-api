@@ -19,7 +19,7 @@ function AskQuestion(props) {
         setTimeout(() => {
             window.scroll({top: 90000000000000000000000000000000, left: 0, behavior: 'smooth' });
             console.log("scroll");
-        },4000);
+        },3000);
     }
 
     function handleCopy(event){
@@ -47,7 +47,7 @@ function AskQuestion(props) {
             errorMessage.style.visibility = "visible";
             setTimeout(() => {
                 errorMessage.style.visibility = "hidden";
-            }, 5000);
+            }, 4000);
         }
 
         else{

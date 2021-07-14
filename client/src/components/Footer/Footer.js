@@ -1,7 +1,10 @@
+import { useHistory} from "react-router-dom";
+
 import twitter from './twitter.svg';
 import './footer.css';
 
 function Footer() {
+  let history = useHistory();
 
   function Mailto({ email, subject, body, ...props }) {
     return (
@@ -17,13 +20,11 @@ function Footer() {
   }
 
   function loadRequest(){
-    const featureReq = window.open(`/feature-requests`, "_blank");
-    featureReq.focus();
+    history.push(`/Feature-requests`);
   }
 
   function loadLegal(){
-    const legalReq = window.open(`/Legal`, "_blank");
-    legalReq.focus();
+    history.push(`/Legal`);
   }
   
               
