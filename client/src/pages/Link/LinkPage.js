@@ -53,7 +53,7 @@ const LinkPage = (props) => {
         
         setTimeout(() => {
             showSuccessMessage.style.visibility = "hidden";
-        }, 1000);
+        }, 5000);
     }
 
 

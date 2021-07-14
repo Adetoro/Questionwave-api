@@ -47,7 +47,7 @@ function AskQuestion(props) {
             errorMessage.style.visibility = "visible";
             setTimeout(() => {
                 errorMessage.style.visibility = "hidden";
-            }, 3000);
+            }, 5000);
         }
 
         else{

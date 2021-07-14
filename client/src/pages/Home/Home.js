@@ -54,7 +54,7 @@ const Home = props => {
 
             setTimeout(() => {
                 errorMessage.style.visibility = "hidden";
-            }, 1000);
+            }, 5000);
         }
         else {
             fetch('/home') 
@@ -98,7 +98,7 @@ const Home = props => {
                         }
                     });
                 })
-            }, 1800);
+            }, 3000);
         }
     }
       
