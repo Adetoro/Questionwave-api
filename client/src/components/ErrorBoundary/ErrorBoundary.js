@@ -1,11 +1,11 @@
 import React from 'react';
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const ErrorComponent = () => {
   let history = useHistory();
 
   function loadHome(){
-    history.push(`/`); 
+    window.location = 'https://www.questionwave.com/'; 
   }
 
   return (

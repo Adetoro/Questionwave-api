@@ -8,10 +8,7 @@ import Legal from './pages/Legal/Legal';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 
-import {
-  BrowserRouter as Router,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import './App.css';
 
 
@@ -60,13 +57,10 @@ function App () {
     
       
       <Router>
-        {/* <p>Title: {Title}</p>
-        <p>LinkId: {LinkId}</p> */}
-      <ErrorBoundary>
+        <ErrorBoundary>
         <Header/>
-        
         <Switch>
-          
+        
         <Home 
           exact path='/' 
           Title={Title} 
@@ -92,8 +86,7 @@ function App () {
           Title={Title} 
           setTitle={setTitle}
           setLinkId={setLinkId}
-          LinkId={LinkId}
-           />                       
+          LinkId={LinkId}/>                        
 
         <FeatureRequests 
           path='/Feature-requests'
