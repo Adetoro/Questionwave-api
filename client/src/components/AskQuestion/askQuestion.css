@@ -81,9 +81,8 @@ button.ask_button:hover {
     color: #13b43d;
     padding: .3rem;
     position: fixed;
-    bottom: 2rem;
-    left: 28%;
-    right: 28%;
+    bottom: 3rem;
+    
     visibility: hidden;
     -webkit-border-radius: .3rem;
     -moz-border-radius: .3rem;
