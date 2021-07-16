@@ -6,6 +6,7 @@ import Questions from './pages/Questions/Questions';
 import FeatureRequests from './pages/FeatureRequests/FeatureRequests';
 import Legal from './pages/Legal/Legal';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import Admin from './pages/Admin/Admin';
 
 
 import { BrowserRouter as Router, Switch } from "react-router-dom";
@@ -97,6 +98,9 @@ function App () {
 
           <Legal 
           path='/legal' />
+
+          <Admin 
+          path='/Admin' />
         </Switch>
         
         </ErrorBoundary>

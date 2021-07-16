@@ -178,6 +178,17 @@ app.put('/api/q/:id', (req, res) => {
   .catch(err => res.status(400).json("unable update upvote"))
 });
 
+// ADMIN: GET ALL CREATED LINKS AND TITLES  
+app.get('/api/admin/', (req, res) => {
+  let id = req.params.linkId;
+  db.from('identify')
+  .select('linkid','title')
+  .then(response => {
+      res.json(response)
+  })
+  .catch(err => res.status(400).json("unable to get title"))
+})
+
 //CATCH INVALID URL ENTRIES
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
