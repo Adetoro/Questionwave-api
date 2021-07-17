@@ -78,7 +78,7 @@ const LinkPage = (props) => {
         })
         
     }
-    let DisplayLink = `https://questionwave.com/q/${props.LinkId}`;
+    let DisplayLink = `https://www.questionwave.com/q/${props.LinkId}`;
 
     if (props.LinkId === 0){
         return (

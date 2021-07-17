@@ -20,11 +20,11 @@ function Footer() {
   }
 
   function loadRequest(){
-    history.push(`/Feature-requests`);
+    history.push(`/feature-requests`);
   }
 
   function loadLegal(){
-    history.push(`/Legal`);
+    history.push(`/legal`);
   }
   
               

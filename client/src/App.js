@@ -90,7 +90,7 @@ function App () {
           LinkId={LinkId}/>                        
 
         <FeatureRequests 
-          path='/Feature-requests'
+          path='/feature-requests'
           Title={Title} 
           setTitle={setTitle}
           setLinkId={setLinkId}
@@ -100,7 +100,7 @@ function App () {
           path='/legal' />
 
           <Admin 
-          path='/Admin' />
+          path='/admin' />
         </Switch>
         
         </ErrorBoundary>
