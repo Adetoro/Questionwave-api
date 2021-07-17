@@ -13,7 +13,7 @@ const Legal = (props) => {
         return (
             <div id="container" className="md:w-10/12 mx-auto px-10 py-12">
                 <div className="text-4xl font-semibold text-center">
-                     Terms of use
+                Terms of use
                 </div>
                 <div className="pt-3 text-base font-normal space-y-4 legalterms ">
                      <p>Welcome to Questionwave. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Questionwave's relationship with you in relation to this website.</p>
@@ -38,7 +38,7 @@ const Legal = (props) => {
                	
 
                 <p><span>If you have any questions about this policy, please contact us via email at</span> <Mailto  email="support@questionwave.com" >
-                support@questionwave.com
+                 support@questionwave.com. 
                   </Mailto> </p>
 
                 </div>
