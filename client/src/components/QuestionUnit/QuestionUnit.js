@@ -139,7 +139,7 @@ const QuestionUnit = (props) => {
                         <div id="result"></div>
                     </div>
 
-                    <span className=" text-lg  md:w-11/12 sm:w-11/12 w-10/12">
+                    <span className="questionContent text-lg  md:w-11/12 sm:w-11/12 w-10/12">
                     {questionContent} 
                     </span>
                                     

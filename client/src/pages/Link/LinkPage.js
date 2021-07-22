@@ -106,7 +106,7 @@ const LinkPage = (props) => {
     else {
         return (
             <div className="min-h-screen relative">  
-                <div id="container" className="md:w-6/12 mx-auto sm:px-10 px-5 sm:py-28 py-16 ">
+                <div id="container" className="md:w-4/5 mx-auto sm:px-10 px-5 sm:py-28 py-16 ">
                     <div className=" rounded-xl bg-light_green border border-green p-2 flex items-center">  
                         <div className="w-5 h-5 mr-5">
                         <img alt='success' src={success_icon} />
@@ -132,7 +132,7 @@ const LinkPage = (props) => {
                         </button> */}
                     </div>
 
-                    <div id="showSuccessMessage" className="successMessageStyle flex items-center" >
+                    <div id="showSuccessMessage" className="successMessageStyle flex items-center w-full md:w-1/2" >
                         <div className="w-5 h-5 mr-5">
                             <img alt='success' src={success_icon} />
                         </div>
@@ -151,7 +151,7 @@ const LinkPage = (props) => {
                             <div className="w-5 h-5 mr-5 ">
                                 <img alt='link' src={link_icon} />
                             </div>
-                            <div>{DisplayLink}</div>
+                            <div className="linkDetails">{DisplayLink}</div>
                             
                     </div>
 

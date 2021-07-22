@@ -76,6 +76,11 @@ button[editext='edit-button']:hover, button[editext='cancel-button']:hover, butt
     -o-border-radius: 0.5rem;
 }
 
+.linkDetails{
+    width: 85%;
+    word-wrap: break-word;
+}
+
 .successMessageStyle {
     background-color: #f4f4f4;
     border: 1px solid #ccc;

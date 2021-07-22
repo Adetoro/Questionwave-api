@@ -50,6 +50,10 @@ button.upvoteButton:focus {
     animation-name: popSwing; 
 }
 
+.questionContent{
+    word-wrap: break-word;
+}
+
 @keyframes popSwing {
     0% {
         opacity: 0;
