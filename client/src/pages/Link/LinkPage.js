@@ -82,7 +82,7 @@ const LinkPage = (props) => {
 
     if (props.LinkId === 0){
         return (
-            <div id="container" className="md:w-4/5 mx-auto mt-10 px-10 py-28">
+            <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
                 <div className="text-4xl font-semibold text-center">
                      Oops!
                 </div>
@@ -106,7 +106,7 @@ const LinkPage = (props) => {
     else {
         return (
             <div className="min-h-screen relative">  
-                <div id="container" className="md:w-6/12 mx-auto sm:px-10 px-5 sm:py-28 py-16 ">
+                <div id="container" className="md:w-4/5 mx-auto sm:px-10 px-5 sm:py-28 py-16 ">
                     <div className=" rounded-xl bg-light_green border border-green p-2 flex items-center">  
                         <div className="w-5 h-5 mr-5">
                         <img alt='success' src={success_icon} />
