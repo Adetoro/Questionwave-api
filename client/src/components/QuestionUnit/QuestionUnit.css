@@ -49,6 +49,10 @@ button.upvoteButton:focus {
     animation-duration: 2s;
     animation-name: popSwing; 
 }
+.questionContent{
+  
+    word-wrap: break-word;
+}
 
 @keyframes popSwing {
     0% {

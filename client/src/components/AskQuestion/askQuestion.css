@@ -46,8 +46,9 @@ button.ask_button:hover {
 }
 
 .reload_button {
-    padding: 0.25rem 0.313rem;
-    background-color: #1B7EDA;
+    padding: 0.25rem 0.6rem;
+    color: #1B7EDA;
+    border: 1px solid #1B7EDA;
     margin: 1.5rem 0.2rem 0rem 0rem;
 }
 

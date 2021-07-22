@@ -151,7 +151,7 @@ const LinkPage = (props) => {
                             <div className="w-5 h-5 mr-5 ">
                                 <img alt='link' src={link_icon} />
                             </div>
-                            <div>{DisplayLink}</div>
+                            <div className="linkDetails">{DisplayLink}</div>
                             
                     </div>
 
