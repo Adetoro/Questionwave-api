@@ -53,8 +53,8 @@ const Admin = () => {
         .then(response => response.json())
         .then(data => {
             if(data){
-              totalQ =data.length;
-                console.log('from admin ' + data)
+              totalQ =data;
+                console.log('table 2 ' + data)
             }
                
              

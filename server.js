@@ -198,7 +198,8 @@ app.get('/api/admin/', (req, res) => {
 // ADMIN: GET INFO FROM QUESTIONDETAILS 
 app.get('/api/admin/table2', (req, res) => {
   
-  db.select('*')
+  db.select('linkid')
+  .count('linkid')
   .from('questiondetails')
   .whereNot({question: ''})
   .then(response => {

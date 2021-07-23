@@ -15,7 +15,7 @@ const AdminUnit = (props) => {
         <div  className="my-9">
             <div className=" md:px-10 px-6 py-5 bg-white rounded-2xl h-auto flex items-center space-x-1.5  ">
                 
-                <div className=" w-2/12 cellContent adminTableTitle text-blue underline" onClick={visitPage}>                                    
+                <div className=" w-2/12 cellContent adminTableTitle text-blue underline pointer" onClick={visitPage}>                                    
                     {AdminLinkid} 
                 </div>
 
