@@ -36,7 +36,7 @@ const Admin = () => {
                         
                     }
                
-              //console.log('from admin ' + data)
+              console.log('from admin ' + data)
             }
         })
         .catch(err => console.log('unable to retrive data'));
@@ -44,7 +44,7 @@ const Admin = () => {
 
     useEffect(() => {
         updateAdmin();
-    }, [n]);
+    }, []);
     
         return (
             <div>
