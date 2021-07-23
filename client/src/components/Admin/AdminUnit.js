@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdminUnit = (props) => {
-    let {AdminTitle, AdminLinkid, AdminDate} = props;
+    let {AdminTitle, AdminLinkid, AdminDate, NumQtn} = props;
 
     function visitPage(){
         const win = window.open(`https://www.questionwave.com/q/${AdminLinkid}`, "_blank");
@@ -24,7 +24,7 @@ const AdminUnit = (props) => {
                 </div>
 
                 <div className="md:w-1/12 w-2/12 cellContent adminTableTitle">
-                    3
+                    {NumQtn}
                 </div>
 
                 <div className="w-3/12 adminTableTitle break-all">

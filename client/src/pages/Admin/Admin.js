@@ -13,8 +13,9 @@ const Admin = () => {
     const [AdminId,  setAdminId] =useState([]);
     const [AdminTot,  setAdminTot] =useState([]);
     let n;
-
-
+    const [NumQtn,  setNumQtn] =useState([]);
+    const [TotalQ,  setTotalQ] =useState([]);
+    
 
     const updateAdmin = () => {
         
@@ -44,13 +45,10 @@ const Admin = () => {
         .catch(err => console.log('unable to retrive data'));
     }
 
-    const [NumQtn,  setNumQtn] =useState([]);
-    const [TotalQ,  setTotalQ] =useState([]);
-    
+   
 
     const getFromQuestionDetails = () => {
         
-        setNumQtn([]);
 
         fetch('/api/admin/table2') 
         .then(response => response.json())
@@ -59,21 +57,23 @@ const Admin = () => {
               setTotalQ(data.length);
                 //console.log('table 2 ' + data)
             }
-               
-             
         })
         .catch(err => console.log('unable to retrive data'));
     }
 
     const getQuestionCount = () => {
-        
-        
+        setNumQtn([]);
 
         fetch('/api/admin/bylink') 
         .then(response => response.json())
         .then(data => {
             if(data){
-             
+                let l = data.length
+
+                for (let i=0; i<l; i++){
+                    //SET STATE ARRAY WITH DATA FROM DATABASE
+                    setNumQtn(NumQtn => [...NumQtn,data[i].count])
+                }
                 console.log('number og questions bylink ' + data)
             }
                
@@ -132,6 +132,7 @@ const Admin = () => {
                     AdminLinkid={AdminLinkid} 
                     AdminDate={AdminDate} 
                     AdminId={AdminId} 
+                    NumQtn={NumQtn}
                     n={n}
       
                         />   

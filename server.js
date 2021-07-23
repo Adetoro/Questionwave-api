@@ -219,6 +219,7 @@ app.get('/api/admin/bylink', (req, res) => {
   .count('*')
   .from('questiondetails')
   .groupBy('linkid')
+  .orderBy('linkid', 'desc')
   .then(response => {
     if(response){
       res.json(Object.values(response))
