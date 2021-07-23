@@ -181,9 +181,8 @@ app.put('/api/q/:id', (req, res) => {
 // ADMIN: GET ALL CREATED LINKS AND TITLES  
 app.get('/api/admin/', (req, res) => {
   
-  db.from('identify')
-  .join('questiondetails', 'identify.linkid', '=', 'questiondetails.linkid')
-  .returning('title','linkid','created','question')
+  db.select('title','linkid','created')
+  .from('identify')
   .orderBy('created', 'desc')
   .then(response => {
     if(response){
