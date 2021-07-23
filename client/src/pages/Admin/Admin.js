@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer';
 
 
 const Admin = (props) => {
-    const Showme =[];
+   let Showme =[];
 
     useEffect(( ) => {
         fetch('/api/admin/') 
@@ -19,12 +19,12 @@ const Admin = (props) => {
               //console.log('from home linkid ' + LinkId, Title)
             }
         })
-        .catch(err => console.log('err'));
-    }, []);
+        .catch(err => console.log('erroe retriving data'));
+    });
     
         return (
-            <div id="container" className="md:w-6/12 mx-auto mt-10 px-10 py-28">
-                <div className="text-4xl font-semibold text-center">
+            <div id="container" className="md:w-4/5 mx-auto px-10 py-28">
+                <div className="text-xs ">
                      
                      {Showme}
                 </div>
