@@ -24,18 +24,11 @@ const Admin = () => {
             if(data){
                 n = data.length;
                     for (let i=0; i<=n; i++){
-                        if (data[i].title !== null) {
-                            //console.log("so true " + i );
-                            //SET STATE ARRAY WITH DATA FROM DATABASE
-                            setAdminTitle(AdminTitle => [...AdminTitle,data[i].title])
-                            setAdminLinkid(AdminLinkid => [...AdminLinkid,data[i].linkid])
-                            setAdminDate(AdminDate => [...AdminDate,data[i].created]);
-                        }
-                        else{
-                            console.log(" ");
-                        }
-                    }
-               
+                        //SET STATE ARRAY WITH DATA FROM DATABASE
+                        setAdminTitle(AdminTitle => [...AdminTitle,data[i].title])
+                        setAdminLinkid(AdminLinkid => [...AdminLinkid,data[i].linkid])
+                        setAdminDate(AdminDate => [...AdminDate,data[i].created]);
+                    }               
               //console.log('from admin ' + data)
             }
         })
@@ -45,14 +38,10 @@ const Admin = () => {
     
     
         return (
-            <div>
-                <AdminList 
-                    AdminTitle={AdminTitle} 
-                    AdminLinkid={AdminLinkid} 
-                    AdminDate={AdminDate}  
-                    n={n}
-      
-                        />   
+            <div className='md:w-4/5 mx-auto px-10 py-28'>
+                test
+                {AdminTitle} 
+                     
             </div>
                 
         );

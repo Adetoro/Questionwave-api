@@ -14,11 +14,11 @@ const AdminUnit = (props) => {
             <div className=" md:px-10 px-6 py-5 bg-white rounded-2xl h-auto flex items-center space-x-4 select-none ">
                 
                 <div className=" w-1/12 cellContent ">                                    
-                    {AdminLinkid}
+                    {AdminLinkid} link
                 </div>
 
                 <div className="md:w-6/12 w-5/12 cellContent">
-                    {AdminTitle}
+                    {AdminTitle} title
                 </div>
 
                 <div className="md:w-2/12 w-2/12 cellContent">
