@@ -216,7 +216,8 @@ app.get('/api/admin/table2', (req, res) => {
 app.get('/api/admin/bylink', (req, res) => {
   
   db('questiondetails')
-  .count('linkid')
+  .whereNot({question: ''})
+  .groupBy('linkid')
   .then(response => {
     if(response){
       res.json(Object.values(response))
