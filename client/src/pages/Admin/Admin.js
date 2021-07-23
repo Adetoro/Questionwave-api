@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { withRouter, useHistory} from "react-router-dom";
 import "./Admin.css";
 
-import Footer from '../../components/Footer/Footer';
+import AdminList from '../../components/Admin/AdminList';
 //import TestError from './../../TestError';
 
 
@@ -12,11 +12,13 @@ const Admin = (props) => {
     const [AdminDate,  setAdminDate] =useState([]);
     let n;
 
-    // setAdminTitle([]);
-    // setAdminLinkid([]);
-    // setAdminDate([]);
+   
 
-    useEffect(( ) => {
+    const updateAdmin = () => {
+        setAdminTitle([]);
+        setAdminLinkid([]);
+        setAdminDate([]);
+
         fetch('/api/admin/') 
         .then(response => response.json())
         .then(data => {
@@ -39,21 +41,21 @@ const Admin = (props) => {
             }
         })
         .catch(err => console.log('unable to retrive data'));
-    },[]);
+    }
+
+    useEffect(() => {
+        updateAdmin();
+    }, []);
     
         return (
-            <div id="container" className="md:w-4/5 mx-auto px-10 py-28">
-                Number of question links created = {n}
-                <div className="text-xs ">
-                     {AdminTitle}
-                     
-                </div>
-                <div className="text-xs ">
-                    {AdminLinkid}
-                     {AdminDate}
-                </div>
-             
-              
+            <div>
+                <AdminList 
+                    AdminTitle={AdminTitle} 
+                    AdminLinkid={AdminLinkid} 
+                    AdminDate={AdminDate}  
+                    n={n}
+      
+                        />   
             </div>
                 
         );

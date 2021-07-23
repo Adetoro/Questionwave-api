@@ -1,0 +1,5 @@
+.cellContent{
+    word-wrap: break-word;
+    padding: .5rem;
+    border-right: 1px solid #ccc;
+}
