@@ -24,13 +24,16 @@ const Admin = () => {
             if(data){
                 n = data.length;
                     for (let i=0; i<=n; i++){
-                        
+                        if (data[i].title !== null) {
                             //console.log("so true " + i );
                             //SET STATE ARRAY WITH DATA FROM DATABASE
                             setAdminTitle(AdminTitle => [...AdminTitle,data[i].title])
                             setAdminLinkid(AdminLinkid => [...AdminLinkid,data[i].linkid])
                             setAdminDate(AdminDate => [...AdminDate,data[i].created]);
-                        
+                        }
+                        else{
+                            console.log(" ");
+                        }
                     }
                
               //console.log('from admin ' + data)
