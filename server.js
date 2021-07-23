@@ -180,13 +180,20 @@ app.put('/api/q/:id', (req, res) => {
 
 // ADMIN: GET ALL CREATED LINKS AND TITLES  
 app.get('/api/admin/', (req, res) => {
-  let id = req.params.linkId;
-  db.from('identify')
-  .select('linkid','title')
+  
+  db.select('*')
+  .from('identify')
+  .join('questiondetails', 'identify.linkid', '=', 'questiondetails.linkid')
+
   .then(response => {
+    if(response){
       res.json(response)
+    }
+    else{
+      res.status(400).json('question details not found')
+    }
   })
-  .catch(err => res.status(400).json("unable to get title"))
+  .catch(err => res.status(400).json("unable to get question info"))
 })
 
 //CATCH INVALID URL ENTRIES
