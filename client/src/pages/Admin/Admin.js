@@ -12,9 +12,8 @@ const Admin = (props) => {
     const [AdminDate,  setAdminDate] =useState([]);
     let n;
 
-   
-
     const updateAdmin = () => {
+        
         setAdminTitle([]);
         setAdminLinkid([]);
         setAdminDate([]);
@@ -24,7 +23,7 @@ const Admin = (props) => {
         .then(data => {
             if(data){
                 n = data.length;
-                    for (let i=0; i<n; i++){
+                    for (let i=0; i<=n; i++){
                         if (data[i].question !== null) {
                             //console.log("so true " + i );
                             //SET STATE ARRAY WITH DATA FROM DATABASE
@@ -45,7 +44,7 @@ const Admin = (props) => {
 
     useEffect(() => {
         updateAdmin();
-    }, []);
+    }, [n]);
     
         return (
             <div>

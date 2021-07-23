@@ -83,11 +83,7 @@ const Questions = (props) => {
     }
 
   useEffect(() => {
-    
-
-    updateQuestions();
-    
-  
+     updateQuestions();
   }, [Update]);
 
 
