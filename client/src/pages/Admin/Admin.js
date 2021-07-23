@@ -89,8 +89,8 @@ const Admin = () => {
                     </div> */}
 
                 </div>
-                <div  className="mt-9 mb-3 text-xs">
-                    <div className=" md:px-10 px-6  h-auto flex font-extrabold items-center space-x-1.5 ">
+                <div  className="mt-9  text-xs">
+                    <div className=" md:px-10 px-2 h-auto flex font-semibold items-center space-x-1.5 ">
                         
                         <div className="  w-2/12 cellContent adminTableTitle">                                    
                                 LINKID

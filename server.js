@@ -212,6 +212,22 @@ app.get('/api/admin/table2', (req, res) => {
   .catch(err => res.status(400).json("unable to get question info"))
 })
 
+// ADMIN: GET NUMBER OF QUESTIONS FOR EACH LINK 
+app.get('/api/admin/bylink', (req, res) => {
+  
+  db('questiondetails')
+  .count('linkid')
+  .then(response => {
+    if(response){
+      res.json(Object.values(response))
+    }
+    else{
+      res.status(400).json('question details not found')
+    }
+  })
+  .catch(err => res.status(400).json("unable to get question info"))
+})
+
 //CATCH INVALID URL ENTRIES
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
