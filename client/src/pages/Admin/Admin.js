@@ -10,7 +10,7 @@ const Admin = (props) => {
     const Showme =[];
 
     useEffect(( ) => {
-        fetch(/api/admin/') 
+        fetch('/api/admin/') 
         .then(response => response.json())
         .then(data => {
             if(data){
