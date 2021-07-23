@@ -217,6 +217,8 @@ app.get('/api/admin/bylink', (req, res) => {
   
   db('questiondetails')
   .groupBy('linkid')
+  .orderBy('linkid', 'desc')
+  .havingNotNull('question')
   .then(response => {
     if(response){
       res.json(Object.values(response))

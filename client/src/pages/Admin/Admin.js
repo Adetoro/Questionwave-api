@@ -65,9 +65,27 @@ const Admin = () => {
         .catch(err => console.log('unable to retrive data'));
     }
 
+    const getQuestionCount = () => {
+        
+        
+
+        fetch('/api/admin/bylink') 
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+             
+                console.log('table 2 ' + data)
+            }
+               
+             
+        })
+        .catch(err => console.log('unable to retrive data'));
+    }
+
     useEffect(() => {
         updateAdmin();
         getFromQuestionDetails();
+        getQuestionCount();
     }, []);
     
         return (
