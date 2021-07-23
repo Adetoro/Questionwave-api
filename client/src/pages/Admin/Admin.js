@@ -10,14 +10,18 @@ const Admin = (props) => {
     const [AdminTitle,  setAdminTitle] =useState([]);
     const [AdminLinkid,  setAdminLinkid] =useState([]);
     const [AdminDate,  setAdminDate] =useState([]);
+    let n;
 
+    // setAdminTitle([]);
+    // setAdminLinkid([]);
+    // setAdminDate([]);
 
     useEffect(( ) => {
         fetch('/api/admin/') 
         .then(response => response.json())
         .then(data => {
             if(data){
-                let n = data.length;
+                n = data.length;
                     for (let i=0; i<n; i++){
                         if (data[i].question !== null) {
                             //console.log("so true " + i );
@@ -30,22 +34,23 @@ const Admin = (props) => {
                             console.log(" ");
                         }
                     }
-               console.log('from admin ' + data)
-              //console.log('from home linkid ' + LinkId, Title)
+               
+              //console.log('from admin ' + data)
             }
         })
         .catch(err => console.log('unable to retrive data'));
-    });
+    },[]);
     
         return (
             <div id="container" className="md:w-4/5 mx-auto px-10 py-28">
+                Number of question links created = {n}
                 <div className="text-xs ">
                      {AdminTitle}
-                     {AdminLinkid}
-                     {AdminDate}
-                </div>
-                <div className="pt-3 text-base font-normal text-center">
                      
+                </div>
+                <div className="text-xs ">
+                    {AdminLinkid}
+                     {AdminDate}
                 </div>
              
               
