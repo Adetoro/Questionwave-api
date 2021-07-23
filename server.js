@@ -187,7 +187,7 @@ app.get('/api/admin/', (req, res) => {
   .orderBy('created', 'desc')
   .then(response => {
     if(response){
-      res.json(response)
+      res.json(Object.values(response))
     }
     else{
       res.status(400).json('question details not found')

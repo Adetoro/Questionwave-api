@@ -19,7 +19,7 @@ const Admin = (props) => {
               //console.log('from home linkid ' + LinkId, Title)
             }
         })
-        .catch(err => console.log('erroe retriving data'));
+        .catch(err => console.log('unable to retrive data'));
     });
     
         return (
