@@ -74,7 +74,7 @@ const Admin = () => {
         .then(data => {
             if(data){
              
-                console.log('table 2 ' + data)
+                console.log('number og questions bylink ' + data)
             }
                
              

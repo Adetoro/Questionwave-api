@@ -215,10 +215,10 @@ app.get('/api/admin/table2', (req, res) => {
 // ADMIN: GET NUMBER OF QUESTIONS FOR EACH LINK 
 app.get('/api/admin/bylink', (req, res) => {
   
-  db('questiondetails')
+  db.select('linkid')
+  .count('*')
+  .from('questiondetails')
   .groupBy('linkid')
-  .orderBy('linkid', 'desc')
-  .havingNotNull('question')
   .then(response => {
     if(response){
       res.json(Object.values(response))
