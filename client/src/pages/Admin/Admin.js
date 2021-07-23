@@ -6,13 +6,13 @@ import AdminList from '../../components/Admin/AdminList';
 //import TestError from './../../TestError';
 
 
-const Admin = (props) => {
+const Admin = () => {
     const [AdminTitle,  setAdminTitle] =useState([]);
     const [AdminLinkid,  setAdminLinkid] =useState([]);
     const [AdminDate,  setAdminDate] =useState([]);
     let n;
 
-    const updateAdmin = () => {
+    useEffect(() => {
         
         setAdminTitle([]);
         setAdminLinkid([]);
@@ -40,11 +40,9 @@ const Admin = (props) => {
             }
         })
         .catch(err => console.log('unable to retrive data'));
-    }
+    }, []);
 
-    useEffect(() => {
-        updateAdmin();
-    }, [n]);
+    
     
         return (
             <div>
