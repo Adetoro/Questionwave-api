@@ -19,7 +19,7 @@ const Home = props => {
               let dbLink = data;
               setLinkId(dbLink);
               setTitle("");
-               console.log('from home data ' + data)
+               //console.log('from home data ' + data)
               //console.log('from home linkid ' + LinkId, Title)
             }
         })

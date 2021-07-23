@@ -183,8 +183,6 @@ app.get('/api/admin/', (req, res) => {
   
   db.select('*')
   .from('identify')
-  .join('questiondetails', 'identify.linkid', '=', 'questiondetails.linkid')
-
   .then(response => {
     if(response){
       res.json(response)

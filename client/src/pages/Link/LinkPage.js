@@ -19,7 +19,7 @@ const LinkPage = (props) => {
         // const found = queryString.match(regex);
         // const urlId = found[1]
 
-        console.log("props linkid " + props.LinkId)
+        //console.log("props linkid " + props.LinkId)
         if (props.LinkId !== 0){
             fetch(`/api/link/${props.LinkId}`)
             .then(response => response.json())
