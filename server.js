@@ -198,11 +198,12 @@ app.get('/api/admin/', (req, res) => {
 // ADMIN: GET INFO FROM QUESTIONDETAILS 
 app.get('/api/admin/table2', (req, res) => {
   
-  db.select('linkid')
-  .from('questiondetails')
+  db('questiondetails')
+  .whereNot({question: ''})
+  .select('linkid')
   .then(response => {
     if(response){
-      res.json(response)
+      res.json(Object.values(response))
     }
     else{
       res.status(400).json('question details not found')

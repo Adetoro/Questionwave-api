@@ -57,7 +57,7 @@ const Admin = () => {
         .then(data => {
             if(data){
               setTotalQ(data.length);
-                console.log('table 2 ' + data)
+                //console.log('table 2 ' + data)
             }
                
              
