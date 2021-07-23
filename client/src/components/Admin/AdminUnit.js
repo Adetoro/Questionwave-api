@@ -4,12 +4,8 @@ const AdminUnit = (props) => {
     let {AdminTitle, AdminLinkid, AdminDate} = props;
 
     return (
-        <div id="container" className="md:w-4/5 mx-auto px-10 py-28">
-        <div className="space-y-4 text-gray font-extrabold">
-            <div>TOTAL NUMBER OF QUESTIONS LINKS CREATED <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
-            <div>TOTAL NUMBER OF QUESTIONS ASKED  <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
-            <div>LINK WITH MOST QUESTIONS  <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
-        </div>
+        <div>
+        
 
         <div  className="my-9">
             <div className=" md:px-10 px-6 py-5 bg-white rounded-2xl h-auto flex items-center space-x-4 select-none ">

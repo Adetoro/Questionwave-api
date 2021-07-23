@@ -45,7 +45,12 @@ const Admin = () => {
     }, []);
     
         return (
-            <div>
+            <div  id="container" className="md:w-4/5 mx-auto px-10 py-28">
+                <div className="space-y-4 text-gray font-extrabold">
+                    <div>TOTAL NUMBER OF QUESTIONS LINKS CREATED <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
+                    <div>TOTAL NUMBER OF QUESTIONS ASKED  <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
+                    <div>LINK WITH MOST QUESTIONS  <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
+                </div>
                 <AdminList 
                     AdminTitle={AdminTitle} 
                     AdminLinkid={AdminLinkid} 
