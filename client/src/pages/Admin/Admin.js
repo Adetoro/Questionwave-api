@@ -72,7 +72,7 @@ const Admin = () => {
 
                 for (let i=0; i<l; i++){
                     //SET STATE ARRAY WITH DATA FROM DATABASE
-                    setNumQtn(NumQtn => [...NumQtn,data[i].count])
+                    setNumQtn(NumQtn => [...NumQtn,data[i].count - 1])
                 }
                 console.log('number og questions bylink ' + data)
             }
