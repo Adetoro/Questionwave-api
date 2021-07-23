@@ -11,6 +11,7 @@ const Admin = () => {
     const [AdminLinkid,  setAdminLinkid] =useState([]);
     const [AdminDate,  setAdminDate] =useState([]);
     const [AdminId,  setAdminId] =useState([]);
+    const [AdminTot,  setAdminTot] =useState([]);
     let n;
 
 
@@ -26,6 +27,7 @@ const Admin = () => {
         .then(response => response.json())
         .then(data => {
             if(data){
+                setAdminTot(data.length);
                 n = data.length;
                     for (let i=0; i<n; i++){
                             //SET STATE ARRAY WITH DATA FROM DATABASE
@@ -33,17 +35,18 @@ const Admin = () => {
                             setAdminLinkid(AdminLinkid => [...AdminLinkid,data[i].linkid])
                             setAdminDate(AdminDate => [...AdminDate,data[i].created]);
                             setAdminId(AdminId => [...AdminId,data[i].id]);
-                            console.log('from admin ' + data[i])
+                            //console.log('from admin ' + data[i])
                     }
                
-              console.log('from admin ' + data)
+              //console.log('from admin ' + data)
             }
         })
         .catch(err => console.log('unable to retrive data'));
     }
 
     const [NumQtn,  setNumQtn] =useState([]);
-    let totalQ;
+    const [TotalQ,  setTotalQ] =useState([]);
+    
 
     const getFromQuestionDetails = () => {
         
@@ -53,7 +56,7 @@ const Admin = () => {
         .then(response => response.json())
         .then(data => {
             if(data){
-              totalQ =data;
+              setTotalQ(data.length);
                 console.log('table 2 ' + data)
             }
                
@@ -72,12 +75,12 @@ const Admin = () => {
                 <div className="space-y-5 text-gray adminTableTitle font-extrabold">
                     <div className="flex">
                         <div className="py-0.5">NUMBER OF LINKS CREATED </div> 
-                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">{n}</span>
+                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">{AdminTot}</span>
                     </div>
 
                     <div className="flex">
                         <div className="py-0.5">NUMBER OF QUESTIONS ASKED</div> 
-                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">{totalQ}</span>
+                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">{TotalQ}</span>
                     </div>
 
                     {/* <div className="flex">
@@ -86,7 +89,7 @@ const Admin = () => {
                     </div> */}
 
                 </div>
-                <div  className="my-9 text-xs">
+                <div  className="mt-9 mb-3 text-xs">
                     <div className=" md:px-10 px-6  h-auto flex font-extrabold items-center space-x-1.5 ">
                         
                         <div className="  w-2/12 cellContent adminTableTitle">                                    

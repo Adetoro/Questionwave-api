@@ -199,9 +199,7 @@ app.get('/api/admin/', (req, res) => {
 app.get('/api/admin/table2', (req, res) => {
   
   db.select('linkid')
-  .count('linkid')
   .from('questiondetails')
-  .whereNot({question: ''})
   .then(response => {
     if(response){
       res.json(response)
