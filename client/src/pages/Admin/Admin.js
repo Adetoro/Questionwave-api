@@ -15,7 +15,7 @@ const Admin = (props) => {
         .then(data => {
             if(data){
                 Showme = data;
-               console.log('from home data ' + data)
+               console.log('from admin ' + data)
               //console.log('from home linkid ' + LinkId, Title)
             }
         })
