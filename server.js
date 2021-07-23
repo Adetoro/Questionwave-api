@@ -183,11 +183,11 @@ app.get('/api/admin/', (req, res) => {
   
   db.from('identify')
   .join('questiondetails', 'identify.linkid', '=', 'questiondetails.linkid')
-  .select('*')
+  .returning('title','linkid','created','question')
   .orderBy('created', 'desc')
   .then(response => {
     if(response){
-      res.json(Object.entries(response))
+      res.json(response)
     }
     else{
       res.status(400).json('question details not found')
