@@ -13,6 +13,8 @@ const Admin = () => {
     const [AdminId,  setAdminId] =useState([]);
     let n;
 
+
+
     const updateAdmin = () => {
         
         setAdminTitle([]);
@@ -40,16 +42,69 @@ const Admin = () => {
         .catch(err => console.log('unable to retrive data'));
     }
 
+    const [NumQtn,  setNumQtn] =useState([]);
+    let totalQ;
+
+    const getFromQuestionDetails = () => {
+        
+        setNumQtn([]);
+
+        fetch('/api/admin/table2') 
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+              totalQ =data.length;
+                console.log('from admin ' + data)
+            }
+               
+             
+        })
+        .catch(err => console.log('unable to retrive data'));
+    }
+
     useEffect(() => {
         updateAdmin();
+        getFromQuestionDetails();
     }, []);
     
         return (
             <div  id="container" className="md:w-4/5 mx-auto px-10 py-28">
-                <div className="space-y-4 text-gray font-extrabold">
-                    <div>TOTAL NUMBER OF QUESTIONS LINKS CREATED <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
-                    <div>TOTAL NUMBER OF QUESTIONS ASKED  <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
-                    <div>LINK WITH MOST QUESTIONS  <span className="bg-white rounded-xl ml-2 py-1.5 px-5 ">3</span></div>
+                <div className="space-y-5 text-gray adminTableTitle font-extrabold">
+                    <div className="flex">
+                        <div className="py-0.5">NUMBER OF LINKS CREATED </div> 
+                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">{n}</span>
+                    </div>
+
+                    <div className="flex">
+                        <div className="py-0.5">NUMBER OF QUESTIONS ASKED</div> 
+                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">{totalQ}</span>
+                    </div>
+
+                    {/* <div className="flex">
+                        <div className="py-0.5">LINK WITH MOST QUESTIONS</div> 
+                        <span className="adminNumCell rounded ml-3 py-0.2 px-1.5 float-right ">3</span>
+                    </div> */}
+
+                </div>
+                <div  className="my-9 text-xs">
+                    <div className=" md:px-10 px-6  h-auto flex font-extrabold items-center space-x-1.5 ">
+                        
+                        <div className="  w-2/12 cellContent adminTableTitle">                                    
+                                LINKID
+                        </div>
+
+                        <div className=" w-5/12 cellContent adminTableTitle">
+                            TITLE
+                        </div>
+
+                        <div className="md:w-1/12 w-2/12 cellContent adminTableTitle">
+                            NUM
+                        </div>
+
+                        <div className=" w-3/12 adminTableTitle">
+                            CREATED
+                        </div>
+                 </div> 
                 </div>
                 <AdminList 
                     AdminTitle={AdminTitle} 

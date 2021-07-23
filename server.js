@@ -195,6 +195,23 @@ app.get('/api/admin/', (req, res) => {
   .catch(err => res.status(400).json("unable to get question info"))
 })
 
+// ADMIN: GET INFO FROM QUESTIONDETAILS 
+app.get('/api/admin/table2', (req, res) => {
+  
+  db.select('*')
+  .from('questiondetails')
+  .whereNot({question: ''})
+  .then(response => {
+    if(response){
+      res.json(response)
+    }
+    else{
+      res.status(400).json('question details not found')
+    }
+  })
+  .catch(err => res.status(400).json("unable to get question info"))
+})
+
 //CATCH INVALID URL ENTRIES
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));

@@ -1,5 +1,14 @@
 .cellContent{
     word-wrap: break-word;
-    padding: .5rem;
     border-right: 1px solid #ccc;
+    
+}
+
+.adminTableTitle{
+    font-size: 0.875rem;
+}
+
+.adminNumCell{
+    background-color: #fff;
+    border: 1px inset #edf5fc;
 }
