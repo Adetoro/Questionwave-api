@@ -100,7 +100,7 @@ function App () {
           path='/legal' />
 
           <Admin 
-          path='/a/@3_]TFg(a$Pa' />
+          path='/a/3TFgaPa' />
         </Switch>
         
         </ErrorBoundary>
