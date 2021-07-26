@@ -74,7 +74,7 @@ const Admin = () => {
                     //SET STATE ARRAY WITH DATA FROM DATABASE
                     setNumQtn(NumQtn => [...NumQtn,data[i].count - 1])
                 }
-                console.log('number og questions bylink ' + data)
+                //console.log('number og questions bylink ' + data)
             }
                
              
