@@ -112,7 +112,7 @@ const LinkPage = (props) => {
                         <img alt='success' src={success_icon} />
                         </div>
                         <div className="sz14_text opacity-90">
-                            Great! Your your question link has been created. 
+                            Great! Your question link has been created. 
                         </div>
                     </div>
 
