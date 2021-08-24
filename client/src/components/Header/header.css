@@ -1,3 +1,10 @@
+@media screen and (max-width: 600px) {
+    .producthunt-badge{
+        display: none;
+        visibility: hidden;
+    }
+}
+
 .custom-shape-divider-top-1617219337 {
     position: absolute;
 
@@ -18,3 +25,4 @@
 .custom-shape-divider-top-1617219337 .shape-fill {
     fill: #FFFFFF;
 }
+

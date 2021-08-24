@@ -9,8 +9,17 @@ function Header({history}) {
       <div className=" sm:w-12/12 mx-auto  top-0 bg-white">
         <div className=" md:w-10/12 mx-auto sm:px-10 px-5
         pt-5  ">
-          <div className="cursor-pointer" onClick={() => history.push('/')}>
-            <img  alt='logo' src={logo} className="image-rendering"/> 
+          <div className="cursor-pointer flex justify-between items-center w-full" onClick={() => history.push('/')}>
+            <div>
+              <img  alt='logo' src={logo} className="image-rendering"/> 
+            </div>
+            <div className="producthunt-badge">
+              <a href="https://www.producthunt.com/posts/questionwave?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-questionwave" target="_blank">
+                <img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=308661&theme=light&period=daily"
+                alt="Questionwave - The easiest way to take questions from your audience | Product Hunt" 
+              style="width: 200px; height: 50px;" width="200" height="50" />
+              </a>
+            </div>
           </div>
         </div>
         <div className="custom-shape-divider-top-1617219337">
