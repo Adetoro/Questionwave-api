@@ -14,11 +14,7 @@ function Header({history}) {
               <img  alt='logo' src={logo} className="image-rendering"/> 
             </div>
             <div className="producthunt-badge">
-              <a href="https://www.producthunt.com/posts/questionwave?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-questionwave" target="_blank">
-                <img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=308661&theme=light&period=daily"
-                alt="Questionwave - The easiest way to take questions from your audience | Product Hunt" 
-              style="width: 200px; height: 50px;" width="200" height="50" />
-              </a>
+              
             </div>
           </div>
         </div>
