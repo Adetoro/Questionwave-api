@@ -97,7 +97,7 @@ const Home = props => {
                     history.push(`/link/${LinkId}`); 
                 }
             });
-        }, 300);
+        }, 3000);
             
            
         }
