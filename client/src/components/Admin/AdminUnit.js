@@ -8,6 +8,36 @@ const AdminUnit = (props) => {
         win.focus();
     }
 
+     const defaultDateOptions ={
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hourCycle: 'h12'
+    }
+
+    function  formatDate(date, options= defaultDateOptions) {
+        try{
+            const shortEnNGFormatter = Intl.DateTimeFormat('en-GB',options);
+            return shortEnNGFormatter.format(new Date(date));
+        }
+        catch(e){
+        return 'N/A'
+        }
+    }
+
+    function  formatDateTime(date, options= defaultDateOptions) {
+        try{
+            const d = formatDate(date, options).split(',');
+            const datetime = d[0]+","+d[1].toUpperCase();
+            return datetime;
+        }
+        catch(e){
+        return 'N/A'
+        }
+    }
+
     return (
         <div>
         
@@ -28,7 +58,7 @@ const AdminUnit = (props) => {
                 </div>
 
                 <div className="w-3/12 adminTableTitle break-all">
-                    {AdminDate}
+                    {formatDateTime(AdminDate)}
                 </div>
             </div> 
         </div>

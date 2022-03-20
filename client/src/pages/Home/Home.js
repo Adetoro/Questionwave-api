@@ -6,24 +6,23 @@ import error_icon from './error.svg';
 import './home.css';
 
 const Home = props => {
-   
-
     let history = useHistory();
     const {setLinkId, setTitle, LinkId} = props;
+    const uniqueId = Date.now() + Math.floor(Math.random() * 550)
 
     useEffect(( ) => {
-        fetch('/home') 
-        .then(response => response.json())
-        .then(data => {
-            if(data){
-              let dbLink = data;
-              setLinkId(dbLink);
-              setTitle("");
-               //console.log('from home data ' + data)
-              //console.log('from home linkid ' + LinkId, Title)
-            }
-        })
-        .catch(err => console.log('err'));
+        // fetch('/home') 
+        // .then(response => response.json())
+        // .then(data => {
+        //     if(data){
+        //       let dbLink = data;
+        //       setLinkId(dbLink);
+        //       setTitle("");
+        //        //console.log('from home data ' + data)
+        //       //console.log('from home linkid ' + LinkId, Title)
+        //     }
+        // })
+        // .catch(err => console.log('err'));
     }, []);
 
     function handleChange(event) {
@@ -56,48 +55,51 @@ const Home = props => {
             }, 4000);
         }
         else {
-            fetch('/home') 
+        //     fetch('/home') 
+        //     .then(response => response.json())
+        //     .then(data => {
+        //     if(data){
+        //     updatedLink = data;
+        //     setLinkId(data);
+            
+        //     console.log('update link ' + data, LinkId, updatedLink)
+        //     //console.log('from home linkid ' + LinkId, Title)
+        //     }
+        // })
+        // .catch(err => console.log('err'));
+        //     // Here, we invoke the callback with the new value
+        //     setTimeout(() => {
+        //         var newLink;
+        //         const updateLink = new Promise((resolve, reject) => {
+        //             resolve (
+        //                  newLink =  updatedLink + 1)
+        //         });
+        //         console.log("newLink " + newLink )
+        //         updateLink.then((newLink) => {
+
+            setLinkId(uniqueId);
+            setTimeout(() => {
+            fetch('/home', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+
+                title: props.Title,
+                linkId: LinkId,
+            })
+            })
             .then(response => response.json())
             .then(data => {
-            if(data){
-            updatedLink = data;
-            setLinkId(data);
+                if(data){
+                    console.log("POST Title, newlink " + props.Title,LinkId)
+                    //console.log("from homepage: " + data);
+                    //console.log("from homepage post: " + data, newLink)
+                    history.push(`/link/${LinkId}`); 
+                }
+            });
+        }, 3000);
             
-            console.log('update link ' + data, LinkId, updatedLink)
-            //console.log('from home linkid ' + LinkId, Title)
-            }
-        })
-        .catch(err => console.log('err'));
-            // Here, we invoke the callback with the new value
-            setTimeout(() => {
-                var newLink;
-                const updateLink = new Promise((resolve, reject) => {
-                    resolve (
-                         newLink =  updatedLink + 1)
-                });
-                console.log("newLink " + newLink )
-                updateLink.then((newLink) => {
-                    fetch('/home', {
-                    method: 'post',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-
-                        title: props.Title,
-                        linkId: newLink,
-                    })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data){
-                            console.log("POST Title, newlink " + props.Title,newLink)
-                            //console.log("from homepage: " + data);
-                            props.setLinkId(newLink);
-                            //console.log("from homepage post: " + data, newLink)
-                            history.push(`/link/${newLink}`); 
-                        }
-                    });
-                })
-            }, 3000);
+           
         }
     }
       
