@@ -18,7 +18,6 @@ const Admin = () => {
     
 
     const updateAdmin = () => {
-        
         setAdminTitle([]);
         setAdminLinkid([]);
         setAdminDate([]);
@@ -38,18 +37,12 @@ const Admin = () => {
                             setAdminId(AdminId => [...AdminId,data[i].id]);
                             //console.log('from admin ' + data[i])
                     }
-               
-              //console.log('from admin ' + data)
             }
         })
         .catch(err => console.log('unable to retrive data'));
     }
 
-   
-
     const getFromQuestionDetails = () => {
-        
-
         fetch('/api/admin/table2') 
         .then(response => response.json())
         .then(data => {
